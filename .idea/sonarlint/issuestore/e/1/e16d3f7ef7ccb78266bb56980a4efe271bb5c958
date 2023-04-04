@@ -1,0 +1,31 @@
+
+c
+java:S1192'"MDefine a constant instead of duplicating this literal "gestionezoo." 4 times.(ìĞ¦´
+‚
+java:S1319"gThe type of "animals" should be an interface such as "List" rather than the implementation "ArrayList".(ÌÕÙ§ûÿÿÿÿ
+|
+java:S1319"gThe type of "animals" should be an interface such as "List" rather than the implementation "ArrayList".(˜Ÿ‚8
+†
+java:S1319""pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†ş†ø
+†
+java:S13193"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(±ÃÈ
+†
+java:S1319E"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿ™
+‹
+java:S1319S"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’›º®üÿÿÿÿ
+†
+java:S1319b"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ñ“ª§
+‹
+java:S1319r"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’Ş¯šûÿÿÿÿ
+Œ
+java:S1319ƒ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Šëüÿÿÿÿ
+Œ
+java:S1319‘"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÆÉ“²ùÿÿÿÿ
+Œ
+java:S1319¶"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(õòƒ½ÿÿÿÿÿ
+J
+java:S1872¤"'Use an "instanceof" comparison instead.(Û¢ÿÿÿÿÿÿ8©ÎåØô0
+J
+java:S1872«"'Use an "instanceof" comparison instead.(§Šùÿÿÿÿ8¯ÎåØô0
+J
+java:S1872º"'Use an "instanceof" comparison instead.( ±úõÿÿÿÿÿ8¸ÎåØô0
