@@ -2,22 +2,22 @@ package domain;
 
 import gestionezoo.Animal;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.EnumMap;
 
 public class Room {
 
     private String name;
     private ArrayList <Item> items;
     private ArrayList<Animal> animals;
-    private Map<String, Room> adjacentRooms;
+    private EnumMap<Direction, Room> adjacentRooms;
 
     public Room(String name) {
         this.name = name;
         this.items = new ArrayList<>();
         this.animals = new ArrayList<>();
-        this.adjacentRooms = new HashMap<>();
+        this.adjacentRooms = new EnumMap<>(Direction.class);
     }
 
     public String getName() {
@@ -44,32 +44,99 @@ public class Room {
         this.animals = animals;
     }
 
-    public Map<String, Room> getAdjacentRooms() {
+    public EnumMap<Direction, Room> getAdjacentRooms() {
         return adjacentRooms;
     }
 
-    public void setAdjacentRooms(Map<String, Room> adjacentRooms) {
+    public void setAdjacentRooms(EnumMap<Direction, Room> adjacentRooms) {
         this.adjacentRooms = adjacentRooms;
     }
 
-    public void addAnimal(Animal animal) {
-        animals.add(animal);
+    public Animal addAnimal(Animal animal) {
+        if(animals.add(animal)){
+            return animal;
+        }
+        return null;
     }
-
-    public void removeAnimal(Animal animal) {
-        animals.remove(animal);
+    public Animal deleteAnimal(Animal animal) {
+        if(animals.remove(animal)){
+            return animal;
+        }
+        return null;
     }
-
-    public Room getAdjacentRoom(String direction) {
-        return adjacentRooms.get(direction);
+    public void deleteAllAnimal(){
+         animals.clear();
     }
-
-    public void setAdjacentRoom(String direction, Room room) {
-        adjacentRooms.put(direction, room);
+    public ArrayList<Animal> ListAnimal(){
+        return animals;
     }
-
-
-
+    public Animal getAnimalByName(String nameAnimal) {
+        for (Animal animal : animals) {
+            if (animal.getName().toLowerCase().equals(nameAnimal)) {
+                return animal;
+            }
+        }
+        return null;
+    }
+    /*rimozione animale tramite nome*/
+    public Animal removeAnimalByName(String nameToRemove) {
+       Animal animal = animals.get(0);
+        for(Animal animalCurrent : animals) {
+            if (animalCurrent.getName().equals(nameToRemove)) {
+                items.remove(animalCurrent);
+                animal = animalCurrent;
+                return animal;
+            }
+        }
+        return null;
+    }
+    public Item addItem(Item item) {
+        if(items.add(item)){
+            return item;
+        }
+        return null;
+    }
+    public Item deleteItem(Item item) {
+        if(items.remove(item)){
+            return item;
+        }
+        return null;
+    }
+    public void deleteAllItems(){
+       items.clear();
+    }
+    /*return lista oggetti*/
+    public ArrayList<Item> ListItem(){
+        return items;
+    }
+    /*Ricerca tramite nome dell'oggetto*/
+    public Item getItemByName(String name) {
+        for (Item item : items) {
+            if (item.getNameItem().toLowerCase().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+    /*rimozione oggetto tramite nome*/
+    public Item removeItemByName(String nameToRemove) {
+        Item itm = items.get(0);
+        for(Item itemCurrent : items) {
+            if (itemCurrent.getNameItem().equals(nameToRemove)) {
+                items.remove(itemCurrent);
+                itm = itemCurrent;
+                return itm;
+            }
+        }
+        return null;
+    }
+    /*aggiunge le stanze dentro enum map*/
+    public Room addAdJacentRoom(Direction direction, Room room){
+        return adjacentRooms.put(direction,room);
+    }
+    public Room deleteAdjacentRoom(Room room){
+         return adjacentRooms.remove(room);
+    }
 
 
     @Override
@@ -81,4 +148,5 @@ public class Room {
                 ", adjacentRooms=" + adjacentRooms +
                 '}';
     }
+
 }

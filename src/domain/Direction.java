@@ -1,5 +1,6 @@
 package domain;
  public enum Direction {
+     /*insieme di valori costanti, accetta valori null*/
         NORTH("north"),
         SOUTH("south"),
         EAST("east"),

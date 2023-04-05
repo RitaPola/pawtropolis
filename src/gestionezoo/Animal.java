@@ -1,16 +1,18 @@
 package gestionezoo;
 
-public abstract class Animal {
+import java.time.LocalDate;
+
+public class Animal {
 	private String name;
 	private String favoriteFood;
-	private Integer admissionYear;
+	private LocalDate admissionDate;
 	private Double weight;
 	private Double height;
 
-	public Animal(String name, String favoriteFood, Integer admissionYear, Double weight, Double height) {
+	public Animal(String name, String favoriteFood, LocalDate admissionDate, Double weight, Double height) {
 		this.name = name;
 		this.favoriteFood = favoriteFood;
-		this.admissionYear = admissionYear;
+		this.admissionDate = admissionDate;
 		this.weight = weight;
 		this.height = height;
 	}
@@ -31,12 +33,12 @@ public abstract class Animal {
 		this.favoriteFood = favoriteFood;
 	}
 
-	public Integer getAdmissionYear() {
-		return admissionYear;
+	public LocalDate getAdmissionDate() {
+		return admissionDate;
 	}
 
-	public void setAdmissionDate(Integer admissionYear) {
-		this.admissionYear = admissionYear;
+	public void setAdmissionDate(LocalDate admissionDate) {
+		this.admissionDate = admissionDate;
 	}
 
 	public Double getWeight() {
@@ -57,7 +59,7 @@ public abstract class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal: Name=" + name + ", Favorite Food=" + favoriteFood + ", Admission Date=" + admissionYear + ", Weight=" + weight
+		return "Animal: Name=" + name + ", Favorite Food=" + favoriteFood + ", Admission Date=" + admissionDate + ", Weight=" + weight
 				+ ", Height=" + height;
 	}
 }

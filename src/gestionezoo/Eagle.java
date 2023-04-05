@@ -1,11 +1,13 @@
 package gestionezoo;
 
+import java.time.LocalDate;
+
 public class Eagle extends Animal {
 
 	private Double wingsLength;
 
-	public Eagle(String name, String favoriteFood, Integer admissionYear, Double weight, Double height,Double wingsLength) {
-		super(name, favoriteFood, admissionYear, weight, height);
+	public Eagle(String name, String favoriteFood, LocalDate admissionDate, Double weight, Double height, Double wingsLength) {
+		super(name, favoriteFood, admissionDate, weight, height);
 		this.wingsLength=wingsLength;
 	}
 
@@ -20,7 +22,7 @@ public class Eagle extends Animal {
 	@Override
 	public String toString() {
 		return "Eagle: Name = " + getName() + ",  Wings length = " + wingsLength  + ", Favorite Food = " + getFavoriteFood()
-		+ ", Admission Year = " + getAdmissionYear() + ", Weight = " + getWeight() + ", Height = "
+		+ ", Admission Date = " + getAdmissionDate() + ", Weight = " + getWeight() + ", Height = "
 		+ getHeight();
 	}
 

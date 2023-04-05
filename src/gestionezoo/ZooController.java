@@ -1,13 +1,16 @@
 package gestionezoo;
+
+import java.time.LocalDate;
+
 public class ZooController {
 
 	public static void main(String[] args) {
 		Zoo zoo = new Zoo();
-		Lion lion1 = new Lion("Simba","carne cruda di zebra",1996, 300.00, 1.75,3.00);
-		Lion lion2 = new Lion("Nala","carne",2000, 250.00, 1.50,5.00);
-		Lion lion3 = new Lion("Leone","carne cruda di antilope",1998, 350.00, 1.75,4.00);
-		Lion lion4 = new Lion("Leone2","carne cruda di antilope",1998, 350.00, 1.75,4.00);
-		Lion lion5 = new Lion("Nala2","carne",2000, 250.00, 1.50,5.00);
+		Lion lion1 = new Lion("Simba","carne cruda di zebra", LocalDate.now(), 300.00, 1.75,3.00);
+		Lion lion2 = new Lion("Nala","carne",LocalDate.now(), 250.00, 1.50,5.00);
+		Lion lion3 = new Lion("Leone","carne cruda di antilope",LocalDate.now(), 350.00, 1.75,4.00);
+		Lion lion4 = new Lion("Leone2","carne cruda di antilope",LocalDate.now(), 350.00, 1.75,4.00);
+		Lion lion5 = new Lion("Nala2","carne",LocalDate.now(), 250.00, 1.50,5.00);
 		zoo.addAnimals(lion1);
 		System.out.println(lion1);
 		zoo.addAnimals(lion2);
