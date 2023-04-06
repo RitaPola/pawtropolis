@@ -167,13 +167,25 @@ public class Room {
         return Objects.hash(name, items, animals, adjacentRooms);
     }
 
-    @Override
     public String toString() {
-        return "Room{" +
-                "nome='" + name + '\'' +
-                ", items=" + items +
-                ", animals=" + animals +
-                ", adjacentRooms=" + adjacentRooms +
-                '}';
+        String itemsDescription = "{}";
+        if (!items.isEmpty()) {
+            itemsDescription = Description.getItemsListDescriptionString(items);
+        }
+
+        String animalsDescription = "{}";
+        if (!animals.isEmpty()) {
+            animalsDescription = Description.getAnimalsListDescriptionString(animals);
+        }
+
+        String doorsDescription = "{}";
+        if (!adjacentRooms.isEmpty()) {
+            doorsDescription = Description.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
+        }
+
+        return "Current room "+ name + ".\n" +
+                "Items: " + itemsDescription + "\n" +
+                "Animal: " + animalsDescription + "\n" +
+                "Adjacent Room: " + doorsDescription;
     }
 }

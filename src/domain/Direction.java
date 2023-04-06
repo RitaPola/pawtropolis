@@ -17,7 +17,7 @@ package domain;
             return name;
         }
         /*restituisce una direzione corrispondente alla stringa specificata come parametro*/
-        public static Direction CorrespondingDirection(String s) {
+        public static Direction correspondingDirection(String s) {
             for (Direction d : Direction.values()) {
                 if (s.equalsIgnoreCase(d.getName())) {
                     return d;
@@ -25,5 +25,12 @@ package domain;
             }
             return INVALID;
         }
-    }
+
+     @Override
+     public String toString() {
+         return "Direction{" +
+                 "name='" + name + '\'' +
+                 "} " + super.toString();
+     }
+ }
 
