@@ -5,6 +5,8 @@ import gestionezoo.Animal;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.Objects;
+import java.util.Optional;
 
 public class Room {
 
@@ -130,23 +132,48 @@ public class Room {
         }
         return null;
     }
-    /*aggiunge le stanze dentro enum map*/
-    public Room addAdJacentRoom(Direction direction, Room room){
+    /*aggiunge la stanza nella lista corrente*/
+    public Room addAdJacentRoom(Room room,Direction direction){
         return adjacentRooms.put(direction,room);
     }
-    public Room deleteAdjacentRoom(Room room){
-         return adjacentRooms.remove(room);
+    /*Rimuove la stanza nella lista corrente in base alla stanza specifica*/
+    public Room cancelAdjacentRoom(Room room){
+        if (adjacentRooms.values().remove(room)) {
+            return room;
+        } else {
+            return null;
+        }
+    }
+    /*restituzione di una stanza adiacente in base alla direzione specificata*/
+    /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
+    public Optional<Room> getAdjacentRoom(Direction direction) {
+        return Optional.ofNullable(adjacentRooms.get(direction));
+    }
+    /*rimozione della stanza in base alla direzione specifica*/
+    public Room cancelAdiacentRoom(Direction direction) {
+       return adjacentRooms.remove(direction);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return name.equals(room.name) && items.equals(room.items) && animals.equals(room.animals) && adjacentRooms.equals(room.adjacentRooms);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, items, animals, adjacentRooms);
+    }
 
     @Override
     public String toString() {
         return "Room{" +
-                "name='" + name + '\'' +
+                "nome='" + name + '\'' +
                 ", items=" + items +
                 ", animals=" + animals +
                 ", adjacentRooms=" + adjacentRooms +
                 '}';
     }
-
 }

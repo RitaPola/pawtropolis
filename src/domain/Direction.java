@@ -16,8 +16,8 @@ package domain;
         public String getName() {
             return name;
         }
-
-        public static Direction of(String s) {
+        /*restituisce una direzione corrispondente alla stringa specificata come parametro*/
+        public static Direction CorrespondingDirection(String s) {
             for (Direction d : Direction.values()) {
                 if (s.equalsIgnoreCase(d.getName())) {
                     return d;

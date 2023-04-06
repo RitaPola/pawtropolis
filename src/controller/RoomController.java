@@ -13,8 +13,7 @@ public class RoomController {
         Room room1 = new Room("Garden");
         Animal animal1 = new Animal("Lion","carne cruda", LocalDate.now(),70.00, 3.50);
         room1.addAnimal(animal1);
-        System.out.println(room1);
-        room1.addAdJacentRoom(Direction.NORTH,room1);
 
+       System.out.println(room1.addAdJacentRoom(room1,Direction.SOUTH));
     }
 }
