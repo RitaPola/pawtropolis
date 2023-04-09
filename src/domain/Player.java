@@ -1,19 +1,24 @@
 package domain;
 
+import java.util.Optional;
 import java.util.logging.Logger;
 
 public class Player {
     private String name;
     private int health;
     private Bag bag;
+    private Room currentRoom;
+
+
     private final Logger LOGGER = Logger.getLogger("myLogger");
     private final int MIN_LIFE_POINTS = 0;
     private final int MAX_LIFE_POINTS = 100;
 
-    public Player(String name, int health, Bag bag) {
+    public Player(String name, int health, Bag bag, Room currentRoom) {
         this.name = name;
         this.health = health;
         this.bag = bag;
+        this.currentRoom = currentRoom;
     }
 
     public String getName() {
@@ -38,6 +43,14 @@ public class Player {
 
     public void setBag(Bag bag) {
         this.bag = bag;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 
  /*aggiungere un oggetto in bag*/
@@ -92,17 +105,55 @@ public class Player {
             LOGGER.info("Player is dead");
         }
     }
+    /*metodo go*/
+    public String go(Player player, Direction direction) {
+        Room adjacentRoom = null;
+        String trueParameter = "You are ";
+        String falseParameter = "There is no room in that direction ";
+        Optional<Room> adjacentRoomOptional = player.getCurrentRoom().getAdjacentRoom(direction);
+        if (adjacentRoomOptional.isPresent()) {
+            adjacentRoom = adjacentRoomOptional.get();
+            player.setCurrentRoom(adjacentRoom);
+            return  trueParameter + adjacentRoom.look();
+        } else {
+            return falseParameter;
+        }
+    }
+   /* public String printBagContents() {
+        String bagItem = "The items in the bag are ";
+        String bagEmpty = "Bag is empty ";
+        System.out.print("In bag: ");
+        if (bag != null) {
+            for (Item item : bag.getItems()) {
+             return bagItem + item.getNameItem() + ", ";
+            }
+        }  return bagEmpty;
+    }*/
+   /*Elenca il contenuto della borsa del giocatore*/
+    public String getItemsInThePlayerBag() {
+        String itemList = "In bag: ";
+        if (bag.getItems().isEmpty()) {
+            itemList += "empty";
+        } else {
+            for (Item item : bag.getItems()) {
+                itemList += item.getNameItem() + ", ";
+            }
+            itemList = itemList.substring(0, itemList.length() - 2); // remove the trailing comma and space
+        }
+        return itemList;
+    }
     public boolean isAlive() {
         return health > 0;
     }
 
+
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", bag=" + bag +
-                '}';
+        return "Player --> " +
+                "name " + name + '\'' +
+                ", health " + health +
+                ", bag " + bag;
+
     }
 
 

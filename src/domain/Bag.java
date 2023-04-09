@@ -84,7 +84,6 @@ public class Bag {
             //System.out.println("The bag is empty");
         }else{
            LOGGER.info("The items contained in the bag are: " + items);
-
         }
     }
     /* Rimozione tutti gli oggetti nella borsa */
@@ -122,10 +121,9 @@ public class Bag {
     }
     @Override
     public String toString() {
-        return "Bag{" +
-                "items=" + items +
-                ", totalSlots=" + totalSlots +
-                '}';
+        return "Bag --> " +
+                "items " + items +
+                ", totalSlots " + totalSlots;
     }
 
 }

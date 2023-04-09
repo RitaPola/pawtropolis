@@ -9,7 +9,3 @@ J
 src/gestionezoo/Tiger.java,8\4\84aa26dab7621746462fd31b1043ae3172bec6f5
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
-C
-src/domain/Bag.java,c\5\c56c44b483b261340f6bcea0f825c88cadd196a3
-Q
-!src/controller/BagController.java,9\3\93acb92138e6427ce269596ace0d1f6397503d8f

@@ -11,10 +11,10 @@ public class BagController {
 
         Bag bag1 = new Bag();
        // System.out.println(bag1.fullBag());
-       bag1.addItem(item1);
+        bag1.addItem(item1);
         bag1.addItem(item2);
-      /*  bag1.checkItemToBag();
-        System.out.println(bag1);
+       bag1.checkItemToBag();
+      /*  System.out.println(bag1);
         bag1.availableSlot();
         System.out.println(bag1);*/
     /*  System.out.println("l'oggetto rimosso è: " + bag1.removeItem(item2));
@@ -26,6 +26,6 @@ public class BagController {
        bag1.removeByName("Cuffie");
        System.out.println(bag1);
        System.out.println(bag1.availableSlot());*/
-       System.out.println(bag1.searchItemByName("cacca"));
+      // System.out.println(bag1.searchItemByName("cacca"));
     }
 }

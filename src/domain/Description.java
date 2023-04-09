@@ -9,7 +9,7 @@ public final class Description {
 
         public static String getItemsListDescriptionString(List<Item> items) {
             if (items.isEmpty()) {
-                return "Vuoto";
+                return "Empty";
             }
 
             String itemsDescription = "[";
@@ -28,28 +28,25 @@ public final class Description {
 
         public static String getAnimalsListDescriptionString(List<Animal> animals) {
             if (animals.isEmpty()) {
-                return "[]";
+                return "Empty";
             }
 
             String animalsDescription = "[";
 
             for (int i = 0; i < animals.size(); i++) {
                 Animal animal = animals.get(i);
-                animalsDescription += animal.getName() + "(" + animal.getClass().getSimpleName() + ")";
+                animalsDescription += animal.getName();
                 if (i < animals.size() - 1) {
                     animalsDescription += ", ";
                 }
             }
-
             animalsDescription += "]";
             return animalsDescription;
         }
-
         public static String getDirectionsListDescriptionString(List<Direction> directions) {
             if (directions.isEmpty()) {
-                return "[]";
+                return "Empty";
             }
-
             String doorsDescription = "[";
 
             for (int i = 0; i < directions.size(); i++) {

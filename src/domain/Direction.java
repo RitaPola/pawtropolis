@@ -1,11 +1,11 @@
 package domain;
  public enum Direction {
      /*insieme di valori costanti, accetta valori null*/
-        NORTH("north"),
-        SOUTH("south"),
-        EAST("east"),
-        WEST("west"),
-        INVALID(null);
+        NORTH("North"),
+        SOUTH("South"),
+        EAST("East"),
+        WEST("West"),
+        NULLABLE(null);
 
         private final String name;
 
@@ -23,14 +23,13 @@ package domain;
                     return d;
                 }
             }
-            return INVALID;
+            return NULLABLE;
         }
 
      @Override
      public String toString() {
-         return "Direction{" +
-                 "name='" + name + '\'' +
-                 "} " + super.toString();
+         return "Direction --> " +
+                 "name --> " + name + '\'' + super.toString();
      }
  }
 

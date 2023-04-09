@@ -38,11 +38,10 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Item --> " +
                 "nameItem='" + nameItem + '\'' +
                 ", description='" + description + '\'' +
-                ", occupiedSlots=" + occupiedSlots +
-                '}';
+                ", occupiedSlots=" + occupiedSlots;
     }
 
 }
