@@ -2,7 +2,6 @@ package domain;
 
 import gestionezoo.Animal;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Objects;
@@ -98,11 +97,8 @@ public class Room {
         return null;
     }
 
-    public Item addItem(Item item) {
-        if (items.add(item)) {
-            return item;
-        }
-        return null;
+    public boolean addItem(Item item) {
+       return items.add(item);
     }
 
     public Item deleteItem(Item item) {
@@ -168,7 +164,6 @@ public class Room {
     public Room cancelAdiacentRoom(Direction direction) {
         return adjacentRooms.remove(direction);
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,6 +176,7 @@ public class Room {
         return Objects.hash(name, items, animals, adjacentRooms);
     }
 
+    /*IMP!!!! metodo look*/
     public String look() {
         String itemsDescription = "{}";
         if (!items.isEmpty()) {

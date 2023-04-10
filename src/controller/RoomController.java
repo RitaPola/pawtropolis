@@ -20,15 +20,22 @@ public class RoomController {
         Item item1 = new Item("Mouse","muove il puntatore di un computer", 2);
         Item item2 = new Item("Cuffie","Cuffie per sentire la musica", 3);
         Item item3 = new Item("walkie talkie", "necessario per sentire un amico in difficoltà o per chiedere soccorsi",4);
-        player1.addItemBag(item1);
         player1.addItemBag(item2);
         player1.addItemBag(item3);
         garden.addItem(item1);
-        garden.addItem(item1);
-
-     //   System.out.println(player1.go(player1,Direction.SOUTH));
-       // System.out.println(bathroom.look());
+        player1.get("Mouse");
         System.out.println(player1.getItemsInThePlayerBag());
+        System.out.println(player1.drop("Mouse"));
+        System.out.println(player1.drop("Mouse"));
+        System.out.println(garden.look());
+
+
+
+        //System.out.println(player1.go(player1,Direction.SOUTH));
+
+
+
+
 
     }
 }

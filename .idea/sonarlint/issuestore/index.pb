@@ -9,3 +9,15 @@ J
 src/gestionezoo/Eagle.java,1\f\1fefcc611af97912f9309b48c58617bf8b6e8ee5
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
+D
+src/domain/Item.java,3\9\390aa6a7a5b8d0f33df0f1d9b09b7f70f8aa38ff
+K
+src/domain/Description.java,d\2\d20525de7ef1de3feea3e568a2d706603e6ca438
+K
+src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
+W
+'src/controller/DirectionController.java,5\7\57b43ac8476b81e9bbd05805985cd422d4dbd84e
+Q
+!src/controller/BagController.java,9\3\93acb92138e6427ce269596ace0d1f6397503d8f
+I
+src/domain/Direction.java,0\7\073a8cf2126f582e4b6a3056ca13664c2dfa5284

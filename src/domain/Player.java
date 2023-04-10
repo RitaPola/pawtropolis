@@ -53,7 +53,7 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
- /*aggiungere un oggetto in bag*/
+    /*aggiungere un oggetto in bag*/
     public Item addItemBag(Item item) {
         if (bag == null) {
             throw new IllegalStateException("bag field is null");
@@ -67,20 +67,24 @@ public class Player {
         }
         return item;
     }
-   /*rimozione oggetto */
-    public Item removeItemBag(Item item){
+
+    /*rimozione oggetto */
+    public Item removeItemBag(Item item) {
         return bag.removeItem(item);
     }
+
     /*rimozione dell'oggetto tramite nome*/
-    public Item removeItemBagByNAme(String nameItem){
+    public Item removeItemBagByNAme(String nameItem) {
         return bag.removeItemByName(nameItem);
     }
+
     /*rimozione tutti oggetti*/
-    public void removeallItemBag(){
+    public void removeallItemBag() {
         bag.removeAllItemsBag();
     }
+
     /*Ricerca oggetto per nome*/
-    public Item serachItemByName(String nameItem){
+    public Item serachItemByName(String nameItem) {
         return bag.searchItemByName(nameItem);
     }
 
@@ -92,9 +96,11 @@ public class Player {
         int newLifePoints = Math.min(health + point, MAX_LIFE_POINTS);
         health = newLifePoints;
     }
-    public void availableSlotTobag(){
+
+    public void availableSlotTobag() {
         bag.availableSlot();
     }
+
     public void decreaseLifePoints(int point) {
         if (point <= 0) {
             throw new IllegalArgumentException("The life point must be a positive integer");
@@ -105,7 +111,8 @@ public class Player {
             LOGGER.info("Player is dead");
         }
     }
-    /*metodo go*/
+
+    /*IMP!!!! metodo go*/
     public String go(Player player, Direction direction) {
         Room adjacentRoom = null;
         String trueParameter = "You are ";
@@ -114,22 +121,13 @@ public class Player {
         if (adjacentRoomOptional.isPresent()) {
             adjacentRoom = adjacentRoomOptional.get();
             player.setCurrentRoom(adjacentRoom);
-            return  trueParameter + adjacentRoom.look();
+            return trueParameter + adjacentRoom.look();
         } else {
             return falseParameter;
         }
     }
-   /* public String printBagContents() {
-        String bagItem = "The items in the bag are ";
-        String bagEmpty = "Bag is empty ";
-        System.out.print("In bag: ");
-        if (bag != null) {
-            for (Item item : bag.getItems()) {
-             return bagItem + item.getNameItem() + ", ";
-            }
-        }  return bagEmpty;
-    }*/
-   /*Elenca il contenuto della borsa del giocatore*/
+
+    /*IMP!!! Elenca il contenuto della borsa del giocatore*/
     public String getItemsInThePlayerBag() {
         String itemList = "In bag: ";
         if (bag.getItems().isEmpty()) {
@@ -142,12 +140,46 @@ public class Player {
         }
         return itemList;
     }
+
     public boolean isAlive() {
         return health > 0;
     }
 
+    /*Aggiunge alla borsa del giocatore l'item specificato come parametro (nome dell'item) e lo rimuove dalla stanza.*/
+    public String get(String itemName) {
+        Item item = currentRoom.removeItemByName(itemName);
+        if (item == null) {
+            return "Item not found in the room";
+        }
+        try {
+            addItemBag(item);
+        } catch (IllegalStateException e) {
+            currentRoom.addItem(item);
+            return "Bag is full, cannot get the item";
+        } catch (IllegalArgumentException e) {
+            currentRoom.addItem(item);
+            return "Item already exists in bag";
+        }
+        return "Got " + item.getNameItem() + " from the room and added it to your bag.";
+    }
 
-    @Override
+    /*IMP!! metodo drop*/
+    public String drop(String itemName) {
+        Item item = bag.removeItemByName(itemName);
+        if (item == null) {
+            return "Item not found in the bag";
+        }
+        try {
+            currentRoom.addItem(item);
+        } catch (IllegalStateException e) {
+            currentRoom.addItem(item);
+            return "room is full, cannot get the item";
+        } catch (IllegalArgumentException e) {
+            currentRoom.addItem(item);
+            return "Item already exists in room";
+        }
+        return "Got " + item.getNameItem() + " from the bag and added it in the room.";
+    }@Override
     public String toString() {
         return "Player --> " +
                 "name " + name + '\'' +
