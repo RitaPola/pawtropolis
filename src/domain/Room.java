@@ -14,6 +14,9 @@ public class Room {
     private ArrayList<Animal> animals;
     private EnumMap<Direction, Room> adjacentRooms;
 
+    public Room (){
+
+    }
     public Room(String name) {
         this.name = name;
         this.items = new ArrayList<>();

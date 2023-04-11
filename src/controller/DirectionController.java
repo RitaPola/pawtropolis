@@ -8,10 +8,11 @@ public class DirectionController {
         Direction north = Direction.NORTH;
         Direction south = Direction.SOUTH;
         Direction east = Direction.EAST;
+        Direction current = Direction.CENTRAL;
         Direction nullable = Direction.NULLABLE;
 
 
-       System.out.println(west.getName());
+       System.out.println(current.getName());
        System.out.println(Direction.correspondingDirection("ciao"));
     }
 }

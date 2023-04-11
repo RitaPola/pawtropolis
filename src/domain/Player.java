@@ -96,7 +96,7 @@ public class Player {
         int newLifePoints = Math.min(health + point, MAX_LIFE_POINTS);
         health = newLifePoints;
     }
-
+    /*verifica gli slot disponibili nella borsa*/
     public void availableSlotTobag() {
         bag.availableSlot();
     }
@@ -146,7 +146,7 @@ public class Player {
     }
 
     /*Aggiunge alla borsa del giocatore l'item specificato come parametro (nome dell'item) e lo rimuove dalla stanza.*/
-    public String get(String itemName) {
+   /* public String get(String itemName) {
         Item item = currentRoom.removeItemByName(itemName);
         if (item == null) {
             return "Item not found in the room";
@@ -159,12 +159,38 @@ public class Player {
         } catch (IllegalArgumentException e) {
             currentRoom.addItem(item);
             return "Item already exists in bag";
+        }catch (IndexOutOfBoundsException e) {
+            return "Non hai inserito nessun oggetto";
+        }
+        return "Got " + item.getNameItem() + " from the room and added it to your bag.";
+    }*/
+    public String get(String itemName) {
+        if(currentRoom.getItems().isEmpty()) {
+            return "There are no items in the room";
+        }
+        Item item = currentRoom.removeItemByName(itemName);
+        if (item == null) {
+            return "Item not found in the room";
+        }
+        try {
+            addItemBag(item);
+        } catch (IllegalStateException e) {
+            currentRoom.addItem(item);
+            return "Bag is full, cannot get the item";
+        } catch (IllegalArgumentException e) {
+            currentRoom.addItem(item);
+            return "Item already exists in bag";
+        }catch (IndexOutOfBoundsException e) {
+            return "Non hai inserito nessun oggetto";
         }
         return "Got " + item.getNameItem() + " from the room and added it to your bag.";
     }
 
     /*IMP!! metodo drop*/
     public String drop(String itemName) {
+        if(currentRoom.getItems().isEmpty()) {
+            return "There are no items in the room to drop the item";
+        }
         Item item = bag.removeItemByName(itemName);
         if (item == null) {
             return "Item not found in the bag";
@@ -172,14 +198,18 @@ public class Player {
         try {
             currentRoom.addItem(item);
         } catch (IllegalStateException e) {
-            currentRoom.addItem(item);
-            return "room is full, cannot get the item";
+            bag.addItem(item);
+            return "Room is full, cannot drop the item";
         } catch (IllegalArgumentException e) {
-            currentRoom.addItem(item);
+            bag.addItem(item);
             return "Item already exists in room";
+        } catch (IndexOutOfBoundsException e){
+            return "Non hai eliminato nessun oggetto";
         }
-        return "Got " + item.getNameItem() + " from the bag and added it in the room.";
-    }@Override
+        return "Dropped " + item.getNameItem() + " from the bag in the room.";
+    }
+
+    @Override
     public String toString() {
         return "Player --> " +
                 "name " + name + '\'' +

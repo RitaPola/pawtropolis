@@ -5,6 +5,7 @@ package domain;
         SOUTH("South"),
         EAST("East"),
         WEST("West"),
+        CENTRAL("CurrentRoom"),
         NULLABLE(null);
 
         private final String name;
