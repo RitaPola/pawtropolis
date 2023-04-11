@@ -64,8 +64,7 @@ public class Bag {
         return null;
     }
     /*Rimozione di tutti gli oggetti nella borsa*/
-    public void clearAllItemList(){
-      items.clear();
+    public void clearAllItemList(){items.clear();
     }
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
@@ -77,13 +76,13 @@ public class Bag {
         return null;
     }
     /*verificare se ci sono oggetti nella borsa*/
-    public void checkItemToBag(){
-        final Logger LOGGER = Logger.getLogger("myLogger");
+    public String checkItemToBag(){
+        String empty = "The bag is empty";
+        String contained = "The items contained in the bag are: " + items;
         if(items.isEmpty()){
-            LOGGER.info("The bag is empty");
-            //System.out.println("The bag is empty");
+           return empty;
         }else{
-           LOGGER.info("The items contained in the bag are: " + items);
+           return contained;
         }
     }
     /* Rimozione tutti gli oggetti nella borsa */
@@ -102,13 +101,14 @@ public class Bag {
        }
            return null;
     }
-    /*verifica quanti slot sono disponibili da controllare*/
-    public void availableSlot(){
-        final Logger LOGGER = Logger.getLogger("myLogger");
+    /*verifica quanti slot sono disponibili*/
+    public String availableSlot(){
+        String available =  "The slots available are: " + availableSlots;
         if (items.isEmpty()){
             throw new IndexOutOfBoundsException("The list is empty");
-        }else LOGGER.info("\n" +
-                "The slots available are: " + availableSlots);
+        }else {
+            return available;
+        }
     }
     /*ricerca oggetto per nome*/
     public Item searchItemByName(String nameItem) {

@@ -56,20 +56,21 @@ public class Room {
         this.adjacentRooms = adjacentRooms;
     }
 
+    /*Aggiunge animale nella lista animali*/
     public Animal addAnimal(Animal animal) {
         if (animals.add(animal)) {
             return animal;
         }
         return null;
     }
-
+    /*Rimuove animale dalla lista degli animali*/
     public Animal deleteAnimal(Animal animal) {
         if (animals.remove(animal)) {
             return animal;
         }
         return null;
     }
-
+    /*Rimuove tutti gli animali dalla lista animale*/
     public void deleteAllAnimal() {
         animals.clear();
     }
@@ -77,7 +78,7 @@ public class Room {
     public ArrayList<Animal> ListAnimal() {
         return animals;
     }
-
+    /*ricerca animale tramite nome*/
     public Animal getAnimalByName(String nameAnimal) {
         for (Animal animal : animals) {
             if (animal.getName().toLowerCase().equals(nameAnimal)) {
@@ -91,7 +92,7 @@ public class Room {
     public Animal removeAnimalByName(String nameToRemove) {
         Animal animal = animals.get(0);
         for (Animal animalCurrent : animals) {
-            if (animalCurrent.getName().equals(nameToRemove)) {
+            if (animalCurrent.getName().toLowerCase().equals(nameToRemove)) {
                 items.remove(animalCurrent);
                 animal = animalCurrent;
                 return animal;
@@ -103,19 +104,18 @@ public class Room {
     public boolean addItem(Item item) {
        return items.add(item);
     }
-
+    /*rimuove un oggetto dalla lista specificata*/
     public Item deleteItem(Item item) {
         if (items.remove(item)) {
             return item;
         }
         return null;
     }
-
+    /*Rimuove tutti gli oggetti*/
     public void deleteAllItems() {
         items.clear();
     }
-
-    /*return lista oggetti*/
+    /*ritorna lista oggetti*/
     public ArrayList<Item> ListItem() {
         return items;
     }
@@ -134,7 +134,7 @@ public class Room {
     public Item removeItemByName(String nameToRemove) {
         Item itm = items.get(0);
         for (Item itemCurrent : items) {
-            if (itemCurrent.getNameItem().equals(nameToRemove)) {
+            if (itemCurrent.getNameItem().toLowerCase().equals(nameToRemove)) {
                 items.remove(itemCurrent);
                 itm = itemCurrent;
                 return itm;
@@ -142,7 +142,6 @@ public class Room {
         }
         return null;
     }
-
     /*aggiunge la stanza nella lista corrente*/
     public Room addAdJacentRoom(Room room, Direction direction) {
         return adjacentRooms.put(direction, room);

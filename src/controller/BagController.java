@@ -13,7 +13,7 @@ public class BagController {
        // System.out.println(bag1.fullBag());
         bag1.addItem(item1);
         bag1.addItem(item2);
-       bag1.checkItemToBag();
+      System.out.println(bag1.availableSlot());
       /*  System.out.println(bag1);
         bag1.availableSlot();
         System.out.println(bag1);*/

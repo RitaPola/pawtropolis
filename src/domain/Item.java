@@ -39,9 +39,9 @@ public class Item {
     @Override
     public String toString() {
         return "Item --> " +
-                "nameItem='" + nameItem + '\'' +
-                ", description='" + description + '\'' +
-                ", occupiedSlots=" + occupiedSlots;
+                "nameItem = " + nameItem + '\'' +
+                ", description = " + description + '\'' +
+                ", occupiedSlots = " + occupiedSlots;
     }
 
 }

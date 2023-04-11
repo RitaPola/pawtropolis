@@ -14,17 +14,15 @@ public class PlayerContoller {
         Item item2 = new Item("walkie talkie", "necessario per sentire un amico in difficoltà o per chiedere soccorsi",4);
         player1.addItemBag(item1);
         player1.addItemBag(item2);
-        System.out.println(player1);
+      //  System.out.println(player1);
         player1.availableSlotTobag();
-        System.out.println(player1);
+        // System.out.println(player1);
        // System.out.println(bagPlayer);
 
-
-
-       /* player1.increaseLifePoints(2);
-        player1.decreaseLifePoints(13);
+        //player1.increaseLifePoints(1);
+        player1.decreaseLifePoints(2);
         player1.isAlive();
-        System.out.println(player1);*/
+        System.out.println(player1);
     }
 
 
