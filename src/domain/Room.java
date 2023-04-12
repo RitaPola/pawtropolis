@@ -11,8 +11,8 @@ public class Room {
 
     private String name;
     private ArrayList<Item> items;
-    private ArrayList<Animal> animals;
-    private EnumMap<Direction, Room> adjacentRooms;
+    private ArrayList <Animal> animals;
+    private EnumMap <Direction, Room> adjacentRooms;
 
     public Room (){
 
@@ -74,7 +74,7 @@ public class Room {
     public void deleteAllAnimal() {
         animals.clear();
     }
-
+    /*Ritorna gli animali della lista*/
     public ArrayList<Animal> ListAnimal() {
         return animals;
     }
@@ -101,10 +101,11 @@ public class Room {
         return null;
     }
 
+    /*aggiunge un oggetto dentro la lista items*/
     public boolean addItem(Item item) {
        return items.add(item);
     }
-    /*rimuove un oggetto dalla lista specificata*/
+    /*rimuove un oggetto dalla lista item*/
     public Item deleteItem(Item item) {
         if (items.remove(item)) {
             return item;
@@ -129,7 +130,6 @@ public class Room {
         }
         return null;
     }
-
     /*rimozione oggetto tramite nome*/
     public Item removeItemByName(String nameToRemove) {
         Item itm = items.get(0);
@@ -155,7 +155,6 @@ public class Room {
             return null;
         }
     }
-
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
     public Optional<Room> getAdjacentRoom(Direction direction) {

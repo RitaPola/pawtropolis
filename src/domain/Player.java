@@ -170,7 +170,7 @@ public class Player {
         if(currentRoom.getItems().isEmpty()) {
             return "There are no items in the room";
         }
-        if (itemName == null || itemName.equals("nothing") || itemName.equals("")) {
+        if (itemName == null || itemName.equals("no") || itemName.equals("")) {
             return "You have not specified an item to get";
         }
         Item item = currentRoom.removeItemByName(itemName);
@@ -215,7 +215,7 @@ public class Player {
             return "There are no items in the bag";
         }
         Item item = bag.removeItemByName(itemName);
-        if (itemName == null || itemName.toLowerCase().equals("nothing") || itemName.equals("")) {
+        if (itemName == null || itemName.toLowerCase().equals("no") || itemName.equals("")) {
             return "You have not specified an item to drop";
         }
         if (item == null) {

@@ -16,7 +16,7 @@ public class GeneralController {
             System.out.print("Inserisci il livello del giocatore: ");
             int playerLevel = input.nextInt();
             input.nextLine(); // Consuma il newline rimasto dal nextInt()
-            System.out.println("Inserisci il nome della stanza corrente puoi scegliere tra: garden, livingRoom and badRoom ");
+            System.out.println("Inserisci il nome della stanza corrente puoi scegliere tra: garden, livingRoom and bedRoom ");
             String curRoom = input.nextLine();
             Item intialItemPlayer = new Item("Knife", "oggetto iniziale del gioco", 2);
             bagPlayer1.addItem(intialItemPlayer);
@@ -81,11 +81,11 @@ public class GeneralController {
         System.out.println("Premi invio per guardare intorno nella stanza corrente. ");
         input.nextLine();
         System.out.println(initialRoom.look());
-        System.out.print("Inserisci l'oggetto che vuoi prendere: ");
+        System.out.print("Inserisci l'oggetto che vuoi prendere oppure premi no per non prendere nulla: ");
         String itemGet = input.nextLine();
         System.out.println(player1.get(itemGet));
 
-        System.out.print("Inserisci l'oggetto che vuoi far cadere: ");
+        System.out.print("Inserisci l'oggetto che vuoi far cadere oppure premi no per non lasciare nulla: ");
         String itemDrop = input.nextLine();
         System.out.println(player1.drop(itemDrop));
 
@@ -116,6 +116,6 @@ public class GeneralController {
         }
         input.close();
     }
-
     }
+
 

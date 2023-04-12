@@ -4,7 +4,7 @@ public class Item {
 
     private String nameItem;
     private String description;
-    private int occupiedSlots;
+    private int occupiedSlots; /*slot occupati dall'oggetto nella borsa*/
 
     public Item(String nameItem, String description, int occupiedSlots) {
         this.nameItem = nameItem;
@@ -39,9 +39,9 @@ public class Item {
     @Override
     public String toString() {
         return "Item --> " +
-                "nameItem = " + nameItem + '\'' +
-                ", description = " + description + '\'' +
-                ", occupiedSlots = " + occupiedSlots;
+                "nameItem: " + nameItem + '\'' +
+                ", description: " + description + '\'' +
+                ", occupiedSlots: " + occupiedSlots;
     }
 
 }

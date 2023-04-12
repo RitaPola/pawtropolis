@@ -1,7 +1,9 @@
 package controller;
 
 import domain.Bag;
+import domain.Direction;
 import domain.Item;
+import domain.Room;
 
 public class BagController {
     public static void main(String[] args) {
@@ -11,11 +13,13 @@ public class BagController {
 
         Bag bag1 = new Bag();
        // System.out.println(bag1.fullBag());
-        bag1.addItem(item1);
-        bag1.addItem(item2);
-      System.out.println(bag1.availableSlot());
-      /*  System.out.println(bag1);
-        bag1.availableSlot();
+
+     // System.out.println(bag1.availableSlot());
+      Bag bag2 = new Bag();
+        bag2.addItem(item1);
+        bag2.addItem(item2);
+     // System.out.println(bag2);
+        /*   bag1.availableSlot();
         System.out.println(bag1);*/
     /*  System.out.println("l'oggetto rimosso è: " + bag1.removeItem(item2));
        System.out.println(bag1.getAvailableSlots());
@@ -27,5 +31,11 @@ public class BagController {
        System.out.println(bag1);
        System.out.println(bag1.availableSlot());*/
       // System.out.println(bag1.searchItemByName("cacca"));
+
+        Room room8 = new Room();
+        Room room9 = new Room();
+       System.out.println(room8.addAdJacentRoom(room9,Direction.NORTH));
+       System.out.println(room8.cancelAdjacentRoom(room8));
+
     }
 }

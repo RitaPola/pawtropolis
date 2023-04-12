@@ -6,25 +6,24 @@ import java.util.logging.Logger;
 
 public class Bag {
     private List <Item>items;
-    private int maxSlot;
-    private final int totalSlots = 15;
-    private int availableSlots;
+    private int maxSlot; /* indica il numero massimo di oggetti che la borsa può contenere*/
+    private final int totalSlots = 15;/*n.tot di slot disponibili*/
+    private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
 
     public Bag() {
         this.items = items;
-        this.maxSlot=totalSlots;
+        this.maxSlot=totalSlots; /* inizializzati alla massima capacità*/
         this.availableSlots=totalSlots;
-        this.items=new ArrayList<>(totalSlots);
+        this.items=new ArrayList<>(totalSlots);/* inizializzazione dell'arraylist di oggetti indica la max capacità*/
     }
-    public Bag(int maxSlot){
+    /*public Bag(int maxSlot){
         this.maxSlot=maxSlot;
         this.availableSlots=maxSlot;
         this.items=new ArrayList<>(totalSlots);
-    }
+    }*/
     public List<Item> getItems() {
         return items;
     }
-
     public void setItems(List<Item> items) {
         this.items = items;
     }
@@ -51,14 +50,14 @@ public class Bag {
     /*Inserimento e rimozione oggetto nella borsa*/
     public Item addItem(Item item) {
         if(items.add(item)){
-            availableSlots -= item.getOccupiedSlots();
+            availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
             return item;
         }
        return null;
     }
     public Item removeItem (Item item){
         if(items.remove(item)){
-            availableSlots += item.getOccupiedSlots();
+            availableSlots += item.getOccupiedSlots();/*controllo di acquisizione dello spazio occupato da un oggetto*/
             return item;
         }
         return null;
