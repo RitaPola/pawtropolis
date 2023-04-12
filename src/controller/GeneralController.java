@@ -11,18 +11,18 @@ public class GeneralController {
         Scanner input = new Scanner(System.in);
         Bag bagPlayer1 = new Bag();
         try {
-            System.out.print("Inserisci il nome del giocatore: ");
+            System.out.print("Enter the player's name: ");
             String playerName = input.nextLine();
-            System.out.print("Inserisci il livello del giocatore: ");
+            System.out.print("Enter how much health the player has: ");
             int playerLevel = input.nextInt();
             input.nextLine(); // Consuma il newline rimasto dal nextInt()
-            System.out.println("Inserisci il nome della stanza corrente puoi scegliere tra: garden, livingRoom and bedRoom ");
+            System.out.println("Enter the name of the current room you can choose between: garden, livingRoom and bedRoom ");
             String curRoom = input.nextLine();
-            Item intialItemPlayer = new Item("Knife", "oggetto iniziale del gioco", 2);
+            Item intialItemPlayer = new Item("knife", "starting object of the game", 2);
             bagPlayer1.addItem(intialItemPlayer);
             Room initialRoom = new Room(curRoom);//currentRoom
             Player player1 = new Player(playerName, playerLevel, bagPlayer1, initialRoom);//player1
-            System.out.println("Il nuovo player è " + player1);
+            System.out.println("The new Player is: " + player1);
             Room bathroom = new Room("Bathroom");
         Room kitchen = new Room ("Kitchen");
         Room armory = new Room("Armory");
@@ -53,14 +53,14 @@ public class GeneralController {
         noursey.addAdJacentRoom(armory,Direction.EAST);
         noursey.addAdJacentRoom(initialRoom,Direction.CENTRAL);
 
-        Item item0 = new Item("walkie talkie", "necessario per sentire un amico in difficoltà o per chiedere soccorsi",4);
-        Item item1 = new Item("carta igienica","necessario per pulire i bisogni", 3);
-        Item item2 = new Item("banana","cibo", 1);
-        Item item3 = new Item("acqua", "bere",1);
+        Item item0 = new Item("walkie talkie", "Necessary to hear a friend in distress or to ask for help",4);
+        Item item1 = new Item("toilet paper","clean needs", 3);
+        Item item2 = new Item("banana","food", 1);
+        Item item3 = new Item("acqua", "water",1);
         Item item4 = new Item("Kalashnikov", "mitragliatore",6);
-        Item item5 = new Item("macete", "arma da taglio",4);
-        Item item6 = new Item("bende mediche", "servono per bendare le ferite",1);
-        Item item7 = new Item("erba curativa", "erba verde stile Resident Evil",3);
+        Item item5 = new Item("machete", "cutting weapon",4);
+        Item item6 = new Item("medical bandages", "they are used to bandage wounds",1);
+        Item item7 = new Item("healing herb", "Resident Evil style green grass",3);
         initialRoom.addItem(item0);
         bathroom.addItem(item1);
         kitchen.addItem(item2);
@@ -69,50 +69,51 @@ public class GeneralController {
         armory.addItem(item5);
         noursey.addItem(item6);
         noursey.addItem(item7);
-        Animal animal1 = new Animal("Hearth Lion ","carne cruda", LocalDate.now(),70.00, 8.50);
+        Animal animal1 = new Animal("Lion Hearth ","carne cruda", LocalDate.now(),70.00, 8.50);
         initialRoom.addAnimal(animal1);
-        Animal animal2 = new Animal("Tiger wolf","carne", LocalDate.now(),80.00, 6.50);
-        Animal animal3 = new Animal("Eagle Pincopallino","carne", LocalDate.now(),30.00, 2.50);
-        Animal animal4 = new Animal("Lion Biricchino","carne", LocalDate.now(),90.00, 7.50);
+        Animal animal2 = new Animal("Tiger wolf","meat", LocalDate.now(),80.00, 6.50);
+        Animal animal3 = new Animal("Eagle Pincopallino","meat", LocalDate.now(),30.00, 2.50);
+        Animal animal4 = new Animal("Lion Biricchino","meat", LocalDate.now(),90.00, 7.50);
         bathroom.addAnimal(animal2);
         armory.addAnimal(animal3);
         noursey.addAnimal(animal4);
 
-        System.out.println("Premi invio per guardare intorno nella stanza corrente. ");
+        System.out.println("Hit enter to look around the current room.");
         input.nextLine();
         System.out.println(initialRoom.look());
-        System.out.print("Inserisci l'oggetto che vuoi prendere oppure premi no per non prendere nulla: ");
+        System.out.print("Enter the item you want to take or press no to take nothing: ");
         String itemGet = input.nextLine();
         System.out.println(player1.get(itemGet));
 
-        System.out.print("Inserisci l'oggetto che vuoi far cadere oppure premi no per non lasciare nulla: ");
+        System.out.print("Enter the object you want to drop or press no to leave nothing: ");
         String itemDrop = input.nextLine();
         System.out.println(player1.drop(itemDrop));
+        System.out.println("The contents of player1's bag is: "+ player1.getItemsInThePlayerBag());
 
         String directionString;
         do {
-            System.out.print("Inserisci la direzione in cui vuoi andare (NORTH, SOUTH, EAST , WEST o CENTRAL(se non sei già nella current room)) oppure premi ENTER per non cambiare stanza: ");
+            System.out.print("Enter the direction you want to go (NORTH, SOUTH, EAST , WEST or CENTRAL (if you are not already in the current room)) or press ENTER to not change the room: ");
             directionString = input.nextLine();
             if (!directionString.isEmpty()) {
                 try {
                     Direction direction = Direction.valueOf(directionString.toUpperCase());
                     System.out.println(player1.go(player1, direction));
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Inserimento non valido. Riprova.");
+                    System.out.println("Invalid entry. Try again. ");
                 }
-                System.out.print("Inserisci l'oggetto che vuoi prendere (Inserisci nothing se non vuoi prendere nulla): ");
+                System.out.println("Enter the item you want to take or press no to take nothing: ");
                 itemGet = input.nextLine();
                 System.out.println(player1.get(itemGet));
 
-                System.out.print("Inserisci l'oggetto che vuoi far cadere (inserisci nothing se non vuoi lasciare nessun oggetto): ");
+                System.out.print("Enter the object you want to drop or press no to leave nothing: ");
                 itemDrop = input.nextLine();
                 System.out.println(player1.drop(itemDrop));
 
-                System.out.println("Il contenuto della borsa del player1 è "+ player1.getItemsInThePlayerBag()); 
+                System.out.println("The contents of player1's bag is: "+ player1.getItemsInThePlayerBag());
             }
         } while (!directionString.isEmpty());
         }catch (InputMismatchException e){
-            System.out.println("Non hai inserito l'input corretto");
+            System.out.println("You have not entered the correct input ");
         }
         input.close();
     }
