@@ -1,25 +1,0 @@
-
-Y
-java:S1854"<Remove this useless assignment to local variable "nullable".(ÎÃò¬8›¦Âÿö0
-U
-java:S1854
-"8Remove this useless assignment to local variable "east".(è¢É8œ¦Âÿö0
-V
-java:S1854	"9Remove this useless assignment to local variable "south".(¿œ“8¦Âÿö0
-[
-java:S1854"9Remove this useless assignment to local variable "north".(ñ˜÷«ùÿÿÿÿ8¦Âÿö0
-Z
-java:S1854"8Remove this useless assignment to local variable "west".(Œ´“‚ÿÿÿÿÿ8¦Âÿö0
-K
-java:S1481")Remove this unused "west" local variable.(Œ´“‚ÿÿÿÿÿ8Ÿ¦Âÿö0
-L
-java:S1481"*Remove this unused "north" local variable.(ñ˜÷«ùÿÿÿÿ8Ÿ¦Âÿö0
-G
-java:S1481	"*Remove this unused "south" local variable.(¿œ“8 ¦Âÿö0
-F
-java:S1481
-")Remove this unused "east" local variable.(è¢É8 ¦Âÿö0
-J
-java:S1481"-Remove this unused "nullable" local variable.(ÎÃò¬8 ¦Âÿö0
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(«ë£®øÿÿÿÿ8¡¦Âÿö0
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(˜ÕÃÌüÿÿÿÿ8¢¦Âÿö0

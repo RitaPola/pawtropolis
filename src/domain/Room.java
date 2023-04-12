@@ -11,12 +11,13 @@ public class Room {
 
     private String name;
     private ArrayList<Item> items;
-    private ArrayList <Animal> animals;
-    private EnumMap <Direction, Room> adjacentRooms;
+    private ArrayList<Animal> animals;
+    private EnumMap<Direction, Room> adjacentRooms;
 
-    public Room (){
+    public Room() {
 
     }
+
     public Room(String name) {
         this.name = name;
         this.items = new ArrayList<>();
@@ -63,6 +64,7 @@ public class Room {
         }
         return null;
     }
+
     /*Rimuove animale dalla lista degli animali*/
     public Animal deleteAnimal(Animal animal) {
         if (animals.remove(animal)) {
@@ -70,14 +72,17 @@ public class Room {
         }
         return null;
     }
+
     /*Rimuove tutti gli animali dalla lista animale*/
     public void deleteAllAnimal() {
         animals.clear();
     }
+
     /*Ritorna gli animali della lista*/
     public ArrayList<Animal> ListAnimal() {
         return animals;
     }
+
     /*ricerca animale tramite nome*/
     public Animal getAnimalByName(String nameAnimal) {
         for (Animal animal : animals) {
@@ -103,8 +108,9 @@ public class Room {
 
     /*aggiunge un oggetto dentro la lista items*/
     public boolean addItem(Item item) {
-       return items.add(item);
+        return items.add(item);
     }
+
     /*rimuove un oggetto dalla lista item*/
     public Item deleteItem(Item item) {
         if (items.remove(item)) {
@@ -112,10 +118,12 @@ public class Room {
         }
         return null;
     }
+
     /*Rimuove tutti gli oggetti*/
     public void deleteAllItems() {
         items.clear();
     }
+
     /*ritorna lista oggetti*/
     public ArrayList<Item> ListItem() {
         return items;
@@ -130,6 +138,7 @@ public class Room {
         }
         return null;
     }
+
     /*rimozione oggetto tramite nome*/
     public Item removeItemByName(String nameToRemove) {
         Item itm = items.get(0);
@@ -142,6 +151,7 @@ public class Room {
         }
         return null;
     }
+
     /*aggiunge la stanza nella lista corrente*/
     public Room addAdJacentRoom(Room room, Direction direction) {
         return adjacentRooms.put(direction, room);
@@ -155,6 +165,7 @@ public class Room {
             return null;
         }
     }
+
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
     public Optional<Room> getAdjacentRoom(Direction direction) {
@@ -165,6 +176,7 @@ public class Room {
     public Room cancelAdiacentRoom(Direction direction) {
         return adjacentRooms.remove(direction);
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -172,6 +184,7 @@ public class Room {
         Room room = (Room) o;
         return name.equals(room.name) && items.equals(room.items) && animals.equals(room.animals) && adjacentRooms.equals(room.adjacentRooms);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, items, animals, adjacentRooms);

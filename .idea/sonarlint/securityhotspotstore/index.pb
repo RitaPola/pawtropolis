@@ -9,7 +9,5 @@ J
 src/gestionezoo/Tiger.java,8\4\84aa26dab7621746462fd31b1043ae3172bec6f5
 K
 src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
-W
-'src/controller/DirectionController.java,5\7\57b43ac8476b81e9bbd05805985cd422d4dbd84e
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
