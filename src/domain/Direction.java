@@ -11,6 +11,7 @@ public enum Direction {
 
     private final String name;
 
+    //costruttore
     Direction(String name) {
         this.name = name;
     }

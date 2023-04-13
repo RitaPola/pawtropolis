@@ -15,9 +15,7 @@ public class Room {
     private EnumMap<Direction, Room> adjacentRooms;
 
     public Room() {
-
     }
-
     public Room(String name) {
         this.name = name;
         this.items = new ArrayList<>();

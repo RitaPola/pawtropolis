@@ -1,30 +1,30 @@
 package controller;
 
 import domain.*;
+import gameStrategy.*;
 import gestionezoo.Animal;
 
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class GeneralController {
-
+public class StrategyController {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Bag bagPlayer1 = new Bag();
         try {
             System.out.print("\n" + "Enter the player's name: ");
             String playerName = input.nextLine();
             System.out.print("\n" + "Enter how much health the player has: ");
             int playerLevel = input.nextInt();
-            input.nextLine(); // Consuma il newline rimasto dal nextInt()
-            System.out.println("\n" + "Enter the name of the current room you can choose between: garden, livingRoom and bedRoom ");
+            input.nextLine(); // Consume the newline left by nextInt()
+            System.out.println("\n" + "Enter the name of the current room you can choose between: garden, livingRoom and bedRoom");
             String curRoom = input.nextLine();
-            Item intialItemPlayer = new Item("knife", "starting object of the game", 2);
-            bagPlayer1.addItem(intialItemPlayer);
-            Room initialRoom = new Room(curRoom);//currentRoom
-            Player player1 = new Player(playerName, playerLevel, bagPlayer1, initialRoom);//player1
-            System.out.println("\n" + "The new Player is: " + player1);
+            Bag bagPlayer1 = new Bag();
+        /*Item initialItemPlayer = new Item("knife", "starting object of the game", 2);
+        bagPlayer1.addItem(initialItemPlayer);*/
+            Room initialRoom = new Room(curRoom);
+
+            Player player = new Player(playerName, playerLevel, bagPlayer1, initialRoom);
             Room bathroom = new Room("Bathroom");
             Room kitchen = new Room("Kitchen");
             Room armory = new Room("Armory");
@@ -71,54 +71,79 @@ public class GeneralController {
             armory.addItem(item5);
             noursey.addItem(item6);
             noursey.addItem(item7);
+
+            /*Creazione animali*/
             Animal animal1 = new Animal("Lion Hearth ", "carne cruda", LocalDate.now(), 70.00, 8.50);
-            initialRoom.addAnimal(animal1);
             Animal animal2 = new Animal("Tiger wolf", "meat", LocalDate.now(), 80.00, 6.50);
             Animal animal3 = new Animal("Eagle Pincopallino", "meat", LocalDate.now(), 30.00, 2.50);
             Animal animal4 = new Animal("Lion Biricchino", "meat", LocalDate.now(), 90.00, 7.50);
+
+            /*Aggiunta degli animali alle rispettive stanze*/
+            initialRoom.addAnimal(animal1);
             bathroom.addAnimal(animal2);
             armory.addAnimal(animal3);
             noursey.addAnimal(animal4);
 
-            System.out.println("\n" + "Hit enter to look around the current room.");
-            input.nextLine();
-            System.out.println(initialRoom.look());
-            System.out.print("\n" + "Enter the item you want to take or press no to take nothing: ");
-            String itemGet = input.nextLine();
-            System.out.println(player1.get(itemGet));
+            while (true) {
+                System.out.print("""
+                                            
+                          What do you want to do?
+                          
+                          1. Look around
+                          
+                          2. Go to a different room
+                          
+                          3. Get an item
+                          
+                          4. Drop an item
+                          
+                          5. Check inventory
+                          
+                          6. Quit the game
+                         
+                        """);
+                int choice = input.nextInt();
+                input.nextLine(); // Consume the newline left by nextInt()
 
-            System.out.print("\n" + "Enter the object you want to drop or press no to leave nothing: ");
-            String itemDrop = input.nextLine();
-            System.out.println(player1.drop(itemDrop));
-            System.out.println("\n" + "The contents of player1's bag is: " + player1.getItemsInThePlayerBag());
-
-            String directionString;
-            do {
-                System.out.print("\n" + "Enter the direction you want to go (NORTH, SOUTH, EAST , WEST or CENTRAL (if you are not already in the current room)) or press ENTER to not change the room: ");
-                directionString = input.nextLine();
-                if (!directionString.isEmpty()) {
-                    try {
-                        Direction direction = Direction.valueOf(directionString.toUpperCase());
-                        System.out.println(player1.go(player1, direction));
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("\n" + "Invalid entry. Try again. ");
-                    }
-                    System.out.println("\n" + "Enter the item you want to take or press no to take nothing: ");
-                    itemGet = input.nextLine();
-                    System.out.println(player1.get(itemGet));
-
-                    System.out.print("\n" + "Enter the object you want to drop or press no to leave nothing: ");
-                    itemDrop = input.nextLine();
-                    System.out.println(player1.drop(itemDrop));
-
-                    System.out.println("\n" + "The contents of player1's bag is: " + player1.getItemsInThePlayerBag());
+                ActionStrategy actionStrategy;
+                switch (choice) {
+                    case 1:
+                        actionStrategy = new LookActionStrategy(player.getCurrentRoom());
+                        break;
+                    case 2:
+                        System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST)");
+                        String directionInput = input.nextLine();
+                        Direction direction = Direction.valueOf(directionInput.toUpperCase());
+                        actionStrategy = new GoActionStrategy(player, direction);
+                        break;
+                    case 3:
+                        System.out.println("\n" + "Which item do you want to get?");
+                        String itemName = input.nextLine();
+                        actionStrategy = new GetActionStrategy(player.getCurrentRoom(), itemName, player);
+                        break;
+                    case 4:
+                        System.out.println("\n" + "Which item do you want to drop?");
+                        itemName = input.nextLine();
+                        actionStrategy = new DropActionStrategy(player.getBag(), itemName, player.getCurrentRoom());
+                        break;
+                    case 5:
+                        actionStrategy = new BagActionStrategy(player.getBag());
+                        System.out.println("Available slot " + bagPlayer1.availableSlot() + "\n");
+                        break;
+                    case 6:
+                        System.out.println("\n" + "Thanks for playing!");
+                        return;
+                    default:
+                        System.out.println("\n" + "Invalid choice. Please choose again.");
+                        continue;
                 }
-            } while (!directionString.isEmpty());
-        } catch (InputMismatchException e) {
+                String result = actionStrategy.execute();
+                System.out.println(result);
+            }
+        }catch (InputMismatchException e) {
             System.out.println("\n" + "You have not entered the correct input ");
         }
         input.close();
     }
-}
-
+    }
 

@@ -6,22 +6,14 @@ import java.util.logging.Logger;
 
 public class Bag {
     private List<Item> items;
-    private int maxSlot; /* indica il numero massimo di oggetti che la borsa può contenere*/
     private final int totalSlots = 15;/*n.tot di slot disponibili*/
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
 
     public Bag() {
         this.items = items;
-        this.maxSlot = totalSlots; /* inizializzati alla massima capacità*/
         this.availableSlots = totalSlots;
         this.items = new ArrayList<>(totalSlots);/* inizializzazione dell'arraylist di oggetti indica la max capacità*/
     }
-
-    /*public Bag(int maxSlot){
-        this.maxSlot=maxSlot;
-        this.availableSlots=maxSlot;
-        this.items=new ArrayList<>(totalSlots);
-    }*/
     public List<Item> getItems() {
         return items;
     }
@@ -32,14 +24,6 @@ public class Bag {
 
     public int getTotalSlots() {
         return totalSlots;
-    }
-
-    public int getMaxSlot() {
-        return maxSlot;
-    }
-
-    public void setMaxSlot(int maxSlot) {
-        this.maxSlot = maxSlot;
     }
 
     public int getAvailableSlots() {
@@ -66,12 +50,10 @@ public class Bag {
         }
         return null;
     }
-
     /*Rimozione di tutti gli oggetti nella borsa*/
     public void clearAllItemList() {
         items.clear();
     }
-
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
         for (Item item : items) {
@@ -81,7 +63,6 @@ public class Bag {
         }
         return null;
     }
-
     /*verificare se ci sono oggetti nella borsa*/
     public String checkItemToBag() {
         String empty = "The bag is empty";
@@ -92,12 +73,10 @@ public class Bag {
             return contained;
         }
     }
-
     /* Rimozione tutti gli oggetti nella borsa */
     public void removeAllItemsBag() {
         items.clear();
     }
-
     /*Rimozione item tramite nome*/
     public Item removeItemByName(String nameToRemove) {
         Item itm = items.get(0);
@@ -110,14 +89,12 @@ public class Bag {
         }
         return null;
     }
-
     /*verifica quanti slot sono disponibili*/
     public String availableSlot() {
-        String available = "The slots available are: " + availableSlots;
         if (items.isEmpty()) {
-            throw new IndexOutOfBoundsException("The list is empty");
+            return "The list is empty";
         } else {
-            return available;
+            return "The slots available are: " + availableSlots;
         }
     }
 
