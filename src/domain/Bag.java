@@ -4,39 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bag {
-    private List<Item> items;
-    private final int totalSlots = 15;/*n.tot di slot disponibili*/
+    private final List<Item> items;
+    private static final int totalSlots = 15;/*n.tot di slot disponibili*/
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
+    private final int maxSlots;
 
     public Bag() {
-        this.availableSlots = totalSlots;
+        this.maxSlots=totalSlots;
+        this.availableSlots=maxSlots;
+        this.items=new ArrayList<>(maxSlots);
+    }
+
+    public Bag(int maxSlots) {
+        this.maxSlots = maxSlots;
+        this.availableSlots = maxSlots;
         this.items = new ArrayList<>(totalSlots);/* inizializzazione dell'arraylist di oggetti indica la max capacità*/
     }
+
     public List<Item> getItems() {
         return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    public int getTotalSlots() {
-        return totalSlots;
     }
 
     public int getAvailableSlots() {
         return availableSlots;
     }
 
-    public void setAvailableSlots(int availableSlots) {
-        this.availableSlots = availableSlots;
-    }
-
     /*Inserimento e rimozione oggetto nella borsa*/
     public Item addItem(Item item) {
-        items.add(item);
-        availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
-        return item;
+        if (availableSlots - item.getOccupiedSlots()>=0) {
+            items.add(item);
+            availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
+            return item;
+        }
+        return null;
     }
 
     public Item removeItem(Item item) {
@@ -46,21 +46,23 @@ public class Bag {
         }
         return null;
     }
+
     /*Rimozione di tutti gli oggetti nella borsa*/
     public void clearAllItemList() {
         items.clear();
     }
+
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
-        for (Item item : items) {
-            if (item.getName().toLowerCase().equals(name)) {
-                return item;
-            }
-        }
-        return null;
+       return items.stream()
+                .filter(i -> i.getName().equalsIgnoreCase(name))
+                .findAny()
+                .orElse(null);
+
     }
+
     /*verificare se ci sono oggetti nella borsa*/
-    public String checkItemToBag() {
+    public String checkItemInTheBag() {
         String empty = "The bag is empty";
         String contained = "The items contained in the bag are: " + items;
         if (items.isEmpty()) {
@@ -69,27 +71,31 @@ public class Bag {
             return contained;
         }
     }
+
     /* Rimozione tutti gli oggetti nella borsa */
-    public void removeAllItemsBag() {
+    public void removeAllItemsInTheBag() {
         items.clear();
     }
+
     /*Rimozione item tramite nome*/
     public Item removeItemByName(String nameToRemove) {
-        Item item = items.stream()
-                .filter(i -> i.getName().equalsIgnoreCase(nameToRemove))
+        return items.stream().filter(itemCurrent -> itemCurrent.getName().equalsIgnoreCase(nameToRemove))
                 .findAny()
+                .map(itemCurrent -> {
+                    items.remove(itemCurrent);
+                    availableSlots += itemCurrent.getOccupiedSlots();
+                    return itemCurrent;
+                })
                 .orElse(null);
-        if(item == null) {
-            return null;
-        }
-        return removeItem(item);
     }
+
     /*verifica quanti slot sono disponibili*/
-    public String availableSlot() {
+    public int checkAvailableSlotInTheBag() {
+        int slots = availableSlots;
         if (items.isEmpty()) {
-            return "The list is empty";
+            return 0;
         } else {
-            return "The slots available are: " + availableSlots;
+            return slots;
         }
     }
 
@@ -105,7 +111,7 @@ public class Bag {
     public String toString() {
         return "Bag --> " +
                 "items " + items +
-                ", totalSlots " + totalSlots;
+                ", max slots " + maxSlots;
     }
 
 }

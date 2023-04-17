@@ -19,6 +19,7 @@ public class StrategyController {
             input.nextLine(); // Consume the newline left by nextInt()
             System.out.println("\n" + "Enter the name of the current room you can choose between: garden, livingRoom and bedRoom");
             String curRoom = input.nextLine();
+
             Bag bagPlayer1 = new Bag();
         /*Item initialItemPlayer = new Item("knife", "starting object of the game", 2);
         bagPlayer1.addItem(initialItemPlayer);*/
@@ -128,7 +129,7 @@ public class StrategyController {
                         break;
                     case 5:
                         actionStrategy = new BagActionStrategy(player.getBag());
-                        System.out.println("Available slot " + bagPlayer1.availableSlot() + "\n");
+                        System.out.println("Available slot " + bagPlayer1.checkAvailableSlotInTheBag() + "\n");
                         break;
                     case 6:
                         System.out.println("\n" + "Thanks for playing!");

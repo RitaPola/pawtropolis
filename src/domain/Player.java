@@ -76,8 +76,8 @@ public class Player{
     }
 
     /*rimuove tutti oggetti dallo zaino del giocatore*/
-    public void removellItemBag() {
-        bag.removeAllItemsBag();
+    public void removeAllItemBag() {
+        bag.removeAllItemsInTheBag();
     }
 
     /*Ricerca oggetto per nome*/
@@ -96,7 +96,7 @@ public class Player{
 
     /*verifica gli slot disponibili nella borsa*/
     public void availableSlotTobag() {
-        bag.availableSlot();
+        bag.checkAvailableSlotInTheBag();
     }
 
     /*Decrementa la vita del giocatore*/
