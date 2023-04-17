@@ -7,6 +7,7 @@ public enum Direction {
     EAST("East"),
     WEST("West"),
     CENTRAL("CurrentRoom"),
+    //todo: cambaire NULLABLE con INVALID
     NULLABLE(null);
 
     private final String name;

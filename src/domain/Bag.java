@@ -2,24 +2,26 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Bag {
-    private List<Item> items;
-    private final int totalSlots = 15;/*n.tot di slot disponibili*/
+    private final List<Item> items;
+    private static final  int totalSlots = 15;/*n.tot di slot disponibili*/
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
+    private final int maxSlots; /* indica il numero massimo di oggetti che la borsa può contenere*/
 
     public Bag() {
-        this.items = items;
-        this.availableSlots = totalSlots;
-        this.items = new ArrayList<>(totalSlots);/* inizializzazione dell'arraylist di oggetti indica la max capacità*/
+        this.maxSlots = totalSlots;
+        this.availableSlots = maxSlots;
+        this.items = new ArrayList<>(maxSlots);
     }
-    public List<Item> getItems() {
-        return items;
+    public Bag(int maxSlot) {
+        this.maxSlots = maxSlot;
+        this.availableSlots = maxSlot;
+        this.items = new ArrayList<>(maxSlot);
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public List<Item> getItems() {
+        return items;
     }
 
     public int getTotalSlots() {
@@ -30,19 +32,19 @@ public class Bag {
         return availableSlots;
     }
 
-    public void setAvailableSlots(int availableSlots) {
-        this.availableSlots = availableSlots;
+    public int getMaxSlots() {
+        return maxSlots;
     }
 
     /*Inserimento e rimozione oggetto nella borsa*/
     public Item addItem(Item item) {
-        if (items.add(item)) {
-            availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
+        if (availableSlots - item.getOccupiedSlots() >= 0) {//controllo degli oggetti che possono essere inseriti
+            items.add(item);
+            availableSlots -= item.getOccupiedSlots();
             return item;
         }
         return null;
     }
-
     public Item removeItem(Item item) {
         if (items.remove(item)) {
             availableSlots += item.getOccupiedSlots();/*controllo di acquisizione dello spazio occupato da un oggetto*/
@@ -56,63 +58,49 @@ public class Bag {
     }
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
-        for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(name)) {
-                return item;
-            }
-        }
-        return null;
+        return items.stream()
+                .filter(item -> item.getName().equalsIgnoreCase(name))
+                .findAny()            /*viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
+                .orElse(null); /*utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
+
     }
     /*verificare se ci sono oggetti nella borsa*/
-    public String checkItemToBag() {
-        String empty = "The bag is empty";
-        String contained = "The items contained in the bag are: " + items;
+    public int checkItemsInTheBag() {
         if (items.isEmpty()) {
-            return empty;
-        } else {
-            return contained;
+            return 0;
         }
+        return items.size();
     }
     /* Rimozione tutti gli oggetti nella borsa */
-    public void removeAllItemsBag() {
+    public void removeAllItemFromTheBag() {
         items.clear();
     }
+
     /*Rimozione item tramite nome*/
     public Item removeItemByName(String nameToRemove) {
-        Item itm = items.get(0);
-        for (Item itemCurrent : items) {
-            if (itemCurrent.getNameItem().equals(nameToRemove)) {
-                items.remove(itemCurrent);
-                itm = itemCurrent;
-                return itm;
-            }
-        }
-        return null;
-    }
-    /*verifica quanti slot sono disponibili*/
-    public String availableSlot() {
-        if (items.isEmpty()) {
-            return "The list is empty";
-        } else {
-            return "The slots available are: " + availableSlots;
-        }
+        return items.stream().filter(itemCurrent -> itemCurrent.getName().equalsIgnoreCase(nameToRemove))
+                .findAny()
+                .map(itemCurrent -> {
+                    items.remove(itemCurrent);
+                    availableSlots += itemCurrent.getOccupiedSlots();
+                    return itemCurrent;
+                }).orElse(null);
     }
 
-    /*ricerca oggetto per nome*/
-    public Item searchItemByName(String nameItem) {
-        for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(nameItem)) {
-                return item;
-            }
+    /*verifica quanti slot sono disponibili*/
+    public int checkAvailableSlotsInTheBag() {
+        int slots = availableSlots;
+        if (items.isEmpty()) {
+            return 0;
+        } else {
+            return slots;
         }
-        return null;
     }
 
     @Override
     public String toString() {
-        return "Bag --> " +
-                "items " + items +
-                ", totalSlots " + totalSlots;
+        return "Bag  ----> " +
+                "items: " + items +
+                ", available slots: " + maxSlots;
     }
-
 }

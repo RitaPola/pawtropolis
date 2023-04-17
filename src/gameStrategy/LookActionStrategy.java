@@ -1,6 +1,6 @@
 package gameStrategy;
 
-import domain.Description;
+import utils.StringUtils;
 import domain.Direction;
 import domain.Item;
 import domain.Room;
@@ -19,19 +19,19 @@ public class LookActionStrategy implements ActionStrategy{
         String itemsDescription = "{}";
         List<Item> items = room.getItems();
         if (!items.isEmpty()) {
-            itemsDescription = Description.getItemsListDescriptionString(items);
+            itemsDescription = StringUtils.getItemsListDescriptionString(items);
         }
 
         String animalsDescription = "{}";
         List<Animal> animals = room.getAnimals();
         if (!animals.isEmpty()) {
-            animalsDescription = Description.getAnimalsListDescriptionString(animals);
+            animalsDescription = StringUtils.getAnimalsListDescriptionString(animals);
         }
 
         String doorsDescription = "{}";
         Map<Direction, Room> adjacentRooms = room.getAdjacentRooms();
         if (!adjacentRooms.isEmpty()) {
-            doorsDescription = Description.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
+            doorsDescription = StringUtils.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
         }
 
         return "Current room " + room.getName() + ".\n\n" +

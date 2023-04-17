@@ -1,21 +1,17 @@
 package domain;
 
 import gestionezoo.Animal;
+import utils.StringUtils;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class Room {
 
     private String name;
-    private ArrayList<Item> items;
-    private ArrayList<Animal> animals;
-    private EnumMap<Direction, Room> adjacentRooms;
+    private List<Item> items;
+    private List<Animal> animals;
+    private Map<Direction, Room> adjacentRooms;
 
-    public Room() {
-    }
     public Room(String name) {
         this.name = name;
         this.items = new ArrayList<>();
@@ -31,40 +27,37 @@ public class Room {
         this.name = name;
     }
 
-    public ArrayList<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
-    public ArrayList<Animal> getAnimals() {
+    public List<Animal> getAnimals() {
         return animals;
     }
 
-    public void setAnimals(ArrayList<Animal> animals) {
+    public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
 
-    public EnumMap<Direction, Room> getAdjacentRooms() {
+    public Map<Direction, Room> getAdjacentRooms() {
         return adjacentRooms;
     }
 
-    public void setAdjacentRooms(EnumMap<Direction, Room> adjacentRooms) {
+    public void setAdjacentRooms(Map<Direction, Room> adjacentRooms) {
         this.adjacentRooms = adjacentRooms;
     }
 
     /*Aggiunge animale nella lista animali*/
-    public Animal addAnimal(Animal animal) {
-        if (animals.add(animal)) {
-            return animal;
-        }
-        return null;
+    public void addAnimalInTheRoom(Animal animal) {
+        animals.add(animal);
     }
 
     /*Rimuove animale dalla lista degli animali*/
-    public Animal deleteAnimal(Animal animal) {
+    public Animal removeAnimalInTheRoom(Animal animal) {
         if (animals.remove(animal)) {
             return animal;
         }
@@ -72,45 +65,39 @@ public class Room {
     }
 
     /*Rimuove tutti gli animali dalla lista animale*/
-    public void deleteAllAnimal() {
+    public void removeAllAnimalInTheRoom() {
         animals.clear();
     }
 
     /*Ritorna gli animali della lista*/
-    public ArrayList<Animal> ListAnimal() {
+    public List<Animal> getAllAnimalInTheRoom() {
         return animals;
     }
 
     /*ricerca animale tramite nome*/
-    public Animal getAnimalByName(String nameAnimal) {
-        for (Animal animal : animals) {
-            if (animal.getName().toLowerCase().equals(nameAnimal)) {
-                return animal;
-            }
-        }
-        return null;
+    public Animal getAnimalByNameInTheRoom(String nameAnimal) {
+        return animals.stream().filter(animal -> animal.getName().toLowerCase().equalsIgnoreCase(nameAnimal))
+                .findAny()
+                .orElse(null);
     }
 
     /*rimozione animale tramite nome*/
-    public Animal removeAnimalByName(String nameToRemove) {
-        Animal animal = animals.get(0);
-        for (Animal animalCurrent : animals) {
-            if (animalCurrent.getName().toLowerCase().equals(nameToRemove)) {
-                items.remove(animalCurrent);
-                animal = animalCurrent;
-                return animal;
-            }
-        }
-        return null;
+    public Animal removeAnimalByNameInTheRoom(String nameToRemove) {
+        return animals.stream().filter(animalCurrent -> animalCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))
+                .findAny()
+                .map(animalCurrent -> {
+                    animals.remove(animalCurrent);
+                    return animalCurrent;
+                }).orElse(null);
     }
 
     /*aggiunge un oggetto dentro la lista items*/
-    public boolean addItem(Item item) {
-        return items.add(item);
+    public void addItemInTheRoom(Item item) {
+         items.add(item);
     }
 
     /*rimuove un oggetto dalla lista item*/
-    public Item deleteItem(Item item) {
+    public Item removeItemInTheRoom(Item item) {
         if (items.remove(item)) {
             return item;
         }
@@ -122,36 +109,31 @@ public class Room {
         items.clear();
     }
 
-    /*ritorna lista oggetti*/
-    public ArrayList<Item> ListItem() {
+    /*ritorna lista di oggetti*/
+    public List<Item> getAllItems() {
         return items;
     }
 
     /*Ricerca tramite nome dell'oggetto*/
-    public Item getItemByName(String name) {
-        for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(name)) {
-                return item;
-            }
-        }
-        return null;
+    public Item getItemByNameInTheRoom(String name) {
+        return items.stream()
+                .filter(item -> item.getName().toLowerCase().equalsIgnoreCase(name))
+                .findAny()            /*viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
+                .orElse(null); /*utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
     }
 
     /*rimozione oggetto tramite nome*/
-    public Item removeItemByName(String nameToRemove) {
-        Item itm = items.get(0);
-        for (Item itemCurrent : items) {
-            if (itemCurrent.getNameItem().toLowerCase().equals(nameToRemove)) {
-                items.remove(itemCurrent);
-                itm = itemCurrent;
-                return itm;
-            }
-        }
-        return null;
+    public Item removeItemByNameInTheRoom(String nameToRemove) {
+        return items.stream().filter(itemCurrent -> itemCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))
+                .findAny()
+                .map(itemCurrent -> {
+                    items.remove(itemCurrent);
+                    return itemCurrent;
+                }).orElse(null);
     }
 
     /*aggiunge la stanza nella lista corrente*/
-    public Room addAdJacentRoom(Room room, Direction direction) {
+    public Room addAdjacentRoom(Room room, Direction direction) {
         return adjacentRooms.put(direction, room);
     }
 
@@ -166,12 +148,12 @@ public class Room {
 
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
-    public Optional<Room> getAdjacentRoom(Direction direction) {
+    public Optional<Room> getAdjacentRoomDirection(Direction direction) {
         return Optional.ofNullable(adjacentRooms.get(direction));
     }
 
     /*rimozione della stanza in base alla direzione specifica*/
-    public Room cancelAdiacentRoom(Direction direction) {
+    public Room cancelAdjacentRoomDirection(Direction direction) {
         return adjacentRooms.remove(direction);
     }
 
@@ -188,21 +170,21 @@ public class Room {
         return Objects.hash(name, items, animals, adjacentRooms);
     }
 
-    /*IMP!!!! metodo look*/
+    /*metodo look*/
     public String look() {
         String itemsDescription = "{}";
         if (!items.isEmpty()) {
-            itemsDescription = Description.getItemsListDescriptionString(items);
+            itemsDescription = StringUtils.getItemsListDescriptionString(items);
         }
 
         String animalsDescription = "{}";
         if (!animals.isEmpty()) {
-            animalsDescription = Description.getAnimalsListDescriptionString(animals);
+            animalsDescription = StringUtils.getAnimalsListDescriptionString(animals);
         }
 
         String doorsDescription = "{}";
         if (!adjacentRooms.isEmpty()) {
-            doorsDescription = Description.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
+            doorsDescription = StringUtils.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
         }
 
         return "Current room " + name + ".\n\n" +
@@ -210,6 +192,8 @@ public class Room {
                 "Animal: " + animalsDescription + "\n\n" +
                 "Adjacent Room: " + doorsDescription;
     }
+
+
 }
 
 

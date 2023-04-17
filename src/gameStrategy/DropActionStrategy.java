@@ -26,7 +26,7 @@ public class DropActionStrategy implements ActionStrategy{
             return "Item not found in the bag";
         }
         try {
-            currentRoom.addItem(item);
+            currentRoom.addItemInTheRoom(item);
         } catch (IllegalStateException e) {
             bag.addItem(item);
             return "Room is full, cannot drop the item";
@@ -36,6 +36,6 @@ public class DropActionStrategy implements ActionStrategy{
         } catch (IndexOutOfBoundsException e) {
             return "You have not deleted any items";
         }
-        return "Dropped " + item.getNameItem() + " from the bag in the room. ";
+        return "Dropped " + item.getName() + " from the bag in the room. ";
     }
 }

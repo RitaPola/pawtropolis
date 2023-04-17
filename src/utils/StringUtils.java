@@ -1,11 +1,13 @@
-package domain;
+package utils;
 
+import domain.Direction;
+import domain.Item;
 import gestionezoo.Animal;
 
 import java.util.List;
 
-public final class Description {
-    public Description() {
+public class StringUtils {
+    private StringUtils() {
     }
 
     public static String getItemsListDescriptionString(List<Item> items) {
@@ -17,7 +19,7 @@ public final class Description {
 
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
-            itemsDescription += item.getNameItem() + "(" + item.getOccupiedSlots() + ")";
+            itemsDescription += item.getName() + "(" + item.getOccupiedSlots() + ")";
             if (i < items.size() - 1) { /*Se l'oggetto corrente non è l'ultimo nella lista, il metodo aggiungerà una virgola */
                 itemsDescription += ", ";
             }

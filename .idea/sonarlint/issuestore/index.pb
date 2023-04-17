@@ -11,3 +11,9 @@ K
 src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
+I
+src/domain/Direction.java,0\7\073a8cf2126f582e4b6a3056ca13664c2dfa5284
+X
+(src/gameStrategy/LookActionStrategy.java,2\a\2a287136a351c7c5ed44e1833c2d67e5ade8d438
+T
+$src/gameStrategy/ActionStrategy.java,9\b\9b7ff192b5188a7cce4225a8e53fba68e3d66094

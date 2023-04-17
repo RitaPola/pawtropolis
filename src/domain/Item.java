@@ -2,22 +2,23 @@ package domain;
 
 public class Item {
 
-    private String nameItem;
+    private String name;
     private String description;
-    private int occupiedSlots; /*slot occupati dall'oggetto nella borsa*/
 
-    public Item(String nameItem, String description, int occupiedSlots) {
-        this.nameItem = nameItem;
+    private int occupiedSlots; /*slot occupati dall'oggetto nella borsa - rinominarlo in requiredSlots*/
+
+    public Item(String name, String description, int occupiedSlots) {
+        this.name = name;
         this.description = description;
         this.occupiedSlots = occupiedSlots;
     }
 
-    public String getNameItem() {
-        return nameItem;
+    public String getName() {
+        return name;
     }
 
-    public void setNameItem(String nameItem) {
-        this.nameItem = nameItem;
+    public void setName(String nameItem) {
+        this.name = nameItem;
     }
 
     public String getDescription() {
@@ -39,7 +40,7 @@ public class Item {
     @Override
     public String toString() {
         return "Item --> " +
-                "nameItem: " + nameItem + '\'' +
+                "nameItem: " + name + '\'' +
                 ", description: " + description + '\'' +
                 ", occupiedSlots: " + occupiedSlots;
     }

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class StrategyController {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+     /*   Scanner input = new Scanner(System.in);
         try {
             System.out.print("\n" + "Enter the player's name: ");
             String playerName = input.nextLine();
@@ -20,8 +20,6 @@ public class StrategyController {
             System.out.println("\n" + "Enter the name of the current room you can choose between: garden, livingRoom and bedRoom");
             String curRoom = input.nextLine();
             Bag bagPlayer1 = new Bag();
-        /*Item initialItemPlayer = new Item("knife", "starting object of the game", 2);
-        bagPlayer1.addItem(initialItemPlayer);*/
             Room initialRoom = new Room(curRoom);
 
             Player player = new Player(playerName, playerLevel, bagPlayer1, initialRoom);
@@ -62,7 +60,7 @@ public class StrategyController {
             Item item4 = new Item("Kalashnikov", "mitragliatore", 6);
             Item item5 = new Item("machete", "cutting weapon", 4);
             Item item6 = new Item("medical bandages", "they are used to bandage wounds", 1);
-            Item item7 = new Item("healing herb", "Resident Evil style green grass", 3);
+            Item item7 = new Item("healing herb", "Resident Evil style green herb", 3);
             initialRoom.addItem(item0);
             bathroom.addItem(item1);
             kitchen.addItem(item2);
@@ -71,15 +69,16 @@ public class StrategyController {
             armory.addItem(item5);
             noursey.addItem(item6);
             noursey.addItem(item7);
-
+*/
             /*Creazione animali*/
-            Animal animal1 = new Animal("Lion Hearth ", "carne cruda", LocalDate.now(), 70.00, 8.50);
+        /*    Animal animal1 = new Animal("Lion Hearth ", "carne cruda", LocalDate.now(), 70.00, 8.50);
             Animal animal2 = new Animal("Tiger wolf", "meat", LocalDate.now(), 80.00, 6.50);
             Animal animal3 = new Animal("Eagle Pincopallino", "meat", LocalDate.now(), 30.00, 2.50);
             Animal animal4 = new Animal("Lion Biricchino", "meat", LocalDate.now(), 90.00, 7.50);
 
+*/
             /*Aggiunta degli animali alle rispettive stanze*/
-            initialRoom.addAnimal(animal1);
+    /*        initialRoom.addAnimal(animal1);
             bathroom.addAnimal(animal2);
             armory.addAnimal(animal3);
             noursey.addAnimal(animal4);
@@ -111,7 +110,7 @@ public class StrategyController {
                         actionStrategy = new LookActionStrategy(player.getCurrentRoom());
                         break;
                     case 2:
-                        System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST)");
+                        System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST OR CENTRAL)");
                         String directionInput = input.nextLine();
                         Direction direction = Direction.valueOf(directionInput.toUpperCase());
                         actionStrategy = new GoActionStrategy(player, direction);
@@ -128,7 +127,7 @@ public class StrategyController {
                         break;
                     case 5:
                         actionStrategy = new BagActionStrategy(player.getBag());
-                        System.out.println("Available slot " + bagPlayer1.availableSlot() + "\n");
+                        System.out.println("Available slot " + bagPlayer1.checkAvailableSlotsInTheBag() + "\n");
                         break;
                     case 6:
                         System.out.println("\n" + "Thanks for playing!");
@@ -144,6 +143,8 @@ public class StrategyController {
             System.out.println("\n" + "You have not entered the correct input ");
         }
         input.close();
+        */
     }
+
     }
 

@@ -16,15 +16,15 @@ public class GoActionStrategy implements ActionStrategy{
     }
     @Override
     public String execute() {
-        String trueParameter = "You are ";
-        String falseParameter = "There is no room in that direction ";
-        Optional<Room> adjacentRoomOptional = player.getCurrentRoom().getAdjacentRoom(direction);
+        String roomFoundMessage = "You are ";
+        String roomNotFoundMessage = "There is no room in that direction ";
+        Optional<Room> adjacentRoomOptional = player.getCurrentRoom().getAdjacentRoomDirection(direction);
         if (adjacentRoomOptional.isPresent()) {
             adjacentRoom = adjacentRoomOptional.get();
             player.setCurrentRoom(adjacentRoom);
-            return trueParameter + adjacentRoom.look();
+            return roomFoundMessage + adjacentRoom.look();
         } else {
-            return falseParameter;
+            return roomNotFoundMessage;
         }
     }
 }

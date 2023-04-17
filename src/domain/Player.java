@@ -41,11 +41,11 @@ public class Player{
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
+    // todo: da cancellare
     public Bag getBag() {
         return bag;
     }
-
+    // todo: da cancellare
     public void setBag(Bag bag) {
         this.bag = bag;
     }
@@ -56,7 +56,7 @@ public class Player{
             throw new IllegalStateException("bag field is null");
         }
         try {
-            return bag.addItem(item);
+            return bag.addItem(item); //todo: da controllare IMPORTANTE!!!
         } catch (IllegalStateException e) {
             System.out.println("bag is full");
         } catch (IllegalArgumentException e) {
@@ -77,12 +77,12 @@ public class Player{
 
     /*rimuove tutti oggetti dallo zaino del giocatore*/
     public void removeallItemBag() {
-        bag.removeAllItemsBag();
+        bag.removeAllItemFromTheBag();
     }
 
     /*Ricerca oggetto per nome*/
     public Item serachItemByName(String nameItem) {
-        return bag.searchItemByName(nameItem);
+        return bag.getItemByName(nameItem);
     }
 
     /*incrementa la vita del giocatore*/
@@ -94,9 +94,9 @@ public class Player{
         health = newLifePoints;
     }
 
-    /*verifica gli slot disponibili nella borsa*/
-    public void availableSlotTobag() {
-        bag.availableSlot();
+    /*verifica gli slot disponibili nella borsa, IMPORTANTE!!!! cambiare*/
+    public int availableSlotsInBag() {
+       return bag.checkAvailableSlotsInTheBag();
     }
 
     /*Decrementa la vita del giocatore*/
@@ -105,7 +105,15 @@ public class Player{
         if (point <= 0) {
             throw new IllegalArgumentException("The life point must be a positive integer");
         }
-        int newLifePoints = Math.max(health - point, 0);
+       /* int newLifePoints = 0;
+        if (health - point > 0) {
+            newLifePoints = health - point;
+        }else{
+            newLifePoints = 0;
+        }*/
+        int delta = health - point;
+        int newLifePoints = delta > 0 ? delta : 0;
+       // int newLifePoints = Math.max(health - point, 0);
         health = newLifePoints;
         if (health == 0) {
             LOGGER.info("Player is dead");
