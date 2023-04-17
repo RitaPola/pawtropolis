@@ -36,6 +36,6 @@ public class DropActionStrategy implements ActionStrategy{
         } catch (IndexOutOfBoundsException e) {
             return "You have not deleted any items";
         }
-        return "Dropped " + item.getNameItem() + " from the bag in the room. ";
+        return "Dropped " + item.getName() + " from the bag in the room. ";
     }
 }

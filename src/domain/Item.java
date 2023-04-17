@@ -12,11 +12,11 @@ public class Item {
         this.occupiedSlots = occupiedSlots;
     }
 
-    public String getNameItem() {
+    public String getName() {
         return nameItem;
     }
 
-    public void setNameItem(String nameItem) {
+    public void setName(String nameItem) {
         this.nameItem = nameItem;
     }
 

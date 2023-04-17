@@ -76,12 +76,12 @@ public class Player{
     }
 
     /*rimuove tutti oggetti dallo zaino del giocatore*/
-    public void removeallItemBag() {
+    public void removellItemBag() {
         bag.removeAllItemsBag();
     }
 
     /*Ricerca oggetto per nome*/
-    public Item serachItemByName(String nameItem) {
+    public Item searchItemByName(String nameItem) {
         return bag.searchItemByName(nameItem);
     }
 
@@ -126,3 +126,4 @@ public class Player{
     }
 
 }
+

@@ -2,7 +2,6 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Bag {
     private List<Item> items;
@@ -10,7 +9,6 @@ public class Bag {
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
 
     public Bag() {
-        this.items = items;
         this.availableSlots = totalSlots;
         this.items = new ArrayList<>(totalSlots);/* inizializzazione dell'arraylist di oggetti indica la max capacità*/
     }
@@ -36,11 +34,9 @@ public class Bag {
 
     /*Inserimento e rimozione oggetto nella borsa*/
     public Item addItem(Item item) {
-        if (items.add(item)) {
-            availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
-            return item;
-        }
-        return null;
+        items.add(item);
+        availableSlots -= item.getOccupiedSlots(); /*controllo dello spazio occupato da un oggetto, sottraggo gli slot disponibili - gli slot occupati dall oggetto */
+        return item;
     }
 
     public Item removeItem(Item item) {
@@ -57,7 +53,7 @@ public class Bag {
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
         for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(name)) {
+            if (item.getName().toLowerCase().equals(name)) {
                 return item;
             }
         }
@@ -79,15 +75,14 @@ public class Bag {
     }
     /*Rimozione item tramite nome*/
     public Item removeItemByName(String nameToRemove) {
-        Item itm = items.get(0);
-        for (Item itemCurrent : items) {
-            if (itemCurrent.getNameItem().equals(nameToRemove)) {
-                items.remove(itemCurrent);
-                itm = itemCurrent;
-                return itm;
-            }
+        Item item = items.stream()
+                .filter(i -> i.getName().equalsIgnoreCase(nameToRemove))
+                .findAny()
+                .orElse(null);
+        if(item == null) {
+            return null;
         }
-        return null;
+        return removeItem(item);
     }
     /*verifica quanti slot sono disponibili*/
     public String availableSlot() {
@@ -100,12 +95,10 @@ public class Bag {
 
     /*ricerca oggetto per nome*/
     public Item searchItemByName(String nameItem) {
-        for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(nameItem)) {
-                return item;
-            }
-        }
-        return null;
+        return items.stream()
+                .filter(item -> item.getName().equalsIgnoreCase(nameItem))
+                .findAny()
+                .orElse(null);
     }
 
     @Override

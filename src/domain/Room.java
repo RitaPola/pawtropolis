@@ -130,7 +130,7 @@ public class Room {
     /*Ricerca tramite nome dell'oggetto*/
     public Item getItemByName(String name) {
         for (Item item : items) {
-            if (item.getNameItem().toLowerCase().equals(name)) {
+            if (item.getName().toLowerCase().equals(name)) {
                 return item;
             }
         }
@@ -141,7 +141,7 @@ public class Room {
     public Item removeItemByName(String nameToRemove) {
         Item itm = items.get(0);
         for (Item itemCurrent : items) {
-            if (itemCurrent.getNameItem().toLowerCase().equals(nameToRemove)) {
+            if (itemCurrent.getName().toLowerCase().equals(nameToRemove)) {
                 items.remove(itemCurrent);
                 itm = itemCurrent;
                 return itm;

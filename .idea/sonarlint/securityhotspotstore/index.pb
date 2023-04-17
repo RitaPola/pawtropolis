@@ -1,13 +1,23 @@
 
-H
-src/gestionezoo/Zoo.java,e\1\e16d3f7ef7ccb78266bb56980a4efe271bb5c958
+W
+'src/gameStrategy/BagActionStrategy.java,f\b\fbce7e86c474aa24b2296b39df2fbf519fa5bcaa
+X
+(src/gameStrategy/DropActionStrategy.java,6\3\6370137eadf6f0a58fd184d5fb00d1be76258f7e
+V
+&src/gameStrategy/GoActionStrategy.java,7\5\758e0b2cb6efb26a8d2dca64929beb12189fc918
+X
+(src/gameStrategy/LookActionStrategy.java,2\a\2a287136a351c7c5ed44e1833c2d67e5ade8d438
+K
+src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
 J
 src/gestionezoo/Eagle.java,1\f\1fefcc611af97912f9309b48c58617bf8b6e8ee5
 I
 src/gestionezoo/Lion.java,7\7\775aca16e008db5e97fad9fbfc1b711a10dff296
 J
 src/gestionezoo/Tiger.java,8\4\84aa26dab7621746462fd31b1043ae3172bec6f5
-K
-src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
+H
+src/gestionezoo/Zoo.java,e\1\e16d3f7ef7ccb78266bb56980a4efe271bb5c958
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
+T
+$src/gameStrategy/ActionStrategy.java,9\b\9b7ff192b5188a7cce4225a8e53fba68e3d66094

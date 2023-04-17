@@ -41,6 +41,6 @@ public class GetActionStrategy implements ActionStrategy {
         } catch (IndexOutOfBoundsException e) {
             return "You have not specified an item to get";
         }
-        return "Got " + item.getNameItem() + " from the room and added it to your bag. ";
+        return "Got " + item.getName() + " from the room and added it to your bag. ";
     }
 }

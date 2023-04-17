@@ -16,7 +16,7 @@ public class BagActionStrategy implements ActionStrategy{
             itemList += "The bag is empty";
         } else {
             for (Item item : bag.getItems()) {
-                itemList += item.getNameItem() + " , " + item.getDescription() + ", " + item.getOccupiedSlots() + " , ";
+                itemList += item.getName() + " , " + item.getDescription() + ", " + item.getOccupiedSlots() + " , ";
             }
             itemList = itemList.substring(0, itemList.length() - 2); // rimuove la virgola finale e lo spazio
         }
