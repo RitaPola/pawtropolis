@@ -2,15 +2,17 @@ package gameStrategy;
 
 import domain.Bag;
 import domain.Item;
+import domain.Player;
 
-public class BagActionStrategy implements ActionStrategy{
+public class BagActionStrategy implements ActionStrategy {
     private Bag bag;
 
     public BagActionStrategy(Bag bag) {
         this.bag = bag;
     }
+
     @Override
-    public String execute() {
+    public void execute() {
         String itemList = " ";
         if (bag.getItems().isEmpty()) {
             itemList += "The bag is empty";
@@ -20,6 +22,6 @@ public class BagActionStrategy implements ActionStrategy{
             }
             itemList = itemList.substring(0, itemList.length() - 2); // rimuove la virgola finale e lo spazio
         }
-        return itemList;
+        System.out.println(itemList);
     }
 }

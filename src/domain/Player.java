@@ -1,23 +1,22 @@
 package domain;
 
+import mapcontroller.Room;
+
 import java.util.logging.Logger;
 
 
 public class Player{
     private String name;
     private int health;
-    private Bag bag;
-    private Room currentRoom;
+    private final Bag bagPlayer;
 
 
-    public Player(String name, int health, Bag bag, Room currentRoom) {
+
+    public Player(String name, int health, Bag bagPlayer) {
         this.name = name;
         this.health = health;
-        this.bag = bag;
-        this.currentRoom=currentRoom;
-
+        this.bagPlayer = bagPlayer;
     }
-
     public String getName() {
         return name;
     }
@@ -33,88 +32,54 @@ public class Player{
     public void setHealth(int health) {
         this.health = health;
     }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-    // todo: da cancellare
-    public Bag getBag() {
-        return bag;
-    }
-    // todo: da cancellare
-    public void setBag(Bag bag) {
-        this.bag = bag;
+    public Bag getBagPlayer() {
+        return bagPlayer;
     }
 
     /*aggiunge un oggetto nello zaino del giocatore*/
-    public Item addItemBag(Item item) {
-        if (bag == null) {
-            throw new IllegalStateException("bag field is null");
-        }
-        try {
-            return bag.addItem(item); //todo: da controllare IMPORTANTE!!!
-        } catch (IllegalStateException e) {
-            System.out.println("bag is full");
-        } catch (IllegalArgumentException e) {
-            System.out.println("item already exists in bag");
-        }
-        return item;
+    public void addItemInTheBagPlayerBag(Item item) {
+        bagPlayer.addItem(item);
     }
 
     /*rimozione oggetto dallo zaino del giocatore*/
-    public Item removeItemBag(Item item) {
-        return bag.removeItem(item);
+    public Item removeItemFromTheBagPlayer(Item item) {
+        return bagPlayer.removeItem(item);
     }
 
     /*rimozione dell'oggetto tramite nome*/
-    public Item removeItemBagByName(String nameItem) {
-        return bag.removeItemByName(nameItem);
+    public Item removeItemFromTheBagPlayerByName(String nameItem) {
+        return bagPlayer.removeItemByName(nameItem);
     }
 
     /*rimuove tutti oggetti dallo zaino del giocatore*/
-    public void removeallItemBag() {
-        bag.removeAllItemFromTheBag();
+    public void removeallItemFromTheBagPlayer() {
+        bagPlayer.removeAllItemFromTheBag();
     }
 
     /*Ricerca oggetto per nome*/
-    public Item serachItemByName(String nameItem) {
-        return bag.getItemByName(nameItem);
+    public Item getItemFromTheBagPlayerByName(String nameItem) {
+        return bagPlayer.getItemByName(nameItem);
+    }
+    /*verifica gli slot disponibili nella borsa*/
+    public int availableSlotsInBag() {
+        return bagPlayer.checkAvailableSlotsInTheBag();
     }
 
     /*incrementa la vita del giocatore*/
-    public void increaseLifePoints(int point) {
+    public void increasePlayerLifePoints(int point) {
         if (point <= 0) {
             throw new IllegalArgumentException("The life point must be a positive integer");
         }
-        int newLifePoints = Math.min(health + point, 100);
-        health = newLifePoints;
+        health = Math.min(health + point, 100);
     }
-
-    /*verifica gli slot disponibili nella borsa, IMPORTANTE!!!! cambiare*/
-    public int availableSlotsInBag() {
-       return bag.checkAvailableSlotsInTheBag();
-    }
-
     /*Decrementa la vita del giocatore*/
-    public void decreaseLifePoints(int point) {
+    public void decreasePlayerLifePoints(int point) {
         Logger LOGGER = Logger.getLogger("myLogger");
         if (point <= 0) {
             throw new IllegalArgumentException("The life point must be a positive integer");
         }
-       /* int newLifePoints = 0;
-        if (health - point > 0) {
-            newLifePoints = health - point;
-        }else{
-            newLifePoints = 0;
-        }*/
         int delta = health - point;
-        int newLifePoints = delta > 0 ? delta : 0;
-       // int newLifePoints = Math.max(health - point, 0);
-        health = newLifePoints;
+        health = Math.max(delta, 0);
         if (health == 0) {
             LOGGER.info("Player is dead");
         }
@@ -123,13 +88,12 @@ public class Player{
     public boolean isAlive() {
         return health > 0;
     }
-
     @Override
     public String toString() {
         return "Player --> " +
-                "name " + name + '\'' +
-                ", health " + health +
-                ", bag " + bag;
+                "name: " + name + '\'' +
+                ", health: " + health +
+                ", bag: " + bagPlayer;
 
     }
 

@@ -1,6 +1,6 @@
 package utils;
 
-import domain.Direction;
+import mapcontroller.Direction;
 import domain.Item;
 import gestionezoo.Animal;
 

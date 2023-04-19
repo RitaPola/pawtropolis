@@ -1,5 +1,6 @@
-package domain;
+package mapcontroller;
 
+import domain.Item;
 import gestionezoo.Animal;
 import utils.StringUtils;
 
@@ -92,8 +93,15 @@ public class Room {
     }
 
     /*aggiunge un oggetto dentro la lista items*/
-    public void addItemInTheRoom(Item item) {
-         items.add(item);
+    public boolean addItemInTheRoom(Item item) {
+        if (item == null) {
+            return false;
+        }
+        if (items.contains(item)) {
+            return false;
+        }
+        items.add(item);
+        return true;
     }
 
     /*rimuove un oggetto dalla lista item*/
@@ -133,8 +141,8 @@ public class Room {
     }
 
     /*aggiunge la stanza nella lista corrente*/
-    public Room addAdjacentRoom(Room room, Direction direction) {
-        return adjacentRooms.put(direction, room);
+    public void addAdjacentRoom(Room room, Direction direction) {
+        adjacentRooms.put(direction, room);
     }
 
     /*Rimuove la stanza nella lista corrente in base alla stanza specifica*/
@@ -148,9 +156,10 @@ public class Room {
 
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
-    public Optional<Room> getAdjacentRoomDirection(Direction direction) {
-        return Optional.ofNullable(adjacentRooms.get(direction));
+    public Room getAdjacentRoomDirection(Direction direction) {
+        return adjacentRooms.get(direction);
     }
+
 
     /*rimozione della stanza in base alla direzione specifica*/
     public Room cancelAdjacentRoomDirection(Direction direction) {

@@ -1,4 +1,4 @@
-package domain;
+package mapcontroller;
 
 public enum Direction {
     /*insieme di valori costanti, accetta valori null, utilizzo come chiave le direzioni*/
@@ -8,7 +8,7 @@ public enum Direction {
     WEST("West"),
     CENTRAL("CurrentRoom"),
     //todo: cambaire NULLABLE con INVALID
-    NULLABLE(null);
+    INVALID(null);
 
     private final String name;
 
@@ -28,7 +28,22 @@ public enum Direction {
                 return d;
             }
         }
-        return NULLABLE;
+        return INVALID;
+    }
+    /*i ha una direzione Direction.NORTH, chiamando il metodo getOppositeDirection() si otterrà la direzione opposta Direction.SOUTH.*/
+    public Direction getOppositeDirection() {
+        switch (this) {
+            case NORTH:
+                return SOUTH;
+            case SOUTH:
+                return NORTH;
+            case EAST:
+                return WEST;
+            case WEST:
+                return EAST;
+            default:
+                return INVALID;
+        }
     }
 
     @Override

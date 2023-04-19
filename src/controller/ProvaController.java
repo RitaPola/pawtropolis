@@ -1,7 +1,7 @@
 package controller;
 
 import domain.Item;
-import domain.Room;
+import mapcontroller.Room;
 import gestionezoo.Animal;
 
 import java.time.LocalDate;
