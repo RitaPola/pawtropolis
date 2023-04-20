@@ -5,7 +5,7 @@ import domain.Room;
 
 
 public class LookActionStrategy implements ActionStrategy {
-    private Room room;
+    private final Room room;
 
     public LookActionStrategy(Room room) {
         this.room = room;

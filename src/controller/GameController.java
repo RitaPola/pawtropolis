@@ -70,7 +70,7 @@ public class GameController {
                 System.out.println("\n" + "Invalid choice. Please choose again.");
                 continue;
             }
-            ActionStrategy actionStrategy = actionSupplier.get();/*get usato per fornire il valore degli oggetti di tipo action strategy*/
+            ActionStrategy actionStrategy = actionSupplier.get();
             actionStrategy.execute();
         } while (!exitGame);
     }

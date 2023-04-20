@@ -9,8 +9,6 @@ J
 src/gestionezoo/Tiger.java,8\4\84aa26dab7621746462fd31b1043ae3172bec6f5
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
-J
-src/utils/StringUtils.java,3\b\3b5357a1ffb7eeb2291584335f74e7563e0dafbf
 C
 src/domain/Bag.java,c\5\c56c44b483b261340f6bcea0f825c88cadd196a3
 D

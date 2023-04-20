@@ -46,9 +46,30 @@ public class CreationMap {
         noursey.addItemInTheRoom(new Item("healing herb", "Resident Evil style green herb", 3));
         return entrance;
     }
+    private static void linkedRooms(Room a, Room b, Direction directionA, Direction directionB) {
+        a.addAdjacentRoom(b, directionA);
+        b.addAdjacentRoom(a, directionB);
+    }
+
     private static void linkRooms(Room a, Room b, Direction direction) {
-        Direction oppositeDirection = direction.getOppositeDirection();
-        a.addAdjacentRoom(b, direction);
-        b.addAdjacentRoom(a, oppositeDirection);
+        Direction directionB;
+        switch (direction) {
+            case NORTH:
+                directionB = Direction.SOUTH;
+                break;
+            case SOUTH:
+                directionB = Direction.NORTH;
+                break;
+            case EAST:
+                directionB = Direction.WEST;
+                break;
+            case WEST:
+                directionB = Direction.EAST;
+                break;
+            default:
+                directionB = Direction.INVALID;
+                break;
+        }
+        linkedRooms(a, b, direction, directionB);
     }
 }
