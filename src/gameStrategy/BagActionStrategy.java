@@ -22,6 +22,6 @@ public class BagActionStrategy implements ActionStrategy {
             }
             itemList = itemList.substring(0, itemList.length() - 2); // rimuove la virgola finale e lo spazio
         }
-        System.out.println(itemList);
+        System.out.println("In the bag there is: "+ itemList +"." + "\n There are still " +bag.getAvailableSlots() + " available slots.");
     }
 }
