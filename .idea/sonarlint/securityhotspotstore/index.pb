@@ -17,3 +17,7 @@ C
 src/domain/Bag.java,c\5\c56c44b483b261340f6bcea0f825c88cadd196a3
 D
 src/domain/Item.java,3\9\390aa6a7a5b8d0f33df0f1d9b09b7f70f8aa38ff
+F
+src/domain/Player.java,7\c\7ce1d0985c44bdbcdbc566ddd166f28bbd070e7e
+R
+"src/mapcontroller/CreationMap.java,0\5\05e0681d641f9ca9e4c1da1c4185f08cc54743d5

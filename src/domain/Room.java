@@ -1,7 +1,7 @@
-package mapcontroller;
+package domain;
 
-import domain.Item;
 import gestionezoo.Animal;
+import mapcontroller.Direction;
 import utils.StringUtils;
 
 import java.util.*;

@@ -1,7 +1,5 @@
 package domain;
 
-import mapcontroller.Room;
-
 import java.util.logging.Logger;
 
 

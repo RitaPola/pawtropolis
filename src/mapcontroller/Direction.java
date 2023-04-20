@@ -6,13 +6,11 @@ public enum Direction {
     SOUTH("South"),
     EAST("East"),
     WEST("West"),
-    CENTRAL("CurrentRoom"),
-    //todo: cambaire NULLABLE con INVALID
     INVALID(null);
 
     private final String name;
 
-    //costruttore
+
     Direction(String name) {
         this.name = name;
     }
@@ -30,7 +28,6 @@ public enum Direction {
         }
         return INVALID;
     }
-    /*i ha una direzione Direction.NORTH, chiamando il metodo getOppositeDirection() si otterrà la direzione opposta Direction.SOUTH.*/
     public Direction getOppositeDirection() {
         switch (this) {
             case NORTH:

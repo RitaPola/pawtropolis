@@ -2,7 +2,7 @@ package gameStrategy;
 import domain.Item;
 import domain.Player;
 import mapcontroller.CreationMap;
-import mapcontroller.Room;
+import domain.Room;
 
     public class GetActionStrategy implements ActionStrategy {
 
@@ -40,7 +40,7 @@ import mapcontroller.Room;
                     System.out.println("Item already exists in bag");
                     return;
                 }
-                System.out.println("Got " + item.getName() + " from the room and added it to your bag. ");
+                System.out.println("Got " + item.getName() + " from the room and added it to your bag. " + " you have available " + player.getBagPlayer().getAvailableSlots() + " slots ");
             } else {
                 currentRoom.addItemInTheRoom(item);
                 System.out.println("Bag is full, cannot get the item");

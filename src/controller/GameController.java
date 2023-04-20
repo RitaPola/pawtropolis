@@ -1,26 +1,19 @@
 package controller;
-
 import domain.Bag;
 import domain.Player;
 import gameStrategy.*;
 import mapcontroller.CreationMap;
 import mapcontroller.Direction;
-import mapcontroller.Room;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class GameController {
 
     private static GameController instance;
 
-    private CreationMap mapGame;
-
-    public boolean changeRoom(Direction direction) {
-        return mapGame.changeRoom(direction);
-    }
-    public Room getCurrentRoom() {
-        return mapGame.getCurrentRoom();
-    }
+    private final CreationMap mapGame;
 
     private GameController() {
         this.mapGame = new CreationMap();
@@ -32,7 +25,6 @@ public class GameController {
         }
         return instance;
     }
-
     public void playGame() {
         Scanner input = new Scanner(System.in);
         System.out.print("\n" + "Enter the player's name: ");
@@ -43,58 +35,48 @@ public class GameController {
         Bag bagPlayer = new Bag(20);
         Player player = new Player(playerName, playerLevel, bagPlayer);
 
-        while (true) {
+        Map<String, Supplier<ActionStrategy>> actions = new HashMap<>();
+        actions.put("LOOK", () -> new LookActionStrategy(mapGame.getCurrentRoom()));
+        actions.put("BAG", () -> new BagActionStrategy(bagPlayer));
+        actions.put("EXITGAME", () -> {
+            System.out.println("\n" + "Thanks for playing!");
+            System.exit(0);
+            return null;
+        });
+        actions.put("GO", () -> {
+            System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST)");
+            String directionInput = input.nextLine();
+            Direction direction = Direction.valueOf(directionInput.toUpperCase());
+            return new GoActionStrategy(mapGame, direction);
+        });
+
+        actions.put("GET", () -> {
+            System.out.println("\n" + "Which item do you want to get?");
+            String itemName = input.nextLine();
+            return new GetActionStrategy(itemName, player, mapGame);
+        });
+
+        actions.put("DROP", () -> {
+            System.out.println("\n" + "Which item do you want to drop?");
+            String itemName = input.nextLine();
+            return new DropActionStrategy(player.getBagPlayer(), itemName, mapGame);
+        });
+        boolean exitGame = false;
+        do {
             System.out.print("""
                                                 
-                  What do you want to do?
-                  
-                  1. Look around
-                  
-                  2. Go to a different room
-                  
-                  3. Get an item
-                  
-                  4. Drop an item
-                  
-                  5. Check inventory
-                  
-                  6. Exit the game
-                 
-                """);
+                    What do you want to do?
+                           
+                    """);
             String choice = input.nextLine().toUpperCase();
-
-            ActionStrategy actionStrategy;
-            switch (choice) {
-                case "LOOK":
-                    actionStrategy = new LookActionStrategy(mapGame.getCurrentRoom());
-                    break;
-                case "GO":
-                    System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST OR CENTRAL)");
-                    String directionInput = input.nextLine();
-                    Direction direction = Direction.valueOf(directionInput.toUpperCase());
-                    actionStrategy = new GoActionStrategy();
-                    break;
-                case "GET":
-                    System.out.println("\n" + "Which item do you want to get?");
-                    String itemName = input.nextLine();
-                    actionStrategy = new GetActionStrategy(itemName,player,mapGame);
-                    break;
-                case "DROP":
-                    System.out.println("\n" + "Which item do you want to drop?");
-                    itemName = input.nextLine();
-                    actionStrategy = new DropActionStrategy(player.getBagPlayer(), itemName, mapGame);
-                    break;
-                case "BAG":
-                    actionStrategy = new BagActionStrategy(bagPlayer);
-                    break;
-                case "EXITGAME":
-                    System.out.println("\n" + "Thanks for playing!");
-                    return;
-                default:
-                    System.out.println("\n" + "Invalid choice. Please choose again.");
-                    continue;
+            Supplier<ActionStrategy> actionSupplier = actions.get(choice);
+            if (actionSupplier == null) {
+                System.out.println("\n" + "Invalid choice. Please choose again.");
+                continue;
             }
+            ActionStrategy actionStrategy = actionSupplier.get();/*get usato per fornire il valore degli oggetti di tipo action strategy*/
             actionStrategy.execute();
-        }
+        } while (!exitGame);
     }
+
 }
