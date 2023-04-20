@@ -40,7 +40,7 @@ import domain.Room;
                     System.out.println("Item already exists in bag");
                     return;
                 }
-                System.out.println("Got " + item.getName() + " from the room and added it to your bag. " + " you have available " + player.getBagPlayer().getAvailableSlots() + " slots ");
+                System.out.println("Got " + item.getName() + " from the room and added it to your bag. ");
             } else {
                 currentRoom.addItemInTheRoom(item);
                 System.out.println("Bag is full, cannot get the item");

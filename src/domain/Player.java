@@ -30,6 +30,7 @@ public class Player{
     public void setHealth(int health) {
         this.health = health;
     }
+
     public Bag getBagPlayer() {
         return bagPlayer;
     }
@@ -50,7 +51,7 @@ public class Player{
     }
 
     /*rimuove tutti oggetti dallo zaino del giocatore*/
-    public void removeallItemFromTheBagPlayer() {
+    public void removeAllItemFromTheBagPlayer() {
         bagPlayer.removeAllItemFromTheBag();
     }
 
@@ -58,6 +59,7 @@ public class Player{
     public Item getItemFromTheBagPlayerByName(String nameItem) {
         return bagPlayer.getItemByName(nameItem);
     }
+
     /*verifica gli slot disponibili nella borsa*/
     public int availableSlotsInBag() {
         return bagPlayer.checkAvailableSlotsInTheBag();
@@ -70,6 +72,7 @@ public class Player{
         }
         health = Math.min(health + point, 100);
     }
+
     /*Decrementa la vita del giocatore*/
     public void decreasePlayerLifePoints(int point) {
         Logger LOGGER = Logger.getLogger("myLogger");
@@ -82,6 +85,7 @@ public class Player{
             LOGGER.info("Player is dead");
         }
     }
+
     /*verifica se il player è vivo*/
     public boolean isAlive() {
         return health > 0;

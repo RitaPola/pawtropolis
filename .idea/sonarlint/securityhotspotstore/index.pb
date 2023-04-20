@@ -7,8 +7,6 @@ I
 src/gestionezoo/Lion.java,7\7\775aca16e008db5e97fad9fbfc1b711a10dff296
 J
 src/gestionezoo/Tiger.java,8\4\84aa26dab7621746462fd31b1043ae3172bec6f5
-K
-src/gestionezoo/Animal.java,5\8\58fa624f12a6f12ad9823dbb28b434732025fb77
 R
 "src/gestionezoo/ZooController.java,d\9\d970a40ba65896d154072d56750957e699ce5e8b
 J
@@ -17,7 +15,3 @@ C
 src/domain/Bag.java,c\5\c56c44b483b261340f6bcea0f825c88cadd196a3
 D
 src/domain/Item.java,3\9\390aa6a7a5b8d0f33df0f1d9b09b7f70f8aa38ff
-F
-src/domain/Player.java,7\c\7ce1d0985c44bdbcdbc566ddd166f28bbd070e7e
-R
-"src/mapcontroller/CreationMap.java,0\5\05e0681d641f9ca9e4c1da1c4185f08cc54743d5

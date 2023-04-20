@@ -38,11 +38,7 @@ public class GameController {
         Map<String, Supplier<ActionStrategy>> actions = new HashMap<>();
         actions.put("LOOK", () -> new LookActionStrategy(mapGame.getCurrentRoom()));
         actions.put("BAG", () -> new BagActionStrategy(bagPlayer));
-        actions.put("EXITGAME", () -> {
-            System.out.println("\n" + "Thanks for playing!");
-            System.exit(0);
-            return null;
-        });
+        actions.put("QUIT GAME", () -> new ExitGameActionStrategy(playerName));
         actions.put("GO", () -> {
             System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST)");
             String directionInput = input.nextLine();

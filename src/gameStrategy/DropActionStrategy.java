@@ -3,6 +3,7 @@ package gameStrategy;
 import domain.Bag;
 import domain.Item;
 import mapcontroller.CreationMap;
+import domain.Room;
 
 public class DropActionStrategy implements ActionStrategy{
     private final Bag bag;
@@ -36,6 +37,5 @@ public class DropActionStrategy implements ActionStrategy{
             bag.addItem(item);
             System.out.println("Room is full, cannot drop the item");
         }
-        System.out.println("the object " + itemName +  " was added successfully " + " you have available " + bag.getAvailableSlots() + " slots ");
     }
 }

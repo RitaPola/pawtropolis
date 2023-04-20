@@ -1,6 +1,8 @@
 package gameStrategy;
 
+
 import domain.Room;
+
 
 public class LookActionStrategy implements ActionStrategy {
     private Room room;
