@@ -1,8 +1,8 @@
 package utils;
 
-import mapcontroller.Direction;
-import domain.Item;
-import gestionezoo.Animal;
+import model.map.Direction;
+import domain.player.Item;
+import domain.animal.Animal;
 
 import java.util.List;
 
