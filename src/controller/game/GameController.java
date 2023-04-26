@@ -1,22 +1,26 @@
 package controller.game;
-import model.map.MapCreator;
-import domain.player.Bag;
-import domain.player.Player;
-import gamestrategy.*;
-import model.map.Direction;
+import controller.input.InputController;
+import controller.map.MapController;
+import domain.commandmanager.Command;
+import domain.game.Bag;
+import domain.game.Player;
+import domain.command.*;
+import domain.mapmanager.Direction;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.function.Supplier;
 
 public class GameController {
 
     private static GameController instance;
 
-    private final MapCreator mapGame;
+    private final MapController mapGame;
+
+    private final InputController inputController;
 
     private GameController() {
-        this.mapGame = new MapCreator();
+        this.mapGame = new MapController();
+        this.inputController = new InputController();
     }
 
     public static GameController getInstance() {
@@ -26,53 +30,49 @@ public class GameController {
         return instance;
     }
     public void playGame() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("\n" + "Enter the player's name: ");
-        String playerName = input.nextLine();
-        System.out.print("\n" + "Enter how much health the player has: ");
-        int playerLevel = input.nextInt();
-        input.nextLine();
+        String playerName = inputController.getInputString("\n" + "Enter the player's name: ");
+        int playerLevel = inputController.getInputInt("\n" + "Enter how much health the player has: ", 0, 100);
         Bag bagPlayer = new Bag(20);
         Player player = new Player(playerName, playerLevel, bagPlayer);
 
-        Map<String, Supplier<ActionStrategy>> actions = new HashMap<>();
-        actions.put("LOOK", () -> new LookActionStrategy(mapGame.getCurrentRoom()));
-        actions.put("BAG", () -> new BagActionStrategy(bagPlayer));
-        actions.put("QUIT GAME", () -> new ExitGameActionStrategy(playerName));
-        actions.put("GO", () -> {
-            System.out.println("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST)");
-            String directionInput = input.nextLine();
-            Direction direction = Direction.valueOf(directionInput.toUpperCase());
+        Map<Command, Supplier<ActionStrategy>> actions = new HashMap<>();
+        actions.put(Command.LOOK, () -> new LookActionStrategy(mapGame.getCurrentRoom()));
+        actions.put(Command.BAG, () -> new BagActionStrategy(bagPlayer));
+        actions.put(Command.QUIT_GAME, () -> new ExitGameActionStrategy(playerName));
+        actions.put(Command.GO, () -> {
+            Direction direction = inputController.getInputDirection("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) ");
             return new GoActionStrategy(mapGame, direction);
         });
 
-        actions.put("GET", () -> {
-            System.out.println("\n" + "Which item do you want to get?");
-            String itemName = input.nextLine();
+        actions.put(Command.GET, () -> {
+            String itemName = inputController.getInputItemName("\n" + "Which item do you want to get? ");
             return new GetActionStrategy(itemName, player, mapGame);
         });
 
-        actions.put("DROP", () -> {
-            System.out.println("\n" + "Which item do you want to drop?");
-            String itemName = input.nextLine();
+        actions.put(Command.DROP, () -> {
+            String itemName = inputController.getInputItemName("\n" + "Which item do you want to drop? ");
             return new DropActionStrategy(player.getBagPlayer(), itemName, mapGame);
         });
+
         boolean exitGame = false;
         do {
             System.out.print("""
-                                                
-                    What do you want to do?
-                           
-                    """);
-            String choice = input.nextLine().toUpperCase();
-            Supplier<ActionStrategy> actionSupplier = actions.get(choice);
-            if (actionSupplier == null) {
+                                
+                What do you want to do?
+                       
+                """);
+            String choice = inputController.getInputString("");
+            Command action = null;
+            try {
+                action = Command.valueOf(choice.toUpperCase());
+            } catch (IllegalArgumentException e) {
                 System.out.println("\n" + "Invalid choice. Please choose again.");
                 continue;
             }
+            Supplier<ActionStrategy> actionSupplier = actions.get(action);
             ActionStrategy actionStrategy = actionSupplier.get();
             actionStrategy.execute();
-            exitGame = choice.equalsIgnoreCase("EXIT");
+            exitGame = action == Command.QUIT_GAME;
         } while (!exitGame);
     }
 

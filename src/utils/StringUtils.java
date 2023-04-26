@@ -1,7 +1,7 @@
 package utils;
 
-import model.map.Direction;
-import domain.player.Item;
+import domain.mapmanager.Direction;
+import domain.game.Item;
 import domain.animal.Animal;
 
 import java.util.List;
