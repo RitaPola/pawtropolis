@@ -21,7 +21,6 @@ import java.util.Scanner;
   public int getInputInt(String prompt, int min, int max) {
    int num = 0;
    boolean isValidInput = false;
-
    do {
     System.out.print(prompt);
     if (input.hasNextInt()) {

@@ -1,7 +1,0 @@
-
->
-java:S1643"Use a StringBuilder instead.(ìí“¬ùÿÿÿÿ8ÀÎ„Äù0
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ì’’Ç8ÁÎ„Äù0
-U	java:S106"9Replace this use of System.out or System.err by a logger.(ÁÈç›8ÊÎ„Äù0
-L
-java:S1128"*Remove this unused import 'domain.Player'.(×çêúÿÿÿÿ8Û …Äù0
