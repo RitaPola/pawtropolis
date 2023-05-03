@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0f803f1-f4e9-49dd-ab70-a2ba6d6f71df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/controller/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/controller/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Lion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/animal/Tiger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/command/ExitGameActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/command/ExitGameActionStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/commandmanager/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/commandmanager/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/pawtropoliss/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/pawtropoliss/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +136,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/acer/OneDrive/Desktop/pawtropoliss&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rpolacchi/IdeaProjects/pawtropoliss&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -269,6 +257,19 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="pawtropolis" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="pawtropolis" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Pawtropolis [assemble]" />
@@ -293,6 +294,9 @@
       <workItem from="1683029760391" duration="7566000" />
       <workItem from="1683038245334" duration="2806000" />
       <workItem from="1683098431139" duration="3851000" />
+      <workItem from="1683104069618" duration="267000" />
+      <workItem from="1683104427108" duration="1796000" />
+      <workItem from="1683107424587" duration="4841000" />
     </task>
     <servers />
   </component>

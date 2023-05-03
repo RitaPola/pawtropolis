@@ -6,7 +6,7 @@ LOOK ("Look"),
     GET ("Get"),
     DROP("Drop"),
     BAG("Bag"),
-    QUIT("Quit game");
+    QUIT("Quit");
     private final String nameCommand;
 
     Command(String nameCommand) {

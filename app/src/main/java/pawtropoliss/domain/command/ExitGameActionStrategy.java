@@ -10,7 +10,8 @@ public class ExitGameActionStrategy implements ActionStrategy {
     public ExitGameActionStrategy(){
     }
     public void execute(){
-        GameController.getInstance().playerQuit();
+          System.out.println("\n" + "thanks for playing! \n" );
+          System.exit(0);
     }
 }
 
