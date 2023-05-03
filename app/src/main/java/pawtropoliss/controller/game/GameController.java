@@ -17,17 +17,24 @@ public class GameController {
 
     private final MapController mapGame;
 
+    private boolean playerQuit;
     private final InputController inputController;
 
     private GameController() {
         this.mapGame = new MapController();
         this.inputController = new InputController();
+        this.playerQuit = false;
     }
     public static GameController getInstance() {
         if (instance == null) {
             instance = new GameController();
         }
         return instance;
+    }
+
+    public boolean playerQuit(){
+        playerQuit = false;
+        return false;
     }
     public void playGame() {
         String playerName = inputController.getInputString("\n" + "Enter the player's name: ");
@@ -37,7 +44,7 @@ public class GameController {
         Map<Command, Supplier<ActionStrategy>> actions = new EnumMap<>(Command.class);
         actions.put(Command.LOOK, () -> new LookActionStrategy(mapGame.getCurrentRoom()));
         actions.put(Command.BAG, () -> new BagActionStrategy(bagPlayer));
-        actions.put(Command.QUIT_GAME, () -> new ExitGameActionStrategy(playerName));
+        actions.put(Command.QUIT, () -> new ExitGameActionStrategy());
         actions.put(Command.GO, () -> {
             Direction direction = inputController.getInputDirection("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) ");
             return new GoActionStrategy(mapGame, direction);
@@ -50,7 +57,9 @@ public class GameController {
             String itemName = inputController.getInputItemName("\n" + "Which item do you want to drop? ");
             return new DropActionStrategy(player.getBagPlayer(), itemName, mapGame);
         });
-        boolean exitGame = false;
+
+
+
         do {
             System.out.println(" What do you want to do? ");
             String choice = inputController.getInputString("");
@@ -58,14 +67,17 @@ public class GameController {
             try {
                 action = Command.valueOf(choice.toUpperCase());
             } catch (IllegalArgumentException e) {
-                System.out.println("\n" + "Invalid choice. Please choose again.");
+                System.out.println("\n" + "Invalid choice stronzo. Please choose again.");
                 continue;
             }
             Supplier<ActionStrategy> actionSupplier = actions.get(action);
             ActionStrategy actionStrategy = actionSupplier.get();
             actionStrategy.execute();
-            exitGame = action == Command.QUIT_GAME;
-        } while (!exitGame);
+            playerQuit = action == Command.QUIT;
+        } while (!playerQuit);{
+            playerQuit = true;
+            System.out.println(playerName + " hai quittato il gioco");
+        };
     }
 
 }

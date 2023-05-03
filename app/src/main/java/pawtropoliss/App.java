@@ -7,8 +7,6 @@ import pawtropoliss.controller.game.GameController;
 
 public class App {
 
-
-    public static void main(String[] args) {
-        GameController.getInstance().playGame();
+    public static void main(String[] args) {GameController.getInstance().playGame();
     }
 }

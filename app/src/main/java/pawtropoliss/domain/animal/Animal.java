@@ -1,21 +1,19 @@
 package pawtropoliss.domain.animal;
 
-import java.time.LocalDate;
+import lombok.*;
 
+import java.time.LocalDate;
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Animal {
 	private String name;
 	private String favoriteFood;
 	private LocalDate admissionDate;
 	private Double weight;
 	private Double height;
-
-	public Animal(String name, String favoriteFood, LocalDate admissionDate, Double weight, Double height) {
-		this.name = name;
-		this.favoriteFood = favoriteFood;
-		this.admissionDate = admissionDate;
-		this.weight = weight;
-		this.height = height;
-	}
 
 	public String getName() {
 		return name;
@@ -57,9 +55,4 @@ public class Animal {
 		this.height = height;
 	}
 
-	@Override
-	public String toString() {
-		return "Animal: Name=" + name + ", Favorite Food=" + favoriteFood + ", Admission Date=" + admissionDate + ", Weight=" + weight
-				+ ", Height=" + height;
-	}
 }
