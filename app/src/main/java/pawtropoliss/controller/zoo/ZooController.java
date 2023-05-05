@@ -17,7 +17,6 @@ import java.util.stream.Stream;
 @Setter
 @ToString
 public class ZooController {
-
 	private List <Lion> lions;
 	private List <Tiger> tigers;
 	private List <Eagle> eagles;
@@ -29,11 +28,7 @@ public class ZooController {
 		eagles = new ArrayList<>();
 		animals = new ArrayList <> ();
 	}
-
-	public void addLion(Lion lion) {
-		lions.add(lion);
-
-	}
+	public void addLion(Lion lion) {lions.add(lion);}
 	public void addTiger(Tiger tiger) {
 		tigers.add(tiger);
 	}
