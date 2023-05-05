@@ -3,10 +3,9 @@
  */
 package pawtropoliss;
 
-import pawtropoliss.controller.game.GameController;
+import pawtropoliss.controller.startgame.GameController;
 
 public class App {
-
     public static void main(String[] args) {GameController.getInstance().playGame();
     }
 }

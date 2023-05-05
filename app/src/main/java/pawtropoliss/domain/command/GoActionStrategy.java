@@ -1,18 +1,14 @@
 package pawtropoliss.domain.command;
 
+import lombok.AllArgsConstructor;
 import pawtropoliss.controller.map.MapController;
 import pawtropoliss.domain.mapmanager.Direction;
 
 import pawtropoliss.domain.game.Room;
-
+@AllArgsConstructor
 public class GoActionStrategy implements ActionStrategy {
-    private final Direction direction;
     private final MapController map;
-
-    public GoActionStrategy(MapController map, Direction direction) {
-        this.map = map;
-        this.direction = direction;
-    }
+    private final Direction direction;
 
     @Override
     public void execute() {

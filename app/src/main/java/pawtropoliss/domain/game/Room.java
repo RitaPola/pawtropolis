@@ -52,7 +52,6 @@ public class Room {
                 .findAny()
                 .orElse(null);
     }
-
     /*rimozione animale tramite nome*/
     public Animal removeAnimalByNameInTheRoom(String nameToRemove) {
         return animals.stream().filter(animalCurrent -> animalCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))

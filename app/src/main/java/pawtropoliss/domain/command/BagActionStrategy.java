@@ -1,14 +1,11 @@
 package pawtropoliss.domain.command;
 
+import lombok.AllArgsConstructor;
 import pawtropoliss.domain.game.Bag;
 import pawtropoliss.domain.game.Item;
-
+@AllArgsConstructor
 public class BagActionStrategy implements ActionStrategy {
     private Bag bag;
-
-    public BagActionStrategy(Bag bag) {
-        this.bag = bag;
-    }
 
     @Override
     public void execute() {

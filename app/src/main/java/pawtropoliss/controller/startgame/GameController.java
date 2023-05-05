@@ -1,4 +1,4 @@
-package pawtropoliss.controller.game;
+package pawtropoliss.controller.startgame;
 import pawtropoliss.controller.input.InputController;
 import pawtropoliss.controller.map.MapController;
 import pawtropoliss.domain.command.*;

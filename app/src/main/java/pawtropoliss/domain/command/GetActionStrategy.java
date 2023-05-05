@@ -1,21 +1,16 @@
 package pawtropoliss.domain.command;
+import lombok.AllArgsConstructor;
 import pawtropoliss.controller.map.MapController;
 import pawtropoliss.domain.game.Item;
 import pawtropoliss.domain.game.Player;
 import pawtropoliss.domain.game.Room;
 
-
+@AllArgsConstructor
 public class GetActionStrategy implements ActionStrategy {
 
         private final String itemName;
         private final Player player;
         private final MapController map;
-
-        public GetActionStrategy(String itemName, Player player, MapController map) {
-            this.itemName = itemName;
-            this.player = player;
-            this.map = map;
-        }
 
         @Override
         public void execute() {
