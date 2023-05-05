@@ -1,5 +1,8 @@
 package pawtropoliss.domain.commandmanager;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public enum Command {
 LOOK ("Look"),
     GO ("Go"),
@@ -8,11 +11,7 @@ LOOK ("Look"),
     BAG("Bag"),
     QUIT("Quit");
     private final String nameCommand;
-
-    Command(String nameCommand) {
-        this.nameCommand=nameCommand;
-    }
-
+    
     @Override
     public String toString() {
         return "Command: " +
