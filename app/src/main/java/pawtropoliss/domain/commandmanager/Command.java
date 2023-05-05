@@ -11,7 +11,7 @@ LOOK ("Look"),
     BAG("Bag"),
     QUIT("Quit");
     private final String nameCommand;
-    
+
     @Override
     public String toString() {
         return "Command: " +
