@@ -1,5 +1,10 @@
 package pawtropoliss.domain.mapmanager;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum Direction {
     /*insieme di valori costanti, accetta valori null, utilizzo come chiave le direzioni*/
     NORTH("North"),
@@ -9,15 +14,6 @@ public enum Direction {
     INVALID(null);
 
     private final String name;
-
-
-    Direction(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     /*restituisce una direzione corrispondente alla stringa specificata come parametro*/
     public static Direction correspondingDirection(String s) {
