@@ -1,11 +1,16 @@
 package pawtropoliss.domain.game;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import pawtropoliss.domain.animal.Animal;
 import pawtropoliss.domain.mapmanager.Direction;
 import pawtropoliss.utils.StringUtils;
 
 import java.util.*;
-
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Room {
 
     private String name;
@@ -19,39 +24,6 @@ public class Room {
         this.animals = new ArrayList<>();
         this.adjacentRooms = new EnumMap<>(Direction.class);
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    public List<Animal> getAnimals() {
-        return animals;
-    }
-
-    public void setAnimals(List<Animal> animals) {
-        this.animals = animals;
-    }
-
-    public Map<Direction, Room> getAdjacentRooms() {
-        return adjacentRooms;
-    }
-
-    public void setAdjacentRooms(Map<Direction, Room> adjacentRooms) {
-        this.adjacentRooms = adjacentRooms;
-    }
-
     /*Aggiunge animale nella lista animali*/
     public void addAnimalInTheRoom(Animal animal) {
         animals.add(animal);
@@ -64,7 +36,6 @@ public class Room {
         }
         return null;
     }
-
     /*Rimuove tutti gli animali dalla lista animale*/
     public void removeAllAnimalInTheRoom() {
         animals.clear();
@@ -91,7 +62,6 @@ public class Room {
                     return animalCurrent;
                 }).orElse(null);
     }
-
     /*aggiunge un oggetto dentro la lista items*/
     public boolean addItemInTheRoom(Item item) {
         if (item == null) {
@@ -103,7 +73,6 @@ public class Room {
         items.add(item);
         return true;
     }
-
     /*rimuove un oggetto dalla lista item*/
     public Item removeItemInTheRoom(Item item) {
         if (items.remove(item)) {
@@ -111,7 +80,6 @@ public class Room {
         }
         return null;
     }
-
     /*Rimuove tutti gli oggetti*/
     public void deleteAllItems() {
         items.clear();
@@ -153,30 +121,15 @@ public class Room {
             return null;
         }
     }
-
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
     public Room getAdjacentRoomDirection(Direction direction) {
         return adjacentRooms.get(direction);
     }
 
-
     /*rimozione della stanza in base alla direzione specifica*/
     public Room cancelAdjacentRoomDirection(Direction direction) {
         return adjacentRooms.remove(direction);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Room room = (Room) o;
-        return name.equals(room.name) && items.equals(room.items) && animals.equals(room.animals) && adjacentRooms.equals(room.adjacentRooms);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, items, animals, adjacentRooms);
     }
 
     /*metodo look*/

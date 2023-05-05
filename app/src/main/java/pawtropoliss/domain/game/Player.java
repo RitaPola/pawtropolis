@@ -1,39 +1,18 @@
 package pawtropoliss.domain.game;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.logging.Logger;
 
-
+@Getter
+@Setter
+@AllArgsConstructor
 public class Player{
     private String name;
     private int health;
     private final Bag bagPlayer;
-
-
-
-    public Player(String name, int health, Bag bagPlayer) {
-        this.name = name;
-        this.health = health;
-        this.bagPlayer = bagPlayer;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public Bag getBagPlayer() {
-        return bagPlayer;
-    }
 
     /*aggiunge un oggetto nello zaino del giocatore*/
     public void addItemInTheBagPlayerBag(Item item) {
@@ -72,7 +51,6 @@ public class Player{
         }
         health = Math.min(health + point, 100);
     }
-
     /*Decrementa la vita del giocatore*/
     public void decreasePlayerLifePoints(int point) {
         Logger LOGGER = Logger.getLogger("myLogger");
@@ -92,7 +70,7 @@ public class Player{
     }
     @Override
     public String toString() {
-        return "Player --> " +
+        return "Player: " +
                 "name: " + name + '\'' +
                 ", health: " + health +
                 ", bag: " + bagPlayer;
