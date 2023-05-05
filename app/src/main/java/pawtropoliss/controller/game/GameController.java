@@ -56,7 +56,10 @@ public class GameController {
             switch (action) {
                 case LOOK -> actionStrategy = new LookActionStrategy(mapGame.getCurrentRoom());
                 case BAG -> actionStrategy = new BagActionStrategy(bagPlayer);
-                case QUIT -> actionStrategy = new ExitGameActionStrategy();
+                case QUIT -> {
+                    actionStrategy = new ExitGameActionStrategy();
+                    System.out.println(playerName + " ADIOS");
+                }
                 case GO -> {
                     Direction direction = inputController.getInputDirection("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) ");
                     actionStrategy = new GoActionStrategy(mapGame, direction);
@@ -71,7 +74,7 @@ public class GameController {
                 }
             }
             actionStrategy.execute();
-           playerQuit = action == Command.QUIT;
+
         } while (!playerQuit);
     }
 }
