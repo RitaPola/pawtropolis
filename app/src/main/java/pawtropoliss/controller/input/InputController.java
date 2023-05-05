@@ -56,7 +56,6 @@ import java.util.Scanner;
    return direction;
   }
 
-
   public String getInputItemName(String prompt) {
    while (true) {
     System.out.print(prompt);

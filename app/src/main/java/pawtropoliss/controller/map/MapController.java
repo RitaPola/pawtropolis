@@ -1,23 +1,19 @@
 package pawtropoliss.controller.map;
 
+import lombok.Getter;
 import pawtropoliss.domain.animal.Animal;
 import pawtropoliss.domain.mapmanager.Direction;
 import pawtropoliss.domain.game.Room;
 import pawtropoliss.domain.game.Item;
 import java.time.LocalDate;
 
-
+@Getter
 public class MapController {
 
     private Room currentRoom;
 
     public MapController() {
         this.currentRoom = createMap();
-    }
-
-
-    public Room getCurrentRoom() {
-        return currentRoom;
     }
 
     public boolean changeRoom(Direction direction) {
@@ -49,7 +45,6 @@ public class MapController {
         noursey.addItemInTheRoom(new Item("healing herb", "Resident Evil style green herb", 3));
         return entrance;
     }
-
     public static void linkRooms(Room a, Room b, Direction directionA, Direction directionB) {
         a.addAdjacentRoom(b, directionA);
         b.addAdjacentRoom(a, directionB);
