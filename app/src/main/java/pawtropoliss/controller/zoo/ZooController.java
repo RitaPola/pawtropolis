@@ -1,5 +1,8 @@
 package pawtropoliss.controller.zoo;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import pawtropoliss.domain.animal.Animal;
 import pawtropoliss.domain.animal.Eagle;
 import pawtropoliss.domain.animal.Lion;
@@ -10,6 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+@Getter
+@Setter
+@ToString
 public class ZooController {
 
 	private List <Lion> lions;
@@ -18,55 +24,10 @@ public class ZooController {
 	private List <Animal> animals;
 
 	public ZooController() {
-
 		lions = new ArrayList <>();
 		tigers= new ArrayList<>();
 		eagles = new ArrayList<>();
 		animals = new ArrayList <> ();
-	}
-
-
-	public List<Lion> getLions() {
-		return lions;
-	}
-
-
-	public void setLions(List<Lion> lions) {
-		this.lions = lions;
-	}
-
-
-	public List<Tiger> getTigers() {
-		return tigers;
-	}
-
-
-	public void setTigers(List<Tiger> tigers) {
-		this.tigers = tigers;
-	}
-
-
-	public List<Eagle> getEagles() {
-		return eagles;
-	}
-
-
-	public void setEagles(List<Eagle> eagles) {
-		this.eagles = eagles;
-	}
-
-	public List<Animal> getAnimals() {
-		return animals;
-	}
-
-
-	public void setAnimals(List<Animal> animals) {
-		this.animals = animals;
-	}
-
-	@Override
-	public String toString() {
-		return "Zoo: Lions = " + lions + ", Tigers = " + tigers + ", Eagles = " + eagles + ", Animals = " + animals;
 	}
 
 	public void addLion(Lion lion) {
