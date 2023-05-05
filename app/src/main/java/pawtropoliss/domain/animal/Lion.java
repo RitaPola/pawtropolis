@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Lion extends Animal {
 	private Double tailLength;
 
-	private Lion(String name, String favoriteFood, LocalDate admissionDate, Double weight, Double height, Double tailLength) {
+	public Lion(String name, String favoriteFood, LocalDate admissionDate, Double weight, Double height, Double tailLength) {
 		super(name, favoriteFood, admissionDate, weight, height);
 		this.tailLength = tailLength;
 	}

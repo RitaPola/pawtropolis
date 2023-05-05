@@ -4,202 +4,158 @@ import pawtropoliss.domain.animal.Animal;
 import pawtropoliss.domain.animal.Eagle;
 import pawtropoliss.domain.animal.Lion;
 import pawtropoliss.domain.animal.Tiger;
-
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ZooController {
 
+	private List <Lion> lions;
+	private List <Tiger> tigers;
+	private List <Eagle> eagles;
 	private List <Animal> animals;
 
 	public ZooController() {
-		animals = new ArrayList <> (); 
+
+		lions = new ArrayList <>();
+		tigers= new ArrayList<>();
+		eagles = new ArrayList<>();
+		animals = new ArrayList <> ();
 	}
 
-	public ZooController(ArrayList<Animal> animals) {
-		this.animals = animals;
+
+	public List<Lion> getLions() {
+		return lions;
 	}
+
+
+	public void setLions(List<Lion> lions) {
+		this.lions = lions;
+	}
+
+
+	public List<Tiger> getTigers() {
+		return tigers;
+	}
+
+
+	public void setTigers(List<Tiger> tigers) {
+		this.tigers = tigers;
+	}
+
+
+	public List<Eagle> getEagles() {
+		return eagles;
+	}
+
+
+	public void setEagles(List<Eagle> eagles) {
+		this.eagles = eagles;
+	}
+
 	public List<Animal> getAnimals() {
 		return animals;
 	}
 
-	public void setAnimals(ArrayList<Animal> animals) {
+
+	public void setAnimals(List<Animal> animals) {
 		this.animals = animals;
 	}
+
 	@Override
 	public String toString() {
-		return "Zoo: animals=" + animals;
+		return "Zoo: Lions = " + lions + ", Tigers = " + tigers + ", Eagles = " + eagles + ", Animals = " + animals;
 	}
 
-	public void addAnimals(Animal animal) {
+	public void addLion(Lion lion) {
+		lions.add(lion);
 
+	}
+	public void addTiger(Tiger tiger) {
+		tigers.add(tiger);
+	}
+	public void addEagle( Eagle eagle) {
+		eagles.add(eagle);
+	}
+	public void addAnimal(Animal animal) {
 		animals.add(animal);
 	}
+	//verifica l'altezza della specie Leoni
+	public List <Lion> tallestShortestLion() {
+		Optional<Lion> tallestLion = lions.stream()
+				.max(Comparator.comparing(Lion::getHeight));
+		Optional<Lion> shortestLion = lions.stream()
+				.min(Comparator.comparing(Lion::getHeight));
+		return Stream.concat(tallestLion.stream(), shortestLion.stream())
+				.toList();
+	}
+	//verifica l'altezza della specie Tigri
+	public List <Tiger> tallestShortestTiger(){
+		Optional<Tiger> tallestTiger = tigers.stream()
+				.max(Comparator.comparing(Tiger::getHeight));
+		Optional<Tiger> shortestTiger = tigers.stream()
+				.min(Comparator.comparing(Tiger::getHeight));
+		return Stream.concat(tallestTiger.stream(), shortestTiger.stream())
+				.toList();
 
-	public ArrayList <Animal> tallest(String animal) {
-		
-		ArrayList <Animal> speciesTallest = new ArrayList <>();
-		Animal tallest = null;
-		for (Animal anim : animals) {
-			if(anim.getClass().getName().equals("gestionezoo." + animal)) { /*confrontare il nome della classe con la stringa passata*/
-				if (tallest==null || anim.getHeight() > tallest.getHeight()) {
-					speciesTallest.clear();
-					tallest=anim;
-					speciesTallest.add(tallest);
-				}else if(anim.getHeight().equals(tallest.getHeight())) {
-					speciesTallest.add(anim);
-			}
-			}
-		}
-		return speciesTallest;
 	}
-	public ArrayList <Animal> shortest(String animal) {
-		ArrayList <Animal> speciesShortest = new ArrayList <>();
-		Animal shortest = null;
-		for (Animal anim : animals) {
-			if(anim.getClass().getName().equals("gestionezoo." + animal)) { /*confrontare il nome della classe con la stringa passata*/
-				if (shortest==null || anim.getHeight() < shortest.getHeight()) {
-					speciesShortest.clear();
-					shortest=anim;
-					speciesShortest.add(shortest);
-				}else if(anim.getHeight().equals(shortest.getHeight())) {
-					speciesShortest.add(anim);
-			}
-			}
-		}
-		return speciesShortest;
+	//verifica l'altezza della specie Aquile
+	public List <Eagle> tallestShortestEagle(){
+		Optional<Eagle> tallestEagle = eagles.stream()
+				.max(Comparator.comparing(Eagle::getHeight));
+		Optional<Eagle> shortestEagle = eagles.stream()
+				.min(Comparator.comparing(Eagle::getHeight));
+		return Stream.concat(tallestEagle.stream(), shortestEagle.stream())
+				.toList();
 	}
+	//verifica il peso della specie Leoni
+	public List <Lion> heaviestlightestLion() {
+		Optional<Lion> heaviestLion = lions.stream()
+				.max(Comparator.comparing(Lion::getWeight));
+		Optional<Lion> lightestLion = lions.stream()
+				.min(Comparator.comparing(Lion::getWeight));
+		return Stream.concat(heaviestLion.stream(), lightestLion.stream())
+				.toList();
+	}
+	//verifica il peso della specie Tigri
+	public List <Tiger> heaviestlightestTiger() {
+		Optional<Tiger> heaviestTiger = tigers.stream()
+				.max(Comparator.comparing(Tiger::getWeight));
+		Optional<Tiger> lightestTiger = tigers.stream()
+				.min(Comparator.comparing(Tiger::getWeight));
+		return Stream.concat(heaviestTiger.stream(), lightestTiger.stream())
+				.toList();
+	}
+	//verifica il peso della specie Aquile
+	public List <Eagle> heaviestlightestEagle() {
+		Optional<Eagle> heaviestHeagle = eagles.stream()
+				.max(Comparator.comparing(Eagle::getWeight));
+		Optional<Eagle> lightestHeagle = eagles.stream()
+				.min(Comparator.comparing(Eagle::getWeight));
+		return Stream.concat(heaviestHeagle.stream(), lightestHeagle.stream())
+				.toList();
+	}
+	//lunghezza coda degli animali dotati di coda
+	public Animal longestTail(){
+		Optional<Animal> longestTail = animals.stream()
+				.filter(animal -> animal instanceof Lion || animal instanceof Tiger)
+				.max(Comparator.comparingDouble(animal -> {
+					if (animal instanceof Lion) {
+						return ((Lion) animal).getTailLength();
+					} else {
+						return ((Tiger) animal).getTailLength();
+					}
+				}));
+		return longestTail.orElse(null);
+	}
+	//lunghezza ali aquile
+	public Eagle longestWings() {
+		Optional<Eagle> longestWingsEagle = eagles.stream()
+				.max(Comparator.comparingDouble(Eagle::getWingsLength));
 
-	/*controllo altezza tra tutti gli animali all'interno dell'arrayList*/
-	public ArrayList <Animal> tallestAll() {
-		ArrayList <Animal> speciesTallest = new ArrayList <>();
-		Animal tallest = null;
-		for (Animal anim : animals) {
-				if (tallest==null || anim.getHeight() > tallest.getHeight()) {
-					speciesTallest.clear();
-					tallest=anim;
-					speciesTallest.add(tallest);
-				}else if(anim.getHeight().equals(tallest.getHeight())) {
-					speciesTallest.add(anim);
-			}
-		}
-		return speciesTallest;
-	}
-	public ArrayList <Animal> shortestAll() {
-		ArrayList <Animal> speciesShortest = new ArrayList <>();
-		Animal shortest = null;
-		for (Animal anim : animals) {
-				if (shortest==null || anim.getHeight() < shortest.getHeight()) {
-					speciesShortest.clear();
-					shortest=anim;
-					speciesShortest.add(shortest);
-				}else if(anim.getHeight().equals(shortest.getHeight())) {
-					speciesShortest.add(anim);
-			}
-		}
-		return speciesShortest;
-	}
-
-	public ArrayList <Animal> fattest(String animal) {
-		ArrayList <Animal> speciesFattest = new ArrayList <>();
-		Animal fat = null;
-		for (Animal anim : animals) {
-			if(anim.getClass().getName().equals("gestionezoo." + animal)) { /*confrontare il nome della classe con la stringa passata*/
-				if (fat==null || anim.getWeight() > fat.getWeight()) {
-					speciesFattest.clear();
-					fat=anim;
-					speciesFattest.add(fat);
-				}else if(anim.getWeight().equals(fat.getWeight())) {
-					speciesFattest.add(anim);
-			}
-			}
-		}
-		return speciesFattest;
-	}
-	public ArrayList <Animal> slimmest(String animal) {
-		ArrayList <Animal> speciesSlimmest = new ArrayList <>();
-		Animal slim = null;
-		for (Animal anim : animals) {
-			if(anim.getClass().getName().equals("gestionezoo." + animal)) { /*confrontare il nome della classe con la stringa passata*/
-				if (slim==null || anim.getWeight() < slim.getWeight()) {
-					speciesSlimmest.clear();
-					slim=anim;
-					speciesSlimmest.add(slim);
-				}else if(anim.getWeight().equals(slim.getWeight())) {
-					speciesSlimmest.add(anim);
-			}
-			}
-		}
-		return speciesSlimmest;
-	}
-	/*controllo animale più pesante più leggero tra tutti gli animali dell'arrayList*/
-	public ArrayList <Animal> fattestAll() {
-		ArrayList <Animal> speciesFattest = new ArrayList <>();
-		Animal fat = null;
-		for (Animal anim : animals) {
-				if (fat==null || anim.getWeight() > fat.getWeight()) {
-					speciesFattest.clear();
-					fat=anim;
-					speciesFattest.add(fat);
-				}else if(anim.getWeight().equals(fat.getWeight())) {
-					speciesFattest.add(anim);
-			}
-		}
-		return speciesFattest;
-	}
-	public ArrayList <Animal> slimmestAll() {
-		ArrayList <Animal> speciesSlimmest = new ArrayList <>();
-		Animal slim = null;
-		for (Animal anim : animals) {
-				if (slim==null || anim.getWeight() < slim.getWeight()) {
-					speciesSlimmest.clear();
-					slim=anim;
-					speciesSlimmest.add(slim);
-				}else if(anim.getWeight().equals(slim.getWeight())) {
-					speciesSlimmest.add(anim);
-			}
-		}
-		return speciesSlimmest;
-	}
-
-	public Animal tails() {
-		Double tailsAnimals = 0.0;
-		Animal longestTail = null; 
-		for(Animal anim : animals) {
-			if(anim.getClass().getName().equals("gestionezoo.Lion")) {
-				Lion lion = (Lion) anim;
-				if(lion.getTailLength()>tailsAnimals) {
-					tailsAnimals = lion.getTailLength(); 
-					longestTail = lion; 
-				}
-			}
-			if(anim.getClass().getName().equals("gestionezoo.Tiger")) {
-				Tiger tiger = (Tiger) anim;
-				if(tiger.getTailLength()>tailsAnimals) {
-					tailsAnimals = tiger.getTailLength(); 
-					longestTail = tiger; 
-				}
-			}
-		}
-		return longestTail;  
-	}
-	
-	public ArrayList <Animal> wings() {
-		ArrayList <Animal> lengthWings = new ArrayList <>();
-		Eagle longestWings = null;
-		for(Animal anim : animals) {
-			if( anim.getClass().getName().equals("gestionezoo.Eagle")) {
-				Eagle eagle = (Eagle) anim;
-				if(longestWings==null || eagle.getWingsLength() > longestWings.getWingsLength()) {
-					lengthWings.clear();
-					longestWings = eagle; 
-					lengthWings.add(longestWings);
-				}else if(eagle.getWingsLength().equals(longestWings.getWingsLength())) {
-					lengthWings.add(eagle);
-				}
-			}
-		}
-		return lengthWings; 
+		return longestWingsEagle.orElse(null);
 	}
 
 }
