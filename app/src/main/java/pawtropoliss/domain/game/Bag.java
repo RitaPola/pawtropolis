@@ -1,9 +1,12 @@
 package pawtropoliss.domain.game;
 
 import lombok.Getter;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 @Getter
+@ToString
 public class Bag {
     private final List<Item> items;
     private static final  int totalSlots = 15;/*n.tot di slot disponibili*/
@@ -22,13 +25,11 @@ public class Bag {
     }
 
     /*Inserimento e rimozione oggetto nella borsa*/
-    public Item addItem(Item item) {
+    public void addItem(Item item) {
         if (availableSlots - item.getOccupiedSlots() >= 0) {//controllo degli oggetti che possono essere inseriti
             items.add(item);
             availableSlots -= item.getOccupiedSlots();
-            return item;
         }
-        return null;
     }
     public Item removeItem(Item item) {
         if (items.remove(item)) {
@@ -80,11 +81,5 @@ public class Bag {
         } else {
             return slots;
         }
-    }
-    @Override
-    public String toString() {
-        return "Bag: " +
-                "items: " + items +
-                ", available slots: " + maxSlots;
     }
 }

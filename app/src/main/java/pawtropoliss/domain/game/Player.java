@@ -1,14 +1,13 @@
 package pawtropoliss.domain.game;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.logging.Logger;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Player{
     private String name;
     private int health;
@@ -67,14 +66,6 @@ public class Player{
     /*verifica se il player è vivo*/
     public boolean isAlive() {
         return health > 0;
-    }
-    @Override
-    public String toString() {
-        return "Player: " +
-                "name: " + name + '\'' +
-                ", health: " + health +
-                ", bag: " + bagPlayer;
-
     }
 
 }

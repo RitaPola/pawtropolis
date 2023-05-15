@@ -1,8 +1,6 @@
 package pawtropoliss.domain.game;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import pawtropoliss.domain.animal.Animal;
 import pawtropoliss.domain.mapmanager.Direction;
 import pawtropoliss.utils.StringUtils;
