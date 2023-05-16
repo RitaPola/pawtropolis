@@ -2,6 +2,7 @@ package com.project.pawtropoliss.map.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Getter

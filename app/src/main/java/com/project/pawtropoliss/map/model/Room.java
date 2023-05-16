@@ -4,20 +4,26 @@ import com.project.pawtropoliss.player.domain.Item;
 import com.project.pawtropoliss.zoo.domain.Animal;
 import lombok.*;
 import com.project.pawtropoliss.player.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 @Getter
 @Setter
 @EqualsAndHashCode
+@Component
 public class Room {
 
     private String name;
+
     private List<Item> items;
+
     private List<Animal> animals;
+
     private Map<Direction, Room> adjacentRooms;
 
-    public Room(String name) {
-        this.name = name;
+    @Autowired
+    public Room() {
         this.items = new ArrayList<>();
         this.animals = new ArrayList<>();
         this.adjacentRooms = new EnumMap<>(Direction.class);
@@ -131,27 +137,26 @@ public class Room {
 
     /*metodo look*/
     public String look() {
-        String itemsDescription = "{}";
+        String itemsDescription = "[]";
         if (!items.isEmpty()) {
             itemsDescription = StringUtils.getItemsListDescriptionString(items);
         }
 
-        String animalsDescription = "{}";
+        String animalsDescription = "[]";
         if (!animals.isEmpty()) {
             animalsDescription = StringUtils.getAnimalsListDescriptionString(animals);
         }
 
-        String doorsDescription = "{}";
+        String doorsDescription = "[]";
         if (!adjacentRooms.isEmpty()) {
             doorsDescription = StringUtils.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
         }
 
-        return "Current room " + name + ".\n\n" +
-                "Items: " + itemsDescription + "\n\n" +
-                "Animal: " + animalsDescription + "\n\n" +
+        return "Current room " + name + ".\n" +
+                "Items: " + itemsDescription + "\n" +
+                "Animal: " + animalsDescription + "\n" +
                 "Adjacent Room: " + doorsDescription;
     }
-
 
 }
 

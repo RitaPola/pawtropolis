@@ -1,10 +1,7 @@
 package com.project.pawtropoliss.player.domain;
-
-import com.project.pawtropoliss.game.input.InputController;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.logging.Logger;
 
 @Component
@@ -12,23 +9,14 @@ import java.util.logging.Logger;
 @Setter
 @ToString
 public class Player{
-
     private String name;
-
     private int health;
-
-    private final int MAX_LIFE = 100;
-
-    private InputController inputController;
-
+    private final int MAX_LIFE = 10;
     private final Bag bagPlayer;
     @Autowired
-    public Player(Bag bagPlayer){
-        this.bagPlayer= bagPlayer;
-        this.health = MAX_LIFE;
-        this.name = inputController.getInputString(name);
+    public Player(Bag bagPlayer) {
+        this.bagPlayer = bagPlayer;
     }
-
     /*aggiunge un oggetto nello zaino del giocatore*/
     public void addItemInTheBagPlayerBag(Item item) {
         bagPlayer.addItem(item);
@@ -78,7 +66,6 @@ public class Player{
             LOGGER.info("Player is dead");
         }
     }
-
     /*verifica se il player è vivo*/
     public boolean isAlive() {
         return health > 0;

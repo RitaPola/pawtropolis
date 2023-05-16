@@ -15,45 +15,36 @@ import java.util.Map;
 @Component
 public class GameController {
 
-    private static GameController instance;
-
     private final MapController mapGame;
 
     private final InputController inputController;
 
     @Autowired
-    private GameController() {
-        this.mapGame = new MapController();
-        this.inputController = new InputController();
-    }
-
-    public static GameController getInstance() {
-        if (instance == null) {
-            instance = new GameController();
-        }
-        return instance;
+    private GameController(MapController mapGame, InputController inputController) {
+        this.mapGame = mapGame;
+        this.inputController = inputController;
     }
 
     public void playGame() {
-        String playerName = inputController.getInputString("\n" + "Enter the player's name: ");
+        String playerName = inputController.getInputString( "\n Enter the player's name: \n");
         Bag bagPlayer = new Bag(20);
         Player player = new Player(bagPlayer);
+        System.out.println("\n The player health is : " + player.getMAX_LIFE() + "\n");
         Map<CommandManager, ActionStrategy> actions = new EnumMap<>(CommandManager.class);
         actions.put(CommandManager.LOOK, new LookActionStrategy(mapGame.getCurrentRoom()));
         actions.put(CommandManager.BAG, new BagActionStrategy(bagPlayer));
         actions.put(CommandManager.QUIT, new ExitGameActionStrategy());
-        actions.put(CommandManager.GO, new GoActionStrategy(mapGame, null));
-        actions.put(CommandManager.GET, new GetActionStrategy(null, null, null));
-        actions.put(CommandManager.DROP, new DropActionStrategy(null, null, null));
+        actions.put(CommandManager.GO, new GoActionStrategy(mapGame));
+        actions.put(CommandManager.GET, new GetActionStrategy(player, mapGame));
+        actions.put(CommandManager.DROP, new DropActionStrategy(bagPlayer, mapGame, inputController));
         boolean playerQuit = false;
         do {
-            System.out.println("What do you want to do?");
-            String choice = inputController.getInputString("");
+            String choice = inputController.getInputString(" > ");
             CommandManager action = null;
             try {
                 action = CommandManager.valueOf(choice.toUpperCase());
             } catch (IllegalArgumentException e) {
-                System.out.println("\n" + "Invalid choice. Please choose again.");
+                System.out.println("\n Invalid choice. Please choose again.\n");
                 continue;
             }
             ActionStrategy actionStrategy = actions.get(action);
@@ -63,18 +54,17 @@ public class GameController {
                 case QUIT -> {
                     actionStrategy = new ExitGameActionStrategy();
                     System.out.println(playerName + " ADIOS");
+                    playerQuit = true;
                 }
                 case GO -> {
-                    Direction direction = inputController.getInputDirection("\n" + "Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) ");
-                    actionStrategy = new GoActionStrategy(mapGame, direction);
+                    Direction direction = inputController.getInputDirection( "\n Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) \n");
+                    GoActionStrategy goActionStrategy = (GoActionStrategy) actionStrategy;
+                    goActionStrategy.setDirection(direction);
                 }
                 case GET -> {
-                    String itemName = inputController.getInputItemName("\n" + "Which item do you want to get? ");
-                    actionStrategy = new GetActionStrategy(itemName, player, mapGame);
-                }
-                case DROP -> {
-                    String itemToDrop = inputController.getInputItemName("\n" + "Which item do you want to drop? ");
-                    actionStrategy = new DropActionStrategy(bagPlayer, itemToDrop, mapGame);
+                    String itemName = inputController.getInputItemName("\n Which item do you want to get? \n");
+                    GetActionStrategy getActionStrategy = (GetActionStrategy) actionStrategy;
+                    getActionStrategy.setItemName(itemName);
                 }
             }
             actionStrategy.execute();
@@ -82,3 +72,4 @@ public class GameController {
         } while (!playerQuit);
     }
 }
+

@@ -2,23 +2,17 @@ package com.project.pawtropoliss.player.domain;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
 import java.util.ArrayList;
 import java.util.List;
 @Component
 @Getter
 @ToString
 public class Bag {
-
     private final List<Item> items;
     private static final  int totalSlots = 15;/*n.tot di slot disponibili*/
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
     private final int maxSlots; /* indica il numero massimo di oggetti che la borsa può contenere*/
-
-
     public Bag() {
         this.maxSlots = totalSlots;
         this.availableSlots = maxSlots;

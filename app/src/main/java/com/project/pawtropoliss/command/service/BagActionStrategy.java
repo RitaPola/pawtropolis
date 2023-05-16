@@ -6,10 +6,11 @@ import com.project.pawtropoliss.player.domain.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class BagActionStrategy implements ActionStrategy {
-
-    private Bag bag;
+    private final Bag bag;
 
     @Autowired
     public BagActionStrategy(Bag bag) {
@@ -18,15 +19,19 @@ public class BagActionStrategy implements ActionStrategy {
 
     @Override
     public void execute() {
-        String itemList = " ";
-        if (bag.getItems().isEmpty()) {
-            itemList += "The bag is empty";
-        } else {
-            for (Item item : bag.getItems()) {
-                itemList += item.getName() + " , " + item.getDescription() + ", " + item.getOccupiedSlots() + " , ";
-            }
-            itemList = itemList.substring(0, itemList.length() - 2); // rimuove la virgola finale e lo spazio
+        List<Item> items = bag.getItems();
+        int availableSlots = bag.getAvailableSlots();
+        StringBuilder itemList = new StringBuilder();
+
+        for (Item item : items) {
+            itemList.append(item.getName()).append(" - ").append(item.getDescription()).append(" - ");
         }
-        System.out.println("In the bag there is: "+ itemList +"." + "\n There are still " +bag.getAvailableSlots() + " available slots.");
+
+        if (itemList.length() > 0) {
+            itemList.setLength(itemList.length() - 2); // Rimuove la virgola finale e lo spazio
+            System.out.println("\n In the bag there is: " + itemList + ".\n");
+        }
+
+        System.out.println("\n There are still " + availableSlots + " available slots. \n");
     }
 }

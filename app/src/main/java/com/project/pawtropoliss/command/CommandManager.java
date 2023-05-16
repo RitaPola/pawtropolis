@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
-@Component
 public enum CommandManager {
 LOOK ("Look"),
     GO ("Go"),
