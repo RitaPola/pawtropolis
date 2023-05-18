@@ -1,12 +1,11 @@
 package com.project.pawtropoliss.command.service;
-
-import lombok.AllArgsConstructor;
 import com.project.pawtropoliss.player.domain.Bag;
 import com.project.pawtropoliss.player.domain.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class BagActionStrategy implements ActionStrategy {
@@ -19,19 +18,14 @@ public class BagActionStrategy implements ActionStrategy {
 
     @Override
     public void execute() {
-        List<Item> items = bag.getItems();
-        int availableSlots = bag.getAvailableSlots();
-        StringBuilder itemList = new StringBuilder();
-
-        for (Item item : items) {
-            itemList.append(item.getName()).append(" - ").append(item.getDescription()).append(" - ");
-        }
-
-        if (itemList.length() > 0) {
-            itemList.setLength(itemList.length() - 2); // Rimuove la virgola finale e lo spazio
+        List <Item> items = bag.getItems();
+        int availableLots = bag.getAvailableSlots();
+        String itemList = items.stream()
+                .map(item -> item.getName() + " - " + item.getDescription() + " - ")
+                .collect(Collectors.joining(" - "));//unisce le stringhe con -
+        if (!itemList.isEmpty()) {
             System.out.println("\n In the bag there is: " + itemList + ".\n");
         }
-
-        System.out.println("\n There are still " + availableSlots + " available slots. \n");
+        System.out.println("\n There are still " + availableLots + " available slots. \n");
     }
 }

@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+
 @Getter
 @Setter
 @EqualsAndHashCode
-@Component
 public class Room {
 
     private String name;
@@ -22,12 +22,13 @@ public class Room {
 
     private Map<Direction, Room> adjacentRooms;
 
-    @Autowired
-    public Room() {
+    public Room(String name) {
+        this.name = name;
         this.items = new ArrayList<>();
         this.animals = new ArrayList<>();
         this.adjacentRooms = new EnumMap<>(Direction.class);
     }
+
     /*Aggiunge animale nella lista animali*/
     public void addAnimalInTheRoom(Animal animal) {
         animals.add(animal);
@@ -40,6 +41,7 @@ public class Room {
         }
         return null;
     }
+
     /*Rimuove tutti gli animali dalla lista animale*/
     public void removeAllAnimalInTheRoom() {
         animals.clear();
@@ -56,6 +58,7 @@ public class Room {
                 .findAny()
                 .orElse(null);
     }
+
     /*rimozione animale tramite nome*/
     public Animal removeAnimalByNameInTheRoom(String nameToRemove) {
         return animals.stream().filter(animalCurrent -> animalCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))
@@ -65,6 +68,7 @@ public class Room {
                     return animalCurrent;
                 }).orElse(null);
     }
+
     /*aggiunge un oggetto dentro la lista items*/
     public boolean addItemInTheRoom(Item item) {
         if (item == null) {
@@ -76,6 +80,7 @@ public class Room {
         items.add(item);
         return true;
     }
+
     /*rimuove un oggetto dalla lista item*/
     public Item removeItemInTheRoom(Item item) {
         if (items.remove(item)) {
@@ -83,6 +88,7 @@ public class Room {
         }
         return null;
     }
+
     /*Rimuove tutti gli oggetti*/
     public void deleteAllItems() {
         items.clear();
@@ -97,8 +103,8 @@ public class Room {
     public Item getItemByNameInTheRoom(String name) {
         return items.stream()
                 .filter(item -> item.getName().toLowerCase().equalsIgnoreCase(name))
-                .findAny()            /*viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
-                .orElse(null); /*utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
+                .findAny()            /* Viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
+                .orElse(null); /* Utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
     }
 
     /*rimozione oggetto tramite nome*/
@@ -124,6 +130,7 @@ public class Room {
             return null;
         }
     }
+
     /*restituzione di una stanza adiacente in base alla direzione specificata*/
     /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
     public Room getAdjacentRoomDirection(Direction direction) {

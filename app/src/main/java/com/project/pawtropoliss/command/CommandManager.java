@@ -1,13 +1,12 @@
 package com.project.pawtropoliss.command;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 public enum CommandManager {
-LOOK ("Look"),
-    GO ("Go"),
-    GET ("Get"),
+    LOOK("Look"),
+    GO("Go"),
+    GET("Get"),
     DROP("Drop"),
     BAG("Bag"),
     QUIT("Quit");

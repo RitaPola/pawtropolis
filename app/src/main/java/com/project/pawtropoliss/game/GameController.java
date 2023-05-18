@@ -1,18 +1,19 @@
 package com.project.pawtropoliss.game;
+
 import com.project.pawtropoliss.command.service.*;
 import com.project.pawtropoliss.game.input.InputController;
 import com.project.pawtropoliss.player.domain.Bag;
+import com.project.pawtropoliss.player.domain.Item;
 import com.project.pawtropoliss.player.domain.Player;
 import com.project.pawtropoliss.map.model.Direction;
 import com.project.pawtropoliss.map.MapController;
 import com.project.pawtropoliss.command.CommandManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Controller;
 import java.util.EnumMap;
 import java.util.Map;
 
-@Component
+@Controller
 public class GameController {
 
     private final MapController mapGame;
@@ -26,10 +27,14 @@ public class GameController {
     }
 
     public void playGame() {
-        String playerName = inputController.getInputString( "\n Enter the player's name: \n");
         Bag bagPlayer = new Bag(20);
         Player player = new Player(bagPlayer);
-        System.out.println("\n The player health is : " + player.getMAX_LIFE() + "\n");
+        String playerName = inputController.getInputString("""
+                
+                Enter player name:\s
+                """ + "> ");
+        player.setName(playerName);
+        inputController.getInputString("The player health is: " + "\n" + "> " + player.getMAX_LIFE());
         Map<CommandManager, ActionStrategy> actions = new EnumMap<>(CommandManager.class);
         actions.put(CommandManager.LOOK, new LookActionStrategy(mapGame.getCurrentRoom()));
         actions.put(CommandManager.BAG, new BagActionStrategy(bagPlayer));
@@ -39,8 +44,8 @@ public class GameController {
         actions.put(CommandManager.DROP, new DropActionStrategy(bagPlayer, mapGame, inputController));
         boolean playerQuit = false;
         do {
-            String choice = inputController.getInputString(" > ");
-            CommandManager action = null;
+            String choice = inputController.getInputString( "> ");
+            CommandManager action;
             try {
                 action = CommandManager.valueOf(choice.toUpperCase());
             } catch (IllegalArgumentException e) {
@@ -57,14 +62,15 @@ public class GameController {
                     playerQuit = true;
                 }
                 case GO -> {
-                    Direction direction = inputController.getInputDirection( "\n Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) \n");
+                    Direction direction = inputController.getInputDirection("\n Which direction do you want to go? (NORTH, SOUTH, EAST, WEST) \n");
                     GoActionStrategy goActionStrategy = (GoActionStrategy) actionStrategy;
                     goActionStrategy.setDirection(direction);
                 }
                 case GET -> {
                     String itemName = inputController.getInputItemName("\n Which item do you want to get? \n");
                     GetActionStrategy getActionStrategy = (GetActionStrategy) actionStrategy;
-                    getActionStrategy.setItemName(itemName);
+                    Item item = Item.builder().name(itemName).build();
+                    getActionStrategy.setItem(item);
                 }
             }
             actionStrategy.execute();

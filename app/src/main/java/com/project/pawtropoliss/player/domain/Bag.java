@@ -3,16 +3,19 @@ package com.project.pawtropoliss.player.domain;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
 @Getter
 @ToString
 public class Bag {
     private final List<Item> items;
-    private static final  int totalSlots = 15;/*n.tot di slot disponibili*/
+    private static final int totalSlots = 15;/*n.tot di slot disponibili*/
     private int availableSlots;/*slot disponibili in base al numero di oggetti contenuti nella borsa*/
     private final int maxSlots; /* indica il numero massimo di oggetti che la borsa può contenere*/
+
     public Bag() {
         this.maxSlots = totalSlots;
         this.availableSlots = maxSlots;
@@ -32,6 +35,7 @@ public class Bag {
             availableSlots -= item.getOccupiedSlots();
         }
     }
+
     public Item removeItem(Item item) {
         if (items.remove(item)) {
             availableSlots += item.getOccupiedSlots();/*controllo di acquisizione dello spazio occupato da un oggetto*/
@@ -39,18 +43,21 @@ public class Bag {
         }
         return null;
     }
+
     /*Rimozione di tutti gli oggetti nella borsa*/
     public void clearAllItemList() {
         items.clear();
     }
+
     /*Ricerca un oggetto per nome*/
     public Item getItemByName(String name) {
         return items.stream()
                 .filter(item -> item.getName().equalsIgnoreCase(name))
-                .findAny()            /*viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
-                .orElse(null); /*utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
+                .findAny()            /*Viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
+                .orElse(null); /*Utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
 
     }
+
     /*verificare se ci sono oggetti nella borsa*/
     public int checkItemsInTheBag() {
         if (items.isEmpty()) {
@@ -58,6 +65,7 @@ public class Bag {
         }
         return items.size();
     }
+
     /* Rimozione tutti gli oggetti nella borsa */
     public void removeAllItemFromTheBag() {
         items.clear();

@@ -1,4 +1,5 @@
 package com.project.pawtropoliss.player.utils;
+
 import com.project.pawtropoliss.zoo.domain.Animal;
 import com.project.pawtropoliss.player.domain.Item;
 import com.project.pawtropoliss.map.model.Direction;
@@ -14,18 +15,18 @@ public class StringUtils {
             return "Empty";
         }
 
-        String itemsDescription = "[";
+        StringBuilder itemsDescription = new StringBuilder("[");
 
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
-            itemsDescription += item.getName() + "(" + item.getOccupiedSlots() + ")";
+            itemsDescription.append(item.getName()).append("(").append(item.getOccupiedSlots()).append(")");
             if (i < items.size() - 1) { /*Se l'oggetto corrente non è l'ultimo nella lista, il metodo aggiungerà una virgola */
-                itemsDescription += ", ";
+                itemsDescription.append(", ");
             }
         }
 
-        itemsDescription += "]";
-        return itemsDescription;
+        itemsDescription.append("]");
+        return itemsDescription.toString();
     }
 
     public static String getAnimalsListDescriptionString(List<Animal> animals) {
@@ -33,35 +34,34 @@ public class StringUtils {
             return "Empty";
         }
 
-        String animalsDescription = "[";
+        StringBuilder animalsDescription = new StringBuilder("[");
 
         for (int i = 0; i < animals.size(); i++) {
             Animal animal = animals.get(i);
-            animalsDescription += animal.getName();
+            animalsDescription.append(animal.getName());
             if (i < animals.size() - 1) {
-                animalsDescription += ", ";
+                animalsDescription.append(", ");
             }
         }
-        animalsDescription += "]";
-        return animalsDescription;
+        animalsDescription.append("]");
+        return animalsDescription.toString();
     }
 
     public static String getDirectionsListDescriptionString(List<Direction> directions) {
         if (directions.isEmpty()) {
             return "Empty";
         }
-        String doorsDescription = "[";
+        StringBuilder doorsDescription = new StringBuilder("[");
 
         for (int i = 0; i < directions.size(); i++) {
             Direction direction = directions.get(i);
-            doorsDescription += direction.getName();
+            doorsDescription.append(direction.getName());
             if (i < directions.size() - 1) {
-                doorsDescription += ", ";
+                doorsDescription.append(", ");
             }
         }
-
-        doorsDescription += "]";
-        return doorsDescription;
+        doorsDescription.append("]");
+        return doorsDescription.toString();
     }
 }
 

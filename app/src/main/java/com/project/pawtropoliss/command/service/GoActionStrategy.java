@@ -27,7 +27,7 @@ public class GoActionStrategy implements ActionStrategy {
     public void execute() {
         boolean isRoomChanged = map.changeRoom(direction);
         if (!isRoomChanged) {
-            System.out.println("\n There's no room in that direction. \n");
+            System.out.println(" There's no room in that direction. \n");
         } else {
             Room nextRoom = map.getCurrentRoom();
             System.out.println(nextRoom.look());
