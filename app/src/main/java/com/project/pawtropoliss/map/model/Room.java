@@ -1,17 +1,11 @@
 package com.project.pawtropoliss.map.model;
 
-import com.project.pawtropoliss.player.domain.Item;
-import com.project.pawtropoliss.zoo.domain.Animal;
+import com.project.pawtropoliss.player.model.Item;
+import com.project.pawtropoliss.zoo.model.Animal;
 import lombok.*;
-import com.project.pawtropoliss.player.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.*;
 
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class Room {
 
     private String name;
@@ -29,38 +23,31 @@ public class Room {
         this.adjacentRooms = new EnumMap<>(Direction.class);
     }
 
-    /*Aggiunge animale nella lista animali*/
     public void addAnimalInTheRoom(Animal animal) {
         animals.add(animal);
     }
-
-    /*Rimuove animale dalla lista degli animali*/
     public Animal removeAnimalInTheRoom(Animal animal) {
         if (animals.remove(animal)) {
             return animal;
         }
         return null;
-    }
 
-    /*Rimuove tutti gli animali dalla lista animale*/
-    public void removeAllAnimalInTheRoom() {
+    }
+    public void removeAllAnimalsInTheRoom() {
         animals.clear();
     }
 
-    /*Ritorna gli animali della lista*/
-    public List<Animal> getAllAnimalInTheRoom() {
+    public List<Animal> getAllAnimalsInTheRoom() {
         return animals;
     }
 
-    /*ricerca animale tramite nome*/
-    public Animal getAnimalByNameInTheRoom(String nameAnimal) {
+    public Animal getAnimalByName(String nameAnimal) {
         return animals.stream().filter(animal -> animal.getName().toLowerCase().equalsIgnoreCase(nameAnimal))
                 .findAny()
                 .orElse(null);
     }
 
-    /*rimozione animale tramite nome*/
-    public Animal removeAnimalByNameInTheRoom(String nameToRemove) {
+    public Animal removeAnimalByName(String nameToRemove) {
         return animals.stream().filter(animalCurrent -> animalCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))
                 .findAny()
                 .map(animalCurrent -> {
@@ -69,7 +56,6 @@ public class Room {
                 }).orElse(null);
     }
 
-    /*aggiunge un oggetto dentro la lista items*/
     public boolean addItemInTheRoom(Item item) {
         if (item == null) {
             return false;
@@ -80,35 +66,24 @@ public class Room {
         items.add(item);
         return true;
     }
-
-    /*rimuove un oggetto dalla lista item*/
-    public Item removeItemInTheRoom(Item item) {
-        if (items.remove(item)) {
-            return item;
-        }
-        return null;
+    public void removeItemInTheRoom(Item item) {
+        items.remove ( item );
     }
-
-    /*Rimuove tutti gli oggetti*/
     public void deleteAllItems() {
         items.clear();
     }
 
-    /*ritorna lista di oggetti*/
     public List<Item> getAllItems() {
         return items;
     }
 
-    /*Ricerca tramite nome dell'oggetto*/
-    public Item getItemByNameInTheRoom(String name) {
+    public Item getItemByName(String name) {
         return items.stream()
                 .filter(item -> item.getName().toLowerCase().equalsIgnoreCase(name))
-                .findAny()            /* Viene utilizzato per cercare un elemento qualsiasi in un flusso di dati (stream). Restituisce un Optional che rappresenta l'elemento trovato*/
-                .orElse(null); /* Utilizzata negli stream come fallback o valore predefinito nel caso in cui il risultato dello stream sia vuoto (empty)*/
+                .findAny()
+                .orElse(null);
     }
-
-    /*rimozione oggetto tramite nome*/
-    public Item removeItemByNameInTheRoom(String nameToRemove) {
+    public Item removeItemByName(String nameToRemove) {
         return items.stream().filter(itemCurrent -> itemCurrent.getName().toLowerCase().equalsIgnoreCase(nameToRemove))
                 .findAny()
                 .map(itemCurrent -> {
@@ -117,12 +92,10 @@ public class Room {
                 }).orElse(null);
     }
 
-    /*aggiunge la stanza nella lista corrente*/
     public void addAdjacentRoom(Room room, Direction direction) {
         adjacentRooms.put(direction, room);
     }
 
-    /*Rimuove la stanza nella lista corrente in base alla stanza specifica*/
     public Room cancelAdjacentRoom(Room room) {
         if (adjacentRooms.values().remove(room)) {
             return room;
@@ -130,39 +103,12 @@ public class Room {
             return null;
         }
     }
-
-    /*restituzione di una stanza adiacente in base alla direzione specificata*/
-    /*ho utilizzato l'optional elimina il rischio di avere un valore null inaspettato*/
     public Room getAdjacentRoomDirection(Direction direction) {
         return adjacentRooms.get(direction);
     }
 
-    /*rimozione della stanza in base alla direzione specifica*/
     public Room cancelAdjacentRoomDirection(Direction direction) {
         return adjacentRooms.remove(direction);
-    }
-
-    /*metodo look*/
-    public String look() {
-        String itemsDescription = "[]";
-        if (!items.isEmpty()) {
-            itemsDescription = StringUtils.getItemsListDescriptionString(items);
-        }
-
-        String animalsDescription = "[]";
-        if (!animals.isEmpty()) {
-            animalsDescription = StringUtils.getAnimalsListDescriptionString(animals);
-        }
-
-        String doorsDescription = "[]";
-        if (!adjacentRooms.isEmpty()) {
-            doorsDescription = StringUtils.getDirectionsListDescriptionString(new ArrayList<>(adjacentRooms.keySet()));
-        }
-
-        return "Current room " + name + ".\n" +
-                "Items: " + itemsDescription + "\n" +
-                "Animal: " + animalsDescription + "\n" +
-                "Adjacent Room: " + doorsDescription;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.project.pawtropoliss.zoo.domain;
+package com.project.pawtropoliss.zoo.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +9,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @ToString
 @SuperBuilder
-public class Eagle extends Animal {
-	private Double wingsLength;
+public class Tiger extends Animal{
 
+	private Double tailLength;
 
 }

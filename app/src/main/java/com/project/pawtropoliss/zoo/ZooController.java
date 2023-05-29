@@ -1,9 +1,9 @@
 package com.project.pawtropoliss.zoo;
 
-import com.project.pawtropoliss.zoo.domain.Animal;
-import com.project.pawtropoliss.zoo.domain.Eagle;
-import com.project.pawtropoliss.zoo.domain.Lion;
-import com.project.pawtropoliss.zoo.domain.Tiger;
+import com.project.pawtropoliss.zoo.model.Animal;
+import com.project.pawtropoliss.zoo.model.Eagle;
+import com.project.pawtropoliss.zoo.model.Lion;
+import com.project.pawtropoliss.zoo.model.Tiger;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

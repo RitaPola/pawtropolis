@@ -1,4 +1,4 @@
-package com.project.pawtropoliss.zoo.domain;
+package com.project.pawtropoliss.zoo.model;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

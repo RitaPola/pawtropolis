@@ -1,7 +1,7 @@
 package com.project.pawtropoliss.player.utils;
 
-import com.project.pawtropoliss.zoo.domain.Animal;
-import com.project.pawtropoliss.player.domain.Item;
+import com.project.pawtropoliss.zoo.model.Animal;
+import com.project.pawtropoliss.player.model.Item;
 import com.project.pawtropoliss.map.model.Direction;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class StringUtils {
 
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
-            itemsDescription.append(item.getName()).append("(").append(item.getOccupiedSlots()).append(")");
+            itemsDescription.append(item.getName()).append("(").append(item.getReqiuredSlots()).append(")");
             if (i < items.size() - 1) { /*Se l'oggetto corrente non è l'ultimo nella lista, il metodo aggiungerà una virgola */
                 itemsDescription.append(", ");
             }

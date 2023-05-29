@@ -4,13 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0f803f1-f4e9-49dd-ab70-a2ba6d6f71df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.test.iml" beforeDir="false" />
+    <list default="true" id="dc2a12be-666a-4f44-8b2a-a5377919dab2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/TypeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/DropCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Bag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/controller/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/controller/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/command/ExitGameActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/command/ExitGameActionStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/commandmanager/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pawtropoliss/domain/commandmanager/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/PawtropolisApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/PawtropolisApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/ActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/BagActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/BagCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/DropActionStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/ExitGameActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/QuitGameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/GetActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/GoActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/LookActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/LookCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/input/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/input/InputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Bag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Eagle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Lion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Tiger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +51,6 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$/app">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -38,68 +58,20 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="pawtropoliss" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="com.google.guava:guava:31.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="com.google.guava:guava:31.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="junit:junit:4.13.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -109,194 +81,68 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="3625e830-51b1-444b-a9cf-a2e75285a98a" />
-        <option name="url" value="https://github.com/RitaPola/pawtropolis.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2P1CyPqV972n7frEuHYHs7n2RpR" />
+  <component name="ProjectId" id="2Q9YWPR1zb1OollV2YopPe6OOdc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/rpolacchi/IdeaProjects/pawtropoliss&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/ritapola/Desktop/pawtropolis/pawtropolis",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "d384d8570d0b8614ea669a1a6e29ebda",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="gradle compileJava" />
-    </option>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.project.pawtropoliss.command.model" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Pawtropolis [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Pawtropolis [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="compileJava" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Pawtropolis [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="init" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Pawtropolis [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Pawtropolis [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--scan --stacktrace" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="pawtropolis" />
+    <configuration name="PawtropolisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="pawtropoliss.app.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.pawtropoliss.PawtropolisApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="pawtropolis" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.Pawtropolis [assemble]" />
-        <item itemvalue="Gradle.Pawtropolis [run]" />
-        <item itemvalue="Gradle.Pawtropolis [compileJava]" />
-        <item itemvalue="Gradle.Pawtropolis [jar]" />
-        <item itemvalue="Gradle.Pawtropolis [init]" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a0f803f1-f4e9-49dd-ab70-a2ba6d6f71df" name="Changes" comment="" />
-      <created>1682615456765</created>
+      <changelist id="dc2a12be-666a-4f44-8b2a-a5377919dab2" name="Changes" comment="" />
+      <created>1684767294892</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1682615456765</updated>
-      <workItem from="1682615458705" duration="49000" />
-      <workItem from="1682671605414" duration="3801000" />
-      <workItem from="1683012572404" duration="3114000" />
-      <workItem from="1683029760391" duration="7566000" />
-      <workItem from="1683038245334" duration="2806000" />
-      <workItem from="1683098431139" duration="3851000" />
-      <workItem from="1683104069618" duration="267000" />
-      <workItem from="1683104427108" duration="1796000" />
-      <workItem from="1683107424587" duration="4841000" />
+      <updated>1684767294892</updated>
+      <workItem from="1684767296185" duration="4373000" />
+      <workItem from="1684784440931" duration="4192000" />
+      <workItem from="1684788921346" duration="480000" />
+      <workItem from="1684790429377" duration="628000" />
+      <workItem from="1684825869760" duration="6032000" />
+      <workItem from="1684831958816" duration="4515000" />
+      <workItem from="1684837622689" duration="554000" />
+      <workItem from="1684854076217" duration="500000" />
+      <workItem from="1684933399382" duration="1709000" />
+      <workItem from="1685000926623" duration="839000" />
+      <workItem from="1685001892799" duration="11594000" />
+      <workItem from="1685018110359" duration="14767000" />
+      <workItem from="1685103047232" duration="2798000" />
     </task>
     <servers />
   </component>
@@ -313,15 +159,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.StackOverflowError" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

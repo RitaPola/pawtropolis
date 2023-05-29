@@ -2,13 +2,10 @@ package com.project.pawtropoliss.map.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @Getter
-@ToString
 public enum Direction {
-    /*insieme di valori costanti, accetta valori null, utilizzo come chiave le direzioni*/
     NORTH("North"),
     SOUTH("South"),
     EAST("East"),
@@ -16,5 +13,14 @@ public enum Direction {
     INVALID(null);
 
     private final String name;
+    public static Direction fromString(String name) {
+        for (Direction direction : Direction.values()) {
+            if (direction.name.equalsIgnoreCase(name)) {
+                return direction;
+            }
+        }
+        return INVALID;
+    }
+
 }
 
