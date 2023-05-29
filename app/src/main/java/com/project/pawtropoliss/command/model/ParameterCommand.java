@@ -16,4 +16,5 @@ public class ParameterCommand {
     public static void setParameter(String value) {
         parameter = value;
     }
+
 }

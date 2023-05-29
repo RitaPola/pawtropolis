@@ -1,6 +1,5 @@
 package com.project.pawtropoliss.map;
 
-import com.project.pawtropoliss.game.GameController;
 import com.project.pawtropoliss.player.utils.StringUtils;
 import com.project.pawtropoliss.zoo.model.Animal;
 import com.project.pawtropoliss.zoo.model.Eagle;

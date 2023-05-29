@@ -18,12 +18,19 @@ public class DropCommand extends Command {
         String nameItem = ParameterCommand.getParameter();
         Player player = getGameController().getPlayer();
         Item item = player.getBag().getItemByName(nameItem);
-        if (item == null) {
-            System.out.println("Item not present in bag");
-        } else {
+        if (nameItem == null || nameItem.isEmpty ()) {
+            System.out.println("Please specify the item you want to get");
+            return;
+        }
+
+            if (item == null ) {
+                System.out.println ("Item not found");
+            }
+         else {
             player.removeItemFromTheBag(item);
             getGameController().getMapController().getCurrentRoom().addItemInTheRoom(item);
             System.out.println (nameItem + " dropped in the room");
+            System.out.println("\n The room has been updated \n" +getGameController().getMapController().look());
         }
     }
 }

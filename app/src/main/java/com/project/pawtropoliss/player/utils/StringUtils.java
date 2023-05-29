@@ -3,7 +3,6 @@ package com.project.pawtropoliss.player.utils;
 import com.project.pawtropoliss.zoo.model.Animal;
 import com.project.pawtropoliss.player.model.Item;
 import com.project.pawtropoliss.map.model.Direction;
-
 import java.util.List;
 
 public class StringUtils {

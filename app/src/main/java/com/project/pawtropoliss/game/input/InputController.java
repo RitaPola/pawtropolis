@@ -1,7 +1,6 @@
 package com.project.pawtropoliss.game.input;
 
 import org.springframework.stereotype.Component;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

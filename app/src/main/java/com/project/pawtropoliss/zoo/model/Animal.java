@@ -2,7 +2,6 @@ package com.project.pawtropoliss.zoo.model;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 import java.time.LocalDate;
 
 

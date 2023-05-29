@@ -33,7 +33,6 @@ public class GameController {
     public void playGame() {
         System.out.println ("\n " +getMapController().look() );
         do {
-
             String input = InputController.getInputString("> ");
             String[] parts = input.split(" ", 2);
             String commandName = parts[0];
