@@ -4,39 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc2a12be-666a-4f44-8b2a-a5377919dab2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/TypeCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/DropCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Bag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0427b6ee-0133-499e-857f-349feb75e763" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/PawtropolisApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/PawtropolisApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/CommandManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/ActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/BagActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/BagCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/DropActionStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/ExitGameActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/QuitGameCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/GetActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GetCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/GoActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/service/LookActionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/LookCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/input/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/input/InputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Bag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Lion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/domain/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Tiger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema ER - Pawtropolis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema logico.rtf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,31 +19,6 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -84,35 +31,31 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Q9YWPR1zb1OollV2YopPe6OOdc" />
+  <component name="ProjectId" id="2QYwZwljiUSiI0dKQwrmb1fRka5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ritapola/Desktop/pawtropolis/pawtropolis",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "d384d8570d0b8614ea669a1a6e29ebda",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ritapola/IdeaProjects/pawtropolis&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6b73493437be83a97f4d412d4a8c819e&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.project.pawtropoliss.command.model" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager">
     <configuration name="PawtropolisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="pawtropoliss.app.main" />
@@ -125,24 +68,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dc2a12be-666a-4f44-8b2a-a5377919dab2" name="Changes" comment="" />
-      <created>1684767294892</created>
+      <changelist id="0427b6ee-0133-499e-857f-349feb75e763" name="Changes" comment="" />
+      <created>1685543882428</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1684767294892</updated>
-      <workItem from="1684767296185" duration="4373000" />
-      <workItem from="1684784440931" duration="4192000" />
-      <workItem from="1684788921346" duration="480000" />
-      <workItem from="1684790429377" duration="628000" />
-      <workItem from="1684825869760" duration="6032000" />
-      <workItem from="1684831958816" duration="4515000" />
-      <workItem from="1684837622689" duration="554000" />
-      <workItem from="1684854076217" duration="500000" />
-      <workItem from="1684933399382" duration="1709000" />
-      <workItem from="1685000926623" duration="839000" />
-      <workItem from="1685001892799" duration="11594000" />
-      <workItem from="1685018110359" duration="14767000" />
-      <workItem from="1685103047232" duration="2798000" />
+      <updated>1685543882428</updated>
+      <workItem from="1685543883691" duration="436000" />
+      <workItem from="1685544326330" duration="45000" />
+      <workItem from="1685544373989" duration="83000" />
     </task>
     <servers />
   </component>
