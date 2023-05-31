@@ -20,7 +20,7 @@ public class BagCommand extends Command {
         int availableLots = getGameController().getPlayer().getBag().getAvailableSlots();
         String itemList = items.stream()
                 .map(item -> item.getName() + " :  " + item.getDescription())
-                .collect(Collectors.joining("\n"));//unisce le stringhe con -
+                .collect(Collectors.joining("\n"));
         if (!itemList.isEmpty()) {
             System.out.println("\n In the bag there is: \n " + itemList + ".\n");
         }

@@ -36,12 +36,14 @@ public class MapController {
         entrance.addItemInTheRoom(item1);
         Animal birichino = Lion.builder().name("lion birichino").favoriteFood("meat").admissionDate(LocalDate.now()).weight(90.00).height(7.50).tailLength(3.5).build();
         entrance.addAnimalInTheRoom(birichino);
+
         Room kitchen = new Room("Kitchen");
         linkRooms(entrance, kitchen, Direction.NORTH);
         Item bana = Item.builder().name("banana").description("food").reqiuredSlots(1).build();
         kitchen.addItemInTheRoom(bana);
         Item aqua = Item.builder().name("aqua").description("drink").reqiuredSlots(3).build();
         kitchen.addItemInTheRoom(aqua);
+
         Room armory = new Room("Armory");
         linkRooms(kitchen, armory, Direction.SOUTH);
         Item Kal = Item.builder().name("Kalashnikov").description("mitragliatore").reqiuredSlots(6).build();
@@ -50,6 +52,7 @@ public class MapController {
         armory.addItemInTheRoom(machete);
         Animal wolf = Tiger.builder().name("Tiger wolf").favoriteFood("meat").admissionDate(LocalDate.now()).weight(75.00).height(5.00).tailLength(5.00).build();
         armory.addAnimalInTheRoom(wolf);
+
         Room nours = new Room("noursey");
         linkRooms(armory, nours, Direction.WEST);
         Animal eagleLaziale = Eagle.builder().name("Lazio merda").favoriteFood("meat").admissionDate(LocalDate.now()).weight(50.00).height(6.00).wingsLength(10.00).build();
@@ -67,14 +70,25 @@ public class MapController {
         b.addAdjacentRoom(a, directionB);
     }
 
-    public static void linkRooms(Room a, Room b, Direction direction) {
-        Direction directionB = switch (direction) {
-            case NORTH -> Direction.SOUTH;
-            case SOUTH -> Direction.NORTH;
-            case EAST -> Direction.WEST;
-            case WEST -> Direction.EAST;
-            default -> Direction.INVALID;
-        };
+    private static void linkRooms(Room a, Room b, Direction direction) {
+        Direction directionB;
+        switch (direction) {
+            case NORTH:
+                directionB = Direction.SOUTH;
+                break;
+            case SOUTH:
+                directionB = Direction.NORTH;
+                break;
+            case EAST:
+                directionB = Direction.WEST;
+                break;
+            case WEST:
+                directionB = Direction.EAST;
+                break;
+            default:
+                directionB = Direction.INVALID;
+                break;
+        }
         linkRooms(a, b, direction, directionB);
     }
     public String look() {
