@@ -5,10 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0427b6ee-0133-499e-857f-349feb75e763" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3/storage_v2/_src_/database/pawtropolis.zK8IBA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3/storage_v2/_src_/database/pawtropolis.zK8IBA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema ER - Pawtropolis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema logico.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema ER - PawtropolisCorretto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/BagCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/BagCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/DropCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/DropCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/command/model/GoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/game/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/map/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/player/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/ZooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Eagle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Lion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/zoo/model/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Tiger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema logico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +41,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pawtropoliss" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -76,6 +115,9 @@
       <workItem from="1685543883691" duration="436000" />
       <workItem from="1685544326330" duration="45000" />
       <workItem from="1685544373989" duration="83000" />
+      <workItem from="1685544587761" duration="2235000" />
+      <workItem from="1685546896474" duration="853000" />
+      <workItem from="1685606552905" duration="7511000" />
     </task>
     <servers />
   </component>

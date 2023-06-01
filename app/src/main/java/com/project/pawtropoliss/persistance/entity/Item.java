@@ -1,4 +1,4 @@
-package com.project.pawtropoliss.player.model;
+package com.project.pawtropoliss.persistance.entity;
 
 import lombok.*;
 

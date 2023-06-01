@@ -1,5 +1,6 @@
-package com.project.pawtropoliss.zoo.model;
+package com.project.pawtropoliss.persistance.entity;
 
+import com.project.pawtropoliss.persistance.entity.animals.Animal;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,10 +8,9 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString
 @SuperBuilder
-public class Tiger extends Animal{
-
+@ToString
+public class Lion extends Animal {
 	private Double tailLength;
 
 }

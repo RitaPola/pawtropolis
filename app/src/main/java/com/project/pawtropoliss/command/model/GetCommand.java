@@ -1,8 +1,8 @@
 package com.project.pawtropoliss.command.model;
 import com.project.pawtropoliss.game.GameController;
-import com.project.pawtropoliss.map.model.Room;
-import com.project.pawtropoliss.player.model.Item;
-import com.project.pawtropoliss.player.model.Player;
+import com.project.pawtropoliss.persistance.entity.Room;
+import com.project.pawtropoliss.persistance.entity.Item;
+import com.project.pawtropoliss.persistance.entity.Player;
 import org.springframework.stereotype.Component;
 
 @Component

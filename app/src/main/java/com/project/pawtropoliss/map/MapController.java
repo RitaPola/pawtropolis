@@ -1,13 +1,13 @@
 package com.project.pawtropoliss.map;
 
 import com.project.pawtropoliss.player.utils.StringUtils;
-import com.project.pawtropoliss.zoo.model.Animal;
-import com.project.pawtropoliss.zoo.model.Eagle;
-import com.project.pawtropoliss.zoo.model.Lion;
-import com.project.pawtropoliss.zoo.model.Tiger;
-import com.project.pawtropoliss.player.model.Item;
-import com.project.pawtropoliss.map.model.Room;
-import com.project.pawtropoliss.map.model.Direction;
+import com.project.pawtropoliss.persistance.entity.animals.Animal;
+import com.project.pawtropoliss.persistance.entity.animals.Eagle;
+import com.project.pawtropoliss.persistance.entity.Lion;
+import com.project.pawtropoliss.persistance.entity.animals.Tiger;
+import com.project.pawtropoliss.persistance.entity.Item;
+import com.project.pawtropoliss.persistance.entity.Room;
+import com.project.pawtropoliss.persistance.entity.Direction;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import java.time.LocalDate;

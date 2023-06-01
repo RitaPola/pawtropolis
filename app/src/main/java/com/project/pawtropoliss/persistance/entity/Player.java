@@ -1,20 +1,34 @@
-package com.project.pawtropoliss.player.model;
-
+package com.project.pawtropoliss.persistance.entity;
 import com.project.pawtropoliss.game.input.InputController;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.logging.Logger;
 
 @Component
 @Data
-public class Player {
+@Entity
+@Table(name = "players" )
+public class Player implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "health")
     private int health;
     private static final int MAX_HEALTH_POINT = 20;
-    private final Bag bag;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name =  "id_bags", referencedColumnName = "id")
+    private Bag bag;
 
-    @Autowired
+    public Player(){
+
+    }
+   @Autowired
     public Player(Bag bag) {
         this.name = InputController.getInputString("Insert player name : ");
         this.health = MAX_HEALTH_POINT;
@@ -25,7 +39,6 @@ public class Player {
             bag.addItem(item);
         }
     }
-
     public void removeItemFromTheBag(Item item) {
         bag.removeItem(item);
     }
@@ -65,8 +78,9 @@ public class Player {
         }
     }
 
-    public boolean isAlive() {
+    public boolean alive() {
         return health > 0;
     }
 
 }
+

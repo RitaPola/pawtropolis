@@ -1,0 +1,19 @@
+animals(id,favorite_food, year, admission_date,weight,height)
+
+lions(id_animals*, tail_length)
+
+tigers(id_animals*, tail_length)
+
+eagles(id_animals*, longest_tails)
+
+items(id, name, description, occupied_slots)
+
+bags(id, total_slots,id_items*)
+
+players(id, name,health, id_bags*)
+
+rooms(id, name, id_animal*, id_items*)
+
+directions(id, name)
+
+rooms_directions(id,room1_id,room2_id,id_directions*)

@@ -1,7 +1,7 @@
 package com.project.pawtropoliss.command.model;
 
 import com.project.pawtropoliss.game.GameController;
-import com.project.pawtropoliss.map.model.Direction;
+import com.project.pawtropoliss.persistance.entity.Direction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

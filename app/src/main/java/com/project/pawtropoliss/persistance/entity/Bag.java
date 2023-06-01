@@ -1,12 +1,17 @@
-package com.project.pawtropoliss.player.model;
+package com.project.pawtropoliss.persistance.entity;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Component
+@Entity
+@Table(name = "bags")
 public class Bag {
     private final List<Item> items;
     private static final int TOTAL_SLOTS = 15;

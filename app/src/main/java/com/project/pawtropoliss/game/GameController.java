@@ -5,7 +5,7 @@ import com.project.pawtropoliss.command.TypeCommand;
 import com.project.pawtropoliss.command.model.*;
 import com.project.pawtropoliss.game.input.InputController;
 import com.project.pawtropoliss.map.MapController;
-import com.project.pawtropoliss.player.model.Player;
+import com.project.pawtropoliss.persistance.entity.Player;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

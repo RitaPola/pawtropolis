@@ -1,4 +1,4 @@
-package com.project.pawtropoliss.map.model;
+package com.project.pawtropoliss.persistance.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

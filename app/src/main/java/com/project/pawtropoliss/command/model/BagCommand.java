@@ -1,6 +1,6 @@
 package com.project.pawtropoliss.command.model;
 import com.project.pawtropoliss.game.GameController;
-import com.project.pawtropoliss.player.model.Item;
+import com.project.pawtropoliss.persistance.entity.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;

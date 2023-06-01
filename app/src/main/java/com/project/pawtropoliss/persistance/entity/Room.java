@@ -1,7 +1,6 @@
-package com.project.pawtropoliss.map.model;
+package com.project.pawtropoliss.persistance.entity;
 
-import com.project.pawtropoliss.player.model.Item;
-import com.project.pawtropoliss.zoo.model.Animal;
+import com.project.pawtropoliss.persistance.entity.animals.Animal;
 import lombok.*;
 import java.util.*;
 

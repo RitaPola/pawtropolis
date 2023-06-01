@@ -1,4 +1,4 @@
-package com.project.pawtropoliss.zoo.model;
+package com.project.pawtropoliss.persistance.entity.animals;
 
 import lombok.Getter;
 import lombok.Setter;
