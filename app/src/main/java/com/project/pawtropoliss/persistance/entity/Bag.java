@@ -1,6 +1,7 @@
 package com.project.pawtropoliss.persistance.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Component
 @Entity
 @Table(name = "bags")
 public class Bag {
@@ -18,13 +18,21 @@ public class Bag {
     private static final int TOTAL_SLOTS = 15;
     private int availableSlots;
     @Column(name = "total_slots")
-    private final int maxSlots;
-
+    private int maxSlots;
+    @OneToMany(
+       mappedBy = "bag",
+       cascade = CascadeType.REFRESH,
+       fetch = FetchType.EAGER
+    )
     private final List<Item> items;
-
     public Bag() {
-        this(TOTAL_SLOTS);
+        this.items = new ArrayList<>();
     }
+
+
+   /* public Bag() {
+        this(TOTAL_SLOTS);
+    }*/
 
     public Bag(int maxSlot) {
         this.maxSlots = maxSlot;

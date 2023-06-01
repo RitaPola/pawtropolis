@@ -1,17 +1,13 @@
 package com.project.pawtropoliss.persistance.entity;
-import com.project.pawtropoliss.game.input.InputController;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.logging.Logger;
 
-@Component
+
 @Data
 @Entity
 @Table(name = "players" )
-public class Player implements Serializable {
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,18 +18,18 @@ public class Player implements Serializable {
     private int health;
     private static final int MAX_HEALTH_POINT = 20;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name =  "id_bags", referencedColumnName = "id")
+    @JoinColumn(name = "bag_id", referencedColumnName = "id")
     private Bag bag;
 
     public Player(){
     }
-
+/*
    @Autowired
     public Player(Bag bag) {
         this.name = InputController.getInputString("Insert player name : ");
         this.health = MAX_HEALTH_POINT;
         this.bag = bag;
-    }
+    }*/
     public void addItemInTheBag(Item item) {
         if (bag.getAvailableSlots() >= item.getReqiuredSlots()) {
             bag.addItem(item);

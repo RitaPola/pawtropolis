@@ -11,6 +11,4 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Eagle extends Animal {
 	private Double wingsLength;
-
-
 }

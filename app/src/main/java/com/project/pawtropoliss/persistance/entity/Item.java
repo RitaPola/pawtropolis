@@ -16,5 +16,4 @@ public class Item {
     private String description;
     @Column(name = "occupied_slots")
     private Integer reqiuredSlots;
-
 }
