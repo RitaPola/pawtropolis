@@ -3,8 +3,7 @@ package com.project.pawtropoliss.persistance.entity;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +12,15 @@ import java.util.List;
 @Entity
 @Table(name = "bags")
 public class Bag {
-    private final List<Item> items;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private static final int TOTAL_SLOTS = 15;
     private int availableSlots;
+    @Column(name = "total_slots")
     private final int maxSlots;
+
+    private final List<Item> items;
 
     public Bag() {
         this(TOTAL_SLOTS);

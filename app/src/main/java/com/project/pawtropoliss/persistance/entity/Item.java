@@ -1,13 +1,20 @@
 package com.project.pawtropoliss.persistance.entity;
-
 import lombok.*;
+import javax.persistence.*;
 
-
-@Builder
+@NoArgsConstructor
 @Data
-@Getter
+@Entity
+@Table(name = "items")
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
-    private int reqiuredSlots;
+    @Column(name = "occupied_slots")
+    private Integer reqiuredSlots;
+
 }

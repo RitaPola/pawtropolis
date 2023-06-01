@@ -26,8 +26,8 @@ public class Player implements Serializable {
     private Bag bag;
 
     public Player(){
-
     }
+
    @Autowired
     public Player(Bag bag) {
         this.name = InputController.getInputString("Insert player name : ");
