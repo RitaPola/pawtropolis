@@ -18,7 +18,7 @@ fi
 echo "Creazione del nuovo contenitore in corso..."
 
 # Crea il contenitore
-docker run -d -p 5433:5432 -e POSTGRES_DB=pawtropolis -e POSTGRES_PASSWORD=000000 --name ${CONTAINER_NAME} postgres
+docker run -d -p 5433:5432 -e POSTGRES_DB=pawtropolis -e POSTGRES_PASSWORD=000000 --name ${CONTAINER_NAME} -v pawtropolis_volume:/var/lib/postgresql/data postgres
 
 # Copia lo script.sql nel contenitore
 docker cp script.sql ${CONTAINER_NAME}:/script.sql

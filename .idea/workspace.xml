@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0427b6ee-0133-499e-857f-349feb75e763" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e5494855-c538-4e6a-8ad3-53bef7233db3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/pawtropoliss.app.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/pawtropoliss/persistance/entity/animals/Eagle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/container.sh" beforeDir="false" afterPath="$PROJECT_DIR$/container.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +95,9 @@
       <workItem from="1685546896474" duration="853000" />
       <workItem from="1685606552905" duration="10751000" />
       <workItem from="1685622908262" duration="3897000" />
+      <workItem from="1685913860932" duration="185000" />
+      <workItem from="1685914537388" duration="243000" />
+      <workItem from="1685950690619" duration="1285000" />
     </task>
     <servers />
   </component>
