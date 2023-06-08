@@ -1,20 +1,31 @@
 package com.project.pawtropoliss.command.model;
+import com.project.pawtropoliss.game.GameController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ParameterCommand {
+public class ParameterCommand extends Command{
 
-    private static String parameter;
+    private String parameter;
 
-    private ParameterCommand() {
+    @Autowired
+    ParameterCommand(GameController gameController) {
+        super(gameController);
+        this.parameter = " ";
     }
-
-    public static String getParameter() {
+    public String getParameter() {
         return parameter;
     }
 
-    public static void setParameter(String value) {
+    public  void setParameter(String value) {
         parameter = value;
+    }
+
+    @Override
+    public void execute() {
+        if (parameter.isEmpty()) {
+            System.out.println("Missing parameter");
+        }
     }
 
 }

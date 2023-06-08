@@ -10,9 +10,11 @@ public class QuitGameCommand extends Command {
     }
 
     public void execute() {
-    getGameController().quitGame();
-    System.out.println("Grazie " + getGameController ().getPlayer ().getName () + " per aver giocato :)");
-    System.exit ( 0 );
+        getGameController().quitGame();
+        System.out.println("Grazie " + getGameController ().getPlayer ().getName () + " per aver giocato :)");
+        System.exit ( 0 );
     }
 }
+
+
 

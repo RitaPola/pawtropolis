@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 public abstract class Command {
-
     private GameController gameController;
 
     @Autowired
@@ -13,5 +12,4 @@ public abstract class Command {
         this.gameController = gameController;
     }
     public abstract void execute();
-
 }

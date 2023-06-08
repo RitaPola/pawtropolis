@@ -10,6 +10,5 @@ public class PawtropolisApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(PawtropolisApplication.class, args);
         context.getBean(GameController.class).playGame();
-
     }
 }

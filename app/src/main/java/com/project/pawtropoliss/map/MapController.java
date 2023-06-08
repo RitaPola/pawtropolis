@@ -71,24 +71,13 @@ public class MapController {
     }
 
     private static void linkRooms(Room a, Room b, Direction direction) {
-        Direction directionB;
-        switch (direction) {
-            case NORTH:
-                directionB = Direction.SOUTH;
-                break;
-            case SOUTH:
-                directionB = Direction.NORTH;
-                break;
-            case EAST:
-                directionB = Direction.WEST;
-                break;
-            case WEST:
-                directionB = Direction.EAST;
-                break;
-            default:
-                directionB = Direction.INVALID;
-                break;
-        }
+        Direction directionB = switch (direction) {
+            case NORTH -> Direction.SOUTH;
+            case SOUTH -> Direction.NORTH;
+            case EAST -> Direction.WEST;
+            case WEST -> Direction.EAST;
+            default -> Direction.INVALID;
+        };
         linkRooms(a, b, direction, directionB);
     }
     public String look() {

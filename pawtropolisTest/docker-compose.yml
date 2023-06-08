@@ -1,0 +1,16 @@
+
+version: '3'
+
+services:
+  database:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kevin
+      POSTGRES_DB: pawtropolisTest
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./creation.sql:/docker-entrypoint-initdb.d/creation.sql
+      - ./population.sql:/docker-entrypoint-initdb.d/population.sql

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-231.8770.65">
-    <data-source name="pawtropolis@localhost" uuid="e5494855-c538-4e6a-8ad3-53bef7233db3">
+  <component name="dataSourceStorageLocal" created-in="IU-223.8836.41">
+    <data-source name="pawtropolisProd@localhost" uuid="08bf1336-dd08-4b4d-9329-83e668d5aadc">
+      <database-info product="PostgreSQL" version="15.3 (Debian 15.3-1.pgdg110+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.3" exact-driver-version="42.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="pawtropolisTest@localhost" uuid="7b868313-620f-4624-8abb-e32a097afbd7">
       <database-info product="PostgreSQL" version="15.3 (Debian 15.3-1.pgdg110+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.3" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

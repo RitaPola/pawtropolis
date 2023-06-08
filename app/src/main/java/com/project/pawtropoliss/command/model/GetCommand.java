@@ -6,16 +6,14 @@ import com.project.pawtropoliss.player.model.Player;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GetCommand extends Command {
+public class GetCommand extends ParameterCommand {
 
     public GetCommand(GameController gameController) {
         super ( gameController );
     }
-
-
     @Override
     public void execute() {
-        String nameItem = ParameterCommand.getParameter ();
+        String nameItem = getParameter ();
         Player player = getGameController ().getPlayer ();
         Room currentRoom = getGameController ().getMapController ().getCurrentRoom ();
         Item item = currentRoom.getItemByName ( nameItem );
@@ -42,4 +40,3 @@ public class GetCommand extends Command {
 
     }
 }
-

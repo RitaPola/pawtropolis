@@ -12,7 +12,7 @@ public class LookCommand extends Command {
     }
     @Override
     public void execute() {
-
         System.out.println(getGameController().getMapController().look());
     }
+
 }

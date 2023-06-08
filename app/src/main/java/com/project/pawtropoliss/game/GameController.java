@@ -1,7 +1,5 @@
 package com.project.pawtropoliss.game;
-
-import com.project.pawtropoliss.command.model.ParameterCommand;
-import com.project.pawtropoliss.command.TypeCommand;
+import com.project.pawtropoliss.command.CommandType;
 import com.project.pawtropoliss.command.model.*;
 import com.project.pawtropoliss.game.input.InputController;
 import com.project.pawtropoliss.map.MapController;
@@ -19,7 +17,7 @@ public class GameController {
     private boolean wantQuit;
 
     @Autowired
-    public GameController(CommandFactory commandFactory , MapController mapController , Player player) {
+    public GameController(CommandFactory commandFactory, MapController mapController, Player player) {
         this.commandFactory = commandFactory;
         this.mapController = mapController;
         this.player = player;
@@ -31,20 +29,24 @@ public class GameController {
     }
 
     public void playGame() {
-        System.out.println ("\n " +getMapController().look() );
+        System.out.println(getMapController().look());
+
         do {
             String input = InputController.getInputString("> ");
             String[] parts = input.split(" ", 2);
             String commandName = parts[0];
             String parameter = parts.length > 1 ? parts[1] : null;
-            ParameterCommand.setParameter(parameter);
-            TypeCommand typeCommand = TypeCommand.type(commandName);
-            Command command = commandFactory.commandAction(typeCommand);
+            CommandType typeCommand = CommandType.type(commandName);
+            Command command = commandFactory.commandAction(typeCommand, parameter);
+
             if (command != null) {
                 command.execute();
+            } else {
+                System.out.println("Invalid command");
             }
         } while (!wantQuit);
     }
 }
+
 
 

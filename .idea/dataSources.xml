@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="pawtropolis@localhost" uuid="e5494855-c538-4e6a-8ad3-53bef7233db3">
+    <data-source source="LOCAL" name="pawtropolisProd@localhost" uuid="08bf1336-dd08-4b4d-9329-83e668d5aadc">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5433/pawtropolis</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5433/pawtropolisProd</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="pawtropolisTest@localhost" uuid="7b868313-620f-4624-8abb-e32a097afbd7">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/pawtropolisTest</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
